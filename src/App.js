@@ -22,7 +22,7 @@ import Incident from "./Pages/Incident";
 import Suspect from "./Pages/Suspect";
 import AdminLogin from "./Pages/adminlogin";
 import UsersTable from "./Pages/Admin/registereduser";
-
+import CriminalList from "./Pages/Admin/criminallist";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,8 +48,9 @@ function App() {
         <Route path="/preview" element={<Preview />}></Route>
         <Route path="/Incident" element={<Incident />}></Route>
         <Route path="/Suspect" element={<Suspect />}></Route>
-      <Route path="/Adminlogin" element={<AdminLogin/>}></Route>
-      <Route path="/registereduser" element={<UsersTable/>}></Route>
+        <Route path="/Adminlogin" element={<AdminLogin/>}></Route>
+        <Route path="/registereduser" element={<UsersTable/>}></Route>
+        <Route path="/criminallist" element={<CriminalList />}></Route>
       </Routes>
       <Footer />
     </div>
