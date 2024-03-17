@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-
-const AdminLogin =()=>{
-
+const AdminLogin = () => {
   return (
     <section className="bg-light py-5 py-md-5 py-xl-8">
       <div className="container">
@@ -47,7 +45,6 @@ const AdminLogin =()=>{
                           className="form-control"
                           name="email"
                           id="email"
-                         
                           placeholder="name@example.com"
                         />
                         <label for="email" className="form-label">
@@ -62,7 +59,6 @@ const AdminLogin =()=>{
                           className="form-control"
                           name="password"
                           id="password"
-                         
                           placeholder="Password"
                           required
                         />
@@ -74,7 +70,7 @@ const AdminLogin =()=>{
                     <div className="col-12">
                       <div className="d-grid">
                         <Link
-                        to="/admin"
+                          to="/admin"
                           className="btn btn-warning btn-gradient btn-lg"
                           type="submit"
                         >
