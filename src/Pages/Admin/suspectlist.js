@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const CriminalList = () => {
+const SuspectList = () => {
   return (
     <>
       <div class="container mt-1 pt-1">
         <div class="col-sm-12">
           <div class=" p-1 text-center mb-1 fs-1" style={{ color: "#A7333F" }}>
-            Criminals List
+            Suspects List
             <div class="container" style={{ marginLeft: "500px" }}>
-              <Link to="/addCriminal">
+              <Link to="/addSuspect">
                 <button
                   type="button"
-                  id="addCriminal"
+                  id="addSuspect"
                   style={{
                     width: "12%",
                     marginLeft: "10px",
@@ -42,9 +42,9 @@ const CriminalList = () => {
           >
             <thead style={{ backgroundColor: "#B5B2C2" }}>
               <tr>
-                <th>Criminal Name</th>
-                <th>Criminal Identity</th>
-                <th>Criminal Photograph</th>
+                <th>Suspect Name</th>
+                <th>Suspect Identity</th>
+                <th>Suspect Photograph</th>
                 <th>Additional Details</th>
                 <th>Options</th>
               </tr>
@@ -55,10 +55,10 @@ const CriminalList = () => {
               <td>JWND</td>
               <td>JFNCSAM</td>
               <td>
-                <Link to="/updateCriminal">
+                <Link to="/updateSuspect">
                   <button
                     type="button"
-                    id="updateCriminal"
+                    id="updateSuspect"
                     style={{
                       backgroundColor: "#F5B700",
                       borderStyle: "groove",
@@ -71,7 +71,7 @@ const CriminalList = () => {
                 &nbsp;
                 <button
                   type="button"
-                  id="deleteCriminal"
+                  id="deleteSuspect"
                   style={{
                     backgroundColor: "#E54B4B",
                     borderStyle: "groove",
@@ -88,10 +88,10 @@ const CriminalList = () => {
               <td>JWND</td>
               <td>JFNCSAM</td>
               <td>
-                <Link to="/updateCriminal">
+                <Link to="/updateSuspect">
                   <button
                     type="button"
-                    id="updateCriminal"
+                    id="updateSuspect"
                     style={{
                       backgroundColor: "#F5B700",
                       borderStyle: "groove",
@@ -104,7 +104,7 @@ const CriminalList = () => {
                 &nbsp;
                 <button
                   type="button"
-                  id="deleteCriminal"
+                  id="deleteSuspect"
                   style={{
                     backgroundColor: "#E54B4B",
                     borderStyle: "groove",
@@ -121,4 +121,4 @@ const CriminalList = () => {
     </>
   );
 };
-export default CriminalList;
+export default SuspectList;
