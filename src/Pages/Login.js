@@ -24,7 +24,7 @@ const Login = () => {
         dispatch(fetchUser());
         console.log(user);
         alert("Login successfull!");
-        window.location.href = "/complaint";
+        window.location.href = "/";
       }
       reset();
     } catch (error) {

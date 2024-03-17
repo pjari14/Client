@@ -1,7 +1,33 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const PersonalData = () => {
+  const [user,setUser] = useState([]);
+ useEffect(()=>{
+  fetchUsers();
+ })
+  function fetchUsers(){
+  fetch("http://localhost:5000/user/get/").then((response)=>{
+  
+  return response.json()
+  })
+  .then((data)=>{
+    console.log(data.data.data);
+    const transformUser = data.data.data.map(userData =>{
+      return {
+        fname: userData.firstname,
+        lname: userData.lastname,
+        address: userData.address,
+        contact: userData.contact,
+        email: userData.email
+
+      }
+    
+    });
+
+    setUser(transformUser);
+  })
+ }
   return (
     <>
       <div class="container mt-2 pt-2">
@@ -115,6 +141,23 @@ const PersonalData = () => {
           <div class="col-4 text-end"></div>
         </form>
       </div>
+      {/* <section>
+        <button onClick={fetchUsers}>Click me</button>
+      </section> */}
+      <section>
+        {
+          user.map(e=>(
+            <>
+            <div>{e.fname}</div>
+            <div>{e.lname}</div>
+            <div>{e.address}</div>
+            <div>{e.contact}</div>
+            <div>{e.email}</div>
+
+            </>
+          ))
+        }
+      </section>
     </>
   );
 };
