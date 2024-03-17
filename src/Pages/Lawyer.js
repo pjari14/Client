@@ -1,8 +1,40 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import image from "../Assets/images/Lawyer-rafiki.png";
 import { Link } from "react-router-dom";
 
-const lawyer = () => {
+const Lawyer = () => {
+
+  const [lawyer,setLawyer] = useState([]);
+  useEffect(()=>{
+   fetchLawyers();
+  })
+   function fetchLawyers(){
+   fetch("http://localhost:5000/lawyer").then((response)=>{
+   
+   return response.json()
+   })
+   .then((data)=>{
+     console.log(data.data.data);
+     const transformUser = data.data.data.map(lawyerData =>{
+       return {
+         name: lawyerData.Name,
+         officeaddress: lawyerData.OfficeAddress,
+         email: lawyerData.Email,
+         contactno: lawyerData.ContactNo,
+         city: lawyerData.City,
+         state: lawyerData.State,
+         experience: lawyerData.Experience,
+         practiceareas: lawyerData.PracticeAreas,
+         court: lawyerData.Court
+ 
+       }
+     
+     });
+ 
+     setLawyer(transformUser);
+   })
+  }
+
   return (
     <>
       <section className="bg-light py-5 py-md-5 py-xl-8">
@@ -69,7 +101,40 @@ const lawyer = () => {
           </div>
         </div>
       </section>
+      <section>
+        <table width="100%">
+          <tr>
+            <th>Name</th>
+            <th>Office Address</th>
+            <th>Email</th>
+            <th>Contact No</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Experience</th>
+            <th>Practice Area</th>
+            <th>Court</th>
+          </tr>
+          {
+            lawyer.map(e=>(
+              <>
+                <tr>
+                  <td>{e.name}</td>
+                  <td>{e.officeaddress}</td>
+                  <td>{e.email}</td>
+                  <td>{e.contactno}</td>
+                  <td>{e.city}</td>
+                  <td>{e.state}</td>
+                  <td>{e.experience}</td>
+                  <td>{e.practiceareas}</td>
+                  <td>{e.court}</td>
+
+                </tr>
+              </>
+            ))
+          }
+        </table>
+      </section>
     </>
   );
 };
-export default lawyer;
+export default Lawyer;
