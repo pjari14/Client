@@ -23,6 +23,11 @@ import Suspect from "./Pages/Suspect";
 import AdminLogin from "./Pages/adminlogin";
 import UsersTable from "./Pages/Admin/registereduser";
 import CriminalList from "./Pages/Admin/criminallist";
+import AddCriminal from "./Pages/Admin/addCriminal";
+import UpdateCriminal from "./Pages/Admin/updateCriminal";
+import ComplaintList from "./Pages/Admin/complaintlist";
+import AddComplaint from "./Pages/Admin/addComplaint";
+import UpdateComplaint from "./Pages/Admin/updateComplaint";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,9 +53,14 @@ function App() {
         <Route path="/preview" element={<Preview />}></Route>
         <Route path="/Incident" element={<Incident />}></Route>
         <Route path="/Suspect" element={<Suspect />}></Route>
-        <Route path="/Adminlogin" element={<AdminLogin/>}></Route>
-        <Route path="/registereduser" element={<UsersTable/>}></Route>
+        <Route path="/Adminlogin" element={<AdminLogin />}></Route>
+        <Route path="/registereduser" element={<UsersTable />}></Route>
         <Route path="/criminallist" element={<CriminalList />}></Route>
+        <Route path="/addCriminal" element={<AddCriminal />}></Route>
+        <Route path="/updateCriminal" element={<UpdateCriminal />}></Route>
+        <Route path="/complaintlist" element={<ComplaintList />}></Route>
+        <Route path="/addComplaint" element={<AddComplaint />}></Route>
+        <Route path="/updateComplaint" element={<UpdateComplaint />}></Route>
       </Routes>
       <Footer />
     </div>

@@ -1,15 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const AddCriminal = () => {
-  return (
-    <>
-      <div class="container mt-2 pt-2">
+const UpdateCriminal = () => {
+    return(
+        <>
+        <div class="container mt-2 pt-2">
+        
         <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Suspect details</h2>
+            
           </div>
           <hr />
-
+          
           <div class="col-md-6">
             <label class="form-label">Suspect Name :</label>
           </div>
@@ -69,22 +71,19 @@ const AddCriminal = () => {
             <textarea className="form-control" rows="3" />
           </div>
           <div class="row py-4 justify-content-end">
-            <div class="col-6">
-              <Link to="/criminallist">
-                <button
-                  type="button"
-                  class="btn btn-danger"
-                  style={{ fontSize: "25px" }}
-                >
-                  Add
-                </button>
+            <div class="col-6 ">
+              <Link
+                to="/criminallist"
+                
+              >
+                <button type="button" class="btn btn-danger" style={{fontSize:"25px"}}>Update</button>
               </Link>
             </div>
           </div>
           <div class="col-4 text-end"></div>
         </form>
       </div>
-    </>
-  );
+        </>
+    );
 };
-export default AddCriminal;
+export default UpdateCriminal;

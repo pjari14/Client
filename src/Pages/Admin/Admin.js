@@ -35,7 +35,7 @@ const admin = () => {
 
           {/* Nav Item - Dashboard */}
           <li className="nav-item active">
-            <a className="nav-link" href="/admin">
+            <a className="nav-link" href="/complaintlist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Complaints</span>
             </a>
