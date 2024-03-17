@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const admin = () => {
   return (
     <>
@@ -18,9 +18,7 @@ const admin = () => {
             <div className="sidebar-brand-icon rotate-n-15">
               <i className="fas fa-laugh-wink" />
             </div>
-            <div className="sidebar-brand-text mx-3">
-             Admin
-            </div>
+            <div className="sidebar-brand-text mx-3">Admin</div>
           </a>
           {/* Divider */}
           <hr className="sidebar-divider my-0" />
@@ -34,8 +32,7 @@ const admin = () => {
           {/* Divider */}
           <hr className="sidebar-divider my-0" />
           {/* Heading */}
-         
-         
+
           {/* Nav Item - Dashboard */}
           <li className="nav-item active">
             <a className="nav-link" href="/admin">
@@ -45,7 +42,7 @@ const admin = () => {
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/admin">
+            <a className="nav-link" href="/criminallist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Criminal</span>
             </a>
@@ -72,8 +69,7 @@ const admin = () => {
             </a>
           </li>
           {/* Divider */}
-         
-          
+
           {/* Divider */}
           <hr className="sidebar-divider d-none d-md-block" />
           {/* Sidebar Toggler (Sidebar) */}
