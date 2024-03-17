@@ -7,9 +7,14 @@ export const fetchUser = createAsyncThunk("users/fetchUser", async () => {
   return response.data;
 });
 
+export const logoutUser = createAsyncThunk("users/logoutUser", async () => {
+  const response = await axios.get(`${url}/logout`, { withCredentials: true });
+  return response.data;
+});
 const userslice = createSlice({
   name: "user",
   initialState: null,
+
   reducers: {
     setNull: (state) => {
       return (state = null);
@@ -22,6 +27,9 @@ const userslice = createSlice({
       }
     });
     builder.addCase(fetchUser.rejected, (state) => {
+      return (state = null);
+    });
+    builder.addCase(logoutUser.fulfilled, (state) => {
       return (state = null);
     });
   },

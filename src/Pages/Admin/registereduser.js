@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 function UsersTable() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("http://localhost:5000/user/get");
       const jsonData = await response.json();
-      setUsers(jsonData);
+      setUsers(jsonData.user);
+      console.log(jsonData);
     }
     fetchData();
   }, []);
@@ -21,20 +22,19 @@ function UsersTable() {
           <th>Address</th>
           <th>Contact</th>
           <th>Email</th>
-          <th>Password</th>
         </tr>
       </thead>
       <tbody>
-        {Array.isArray(users) && users.map((user) => (
-          <tr key={user._id}>
-            <td>{user.firstname}</td>
-            <td>{user.lastname}</td>
-            <td>{user.address}</td>
-            <td>{user.contact}</td>
-            <td>{user.email}</td>
-            <td>{user.password}</td>
-          </tr>
-        ))}
+        {users &&
+          users.map((user) => (
+            <tr key={user._id}>
+              <td>{user.firstname}</td>
+              <td>{user.lastname}</td>
+              <td>{user.address}</td>
+              <td>{user.contact}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );

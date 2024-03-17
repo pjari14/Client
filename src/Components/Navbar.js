@@ -1,8 +1,12 @@
 import React from "react";
 import image from "../Assets/images/Heading-removebg-preview.png";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { logoutUser } from "../ReduxStore/Userslice/Userslice";
 
 const Navbar = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark text-large text-white">
       <div className="container-fluid">
@@ -73,9 +77,25 @@ const Navbar = () => {
             <Link className="nav-link" to="/contactus">
               Contact
             </Link>
-            <Link className="nav-link" to="/login">
-              Sign In
-            </Link>
+            {!user && (
+              <Link className="nav-link" to="/login">
+                Sign In
+              </Link>
+            )}
+            {user && (
+              <button
+                className="nav-link "
+                onClick={() => dispatch(logoutUser())}
+                style={{
+                  backgroundColor: "transparent",
+                  color: "white",
+                  border: 0,
+                }}
+              >
+                {" "}
+                Logout
+              </button>
+            )}
             <Link className="nav-link" to="/adminlogin">
               Admin
             </Link>
