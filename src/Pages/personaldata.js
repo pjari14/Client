@@ -99,7 +99,7 @@ const PersonalData = () => {
               type="reset"
               id="btnclear"
               to=""
-              class="btn btn-smshadow-sm  btn-warning  w-100 bg-gradient  p-3 text-center text-white fw-bold "
+              class="btn btn-smshadow-sm    w-100 bg-gradient  p-3 text-center  fw-bold "
             >
               Clear
             </button>
@@ -107,7 +107,7 @@ const PersonalData = () => {
           <div class="col-3 ">
             <Link
               to="/Incident"
-              class="btn shadow-sm button btn-sm btn-info shadow-sm w-100 bg-gradient p-3 text-center text-white fw-bold "
+              class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
             >
               <span>Next</span>
             </Link>

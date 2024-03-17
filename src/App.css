@@ -38,13 +38,24 @@ div.scroll {
   border-radius: 4px;
   font-size: large;
   border: none;
+  background-color: #eaeaec;
+  border-color: #357ebd; /*set the color you want here*/
   border-radius: 10px;
-  color: #ffffff;
+  color: black;
   text-align: center;
   transition: all 0.5s;
   cursor: pointer;
 }
 
+.btn:hover,
+.btn:focus,
+.btn:active,
+.btn.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #6c757d;
+  /*set the color you want here*/
+}
 .button span {
   cursor: pointer;
   display: inline-block;

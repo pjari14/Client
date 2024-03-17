@@ -71,7 +71,7 @@ const Suspect = () => {
             <div class="col-3 ">
               <Link
                 to="/Incident"
-                class="btn shadow-sm  btn-sm btn-warning shadow-sm w-100 bg-gradient p-3 text-center text-white fw-bold "
+                class="btn shadow-sm  btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
               >
                 <span>Back</span>
               </Link>
@@ -80,7 +80,7 @@ const Suspect = () => {
             <div class="col-3 ">
               <Link
                 to="/preview"
-                class="btn shadow-sm button btn-sm btn-info shadow-sm w-100 bg-gradient p-3 text-center text-white fw-bold "
+                class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
               >
                 <span>Preview & Next</span>
               </Link>
