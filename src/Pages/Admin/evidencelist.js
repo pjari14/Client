@@ -45,7 +45,8 @@ const EvidenceList = () => {
             <th>Type of Evidence</th>
             <th>Description</th>
             <th>Uploaded By</th>
-            <th>Date Uploaded</th>
+            <th>Date of Upload</th>
+            <th>Time of Upload</th>
             <th>Status</th>
             <th>Notes</th>
             <th>Timestamp</th>
@@ -56,6 +57,7 @@ const EvidenceList = () => {
               <td>AHBH</td>
               <td>wjdna</td>
               <td>JWND</td>
+              <td>JFNCSAM</td>
               <td>JFNCSAM</td>
               <td>JFNCSAM</td>
               <td>JFNCSAM</td>

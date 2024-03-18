@@ -163,7 +163,7 @@ const UpdateComplaint = () => {
               *I confirm that the information I've given is accurate and true.
             </label>
           </div>
-          <div class="row py-4 ">
+          <div class="row py-4 justify-content-end">
             <div class="col-6 ">
               <Link
                 to="/complaintlist"
