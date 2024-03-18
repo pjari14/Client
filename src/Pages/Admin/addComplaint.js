@@ -54,7 +54,10 @@ const AddComplaint = () => {
 
   return (
     <>
-      <div class="container mt-2 pt-2">
+      <div
+        class="container mt-2 pt-2 container scrollable-content"
+        style={{ marginTop: "-694px", marginLeft: "225px" }}
+      >
         <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Complaint/Incident details</h2>

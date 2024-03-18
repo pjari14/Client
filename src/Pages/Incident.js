@@ -278,13 +278,13 @@ const Incident = () => {
               </Link>
             </div>
             <div class="col-4 ">
-              <Link
+              <button
+                type="submit"
                 to="/suspect"
                 class=" btn btn-outline-success shadow-sm button btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
               >
                 <span>Next</span>
-              </Link>
-              <button type="submit">Insert</button>
+              </button>
             </div>
           </div>
           <div class="col-4 text-end"></div>

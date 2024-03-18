@@ -23,7 +23,6 @@ const Login = () => {
       if (res.data.success) {
         dispatch(fetchUser());
         console.log(user);
-        alert("Login successfull!");
         window.location.href = "/";
       }
       reset();

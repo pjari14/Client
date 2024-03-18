@@ -122,3 +122,7 @@ b {
 td {
   text-align: justify;
 }
+.scrollable-content {
+  overflow-y: auto;
+  height: calc(100vh - 56px);
+}

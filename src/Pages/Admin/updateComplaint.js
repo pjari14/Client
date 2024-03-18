@@ -53,131 +53,145 @@ const UpdateComplaint = () => {
 
   return (
     <>
-      <div class="container mt-2 pt-2">
-        
-        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
-          <div class="col-sm-12">
-            <h2 class="text text-danger fw-3">Complaint/Incident details</h2>
-          </div>
+      <div
+        id="content container"
+        className="d-flex flex-column container scrollable-content"
+        style={{ marginTop: "-694px", marginLeft: "225px", height: "100vh" }}
+      >
+        <div id="content">
+          <div class=" p-4  mb-1 fs-1 text-dark">Add Evidence </div>
           <hr />
-          <div class="col-md-6">
-            <label class="form-label"> Category of complaint:</label>
-          </div>
-          <div class="col-md-6">
-            <select
-              class="form-select"
-              id="ctype"
-              name="crimeType"
-              value={selectedCrime}
-              onChange={handleCrimeChange}
-            >
-              {" "}
-              <option value="">Select a crime type</option>
-              {crimeTypes.map((crime) => (
-                <option key={crime.id} value={crime.id}>
-                  {crime.label}
-                </option>
-              ))}
-            </select>
-          </div>
 
-          <div class="col-md-6">
-            <label class="form-label">Date of complaint:</label>
-          </div>
-          <div class="col-md-6">
-            <input class="form-control" type="date" name="doc" id="cdate" />
-          </div>
-          <IndiaCities />
-
-          <div class="col-md-6">
-            <label class="form-label">
-              Approximate date & time of incident:
-            </label>
-          </div>
-          <div class="col-md-4">
-            <input type="date" class="form-control" id="dtincident" />
-          </div>
-          <div class="col-md-2">
-            <input type="time" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">
-              Reason of delay in report:
-            </label>
-          </div>
-          <div class="col-md-6">
-            <input
-              type="textarea"
-              placeholder="Enter reason of delay"
-              class="form-control"
-              id="reasonindelay"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="inputIncidentplace" class="form-label">
-              Where did the incident occur?
-            </label>
-          </div>
-          <div class="col-md-6">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter where did the incident occur"
-              id="inputIncidentplace"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="supportingevidence" class="form-label">
-              Supporting Evidence
-            </label>
-          </div>
-          <div class="col-md-6">
-            <input type="file" class="form-control" id="supportingevidence" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">
-              Name of the person/company against which/whom the complaint is
-              filed:
-            </label>
-          </div>
-          <div class="col-md-6">
-            <input class="form-control" name="suspect" type="text" id="" />
-          </div>
-          <div class="col-md-6">
-            <label for="additionalinfo" class="form-label">
-              Please provide any additional information:
-            </label>
-          </div>
-          <div class="col-md-6">
-            <textarea class="form-control" id="additionalinfo" rows="3" />
-          </div>
-
-          <div class="col-md-12 mx-3 text-danger">
-            <input
-              class="form-check-input "
-              type="checkbox"
-              value=""
-              id="check"
-            />
-            <label class="form-check-label" for="flexCheckDefault">
-              *I confirm that the information I've given is accurate and true.
-            </label>
-          </div>
-          <div class="row py-4 justify-content-end">
-            <div class="col-6 ">
-              <Link
-                to="/complaintlist"
-                
-              >
-                <button type="button" class="btn btn-danger" style={{fontSize:"25px"}}>Update</button>
-              </Link>
+          <form
+            class="row g-3 shadow py-4 px-4 mx-5 my-5 "
+            id="complaintdetails"
+          >
+            <div class="col-sm-12">
+              <h2 class="text text-danger fw-3">Complaint/Incident details</h2>
             </div>
+            <hr />
+            <div class="col-md-6">
+              <label class="form-label"> Category of complaint:</label>
+            </div>
+            <div class="col-md-6">
+              <select
+                class="form-select"
+                id="ctype"
+                name="crimeType"
+                value={selectedCrime}
+                onChange={handleCrimeChange}
+              >
+                {" "}
+                <option value="">Select a crime type</option>
+                {crimeTypes.map((crime) => (
+                  <option key={crime.id} value={crime.id}>
+                    {crime.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">Date of complaint:</label>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" type="date" name="doc" id="cdate" />
+            </div>
+            <IndiaCities />
+
+            <div class="col-md-6">
+              <label class="form-label">
+                Approximate date & time of incident:
+              </label>
+            </div>
+            <div class="col-md-4">
+              <input type="date" class="form-control" id="dtincident" />
+            </div>
+            <div class="col-md-2">
+              <input type="time" class="form-control" />
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">
+                Reason of delay in report:
+              </label>
+            </div>
+            <div class="col-md-6">
+              <input
+                type="textarea"
+                placeholder="Enter reason of delay"
+                class="form-control"
+                id="reasonindelay"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="inputIncidentplace" class="form-label">
+                Where did the incident occur?
+              </label>
+            </div>
+            <div class="col-md-6">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter where did the incident occur"
+                id="inputIncidentplace"
+              />
+            </div>
+            <div class="col-md-6">
+              <label for="supportingevidence" class="form-label">
+                Supporting Evidence
+              </label>
+            </div>
+            <div class="col-md-6">
+              <input type="file" class="form-control" id="supportingevidence" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">
+                Name of the person/company against which/whom the complaint is
+                filed:
+              </label>
+            </div>
+            <div class="col-md-6">
+              <input class="form-control" name="suspect" type="text" id="" />
+            </div>
+            <div class="col-md-6">
+              <label for="additionalinfo" class="form-label">
+                Please provide any additional information:
+              </label>
+            </div>
+            <div class="col-md-6">
+              <textarea class="form-control" id="additionalinfo" rows="3" />
+            </div>
+
+            <div class="col-md-12 mx-3 text-danger">
+              <input
+                class="form-check-input "
+                type="checkbox"
+                value=""
+                id="check"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                *I confirm that the information I've given is accurate and true.
+              </label>
+            </div>
+            <div class="row py-4 justify-content-end">
+              <div class="col-6 ">
+                <Link to="/complaintlist">
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    style={{ fontSize: "25px" }}
+                  >
+                    Update
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div class="col-4 text-end"></div>
+          </form>
+          <div class="container py-3 text-center ">
+            <h2>IPC sections</h2>
+            {selectedCrime && renderCrimeDetails()}
           </div>
-          <div class="col-4 text-end"></div>
-        </form>
-        <div class="container py-3 text-center ">
-          <h2>IPC sections</h2>
-          {selectedCrime && renderCrimeDetails()}
         </div>
       </div>
     </>
