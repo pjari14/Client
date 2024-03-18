@@ -1,7 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import {useForm} from "react-hook-form";
+
 
 const Suspect = () => {
+
+  const {
+    formState: { errors },
+    handleSubmit,
+    register,
+    reset,
+  } = useForm();
+
+  const insertSuspect = async (data) => {
+    try {
+      const url = "http://localhost:5000/suspect/insert";
+      const suspect = {
+        susname: data.susname,
+        sussocial: data.sussocial,
+        sususername: data.sususername,
+        // susphoto: data.susphoto,
+        otherdetails: data.otherdetails,
+      
+      };
+      // console.log(data, incident, cities, selectedState);
+      const res = await axios.post(
+        url,
+        { suspect },
+        { withCredentials: true }
+      );
+      console.log(res);
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
   return (
     <>
       <div class="container mt-2 pt-2">
@@ -11,7 +47,7 @@ const Suspect = () => {
           </div>
           <hr />
         </div>
-        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
+        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails" onSubmit={handleSubmit(insertSuspect)}>
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Suspect details</h2>
             <h6 class="text-white bg-primary py-2 my-2 px-2">
@@ -23,13 +59,16 @@ const Suspect = () => {
           <div class="col-md-3">
             <input
               type="text"
-              id="suspectname"
+              id="susname"
               class="form-control"
               placeholder="Suspect Name"
+              {...register("susname")}
             />
           </div>
           <div class="col-md-3">
-            <select class="form-control">
+            <select class="form-control" id="sussocial" 
+            {...register("sussocial")}
+            >
               <option value="Select">Select Suspect Identity</option>
               <option value="Instagram id">Instagram id</option>
               <option value="Mobile number">Mobile Contact</option>
@@ -43,9 +82,10 @@ const Suspect = () => {
           <div class="col-md-3">
             <input
               type="Text"
-              id="suspectinfo"
+              id="sususername"
               class="form-control"
               placeholder=""
+              {...register("sususername")}
             />
           </div>
           <div class="col-md-3">
@@ -59,13 +99,17 @@ const Suspect = () => {
           </div>
 
           <div class="col-md-6">
-            <input type="file" class="form-control" id="suspectphoto" />
+            <input type="file" class="form-control" id="susphoto" 
+              {...register("susphoto")}
+            />
           </div>
           <div class="col-md-6">
             <label class="form-label">Any other details:</label>
           </div>
           <div class="col-md-6">
-            <textarea className="form-control" rows="3" />
+            <textarea className="form-control" rows="3" id="otherdetails"
+            {...register("otherdetails")}
+            />
           </div>
           <div class="row py-4 justify-content-end">
             <div class="col-3 ">
@@ -84,6 +128,7 @@ const Suspect = () => {
               >
                 <span>Preview & Next</span>
               </Link>
+              <button type="submit">insert</button>
             </div>
           </div>
           <div class="col-4 text-end"></div>
