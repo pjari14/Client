@@ -70,6 +70,10 @@ function App() {
           path="/suspectlist"
           element={user && user.isAdmin ? <SuspectList /> : <Home />}
         ></Route>
+         {/* <Route
+          path="/suspectlist"
+          element= {<SuspectList />}>
+          </Route> */}
         <Route
           path="/addSuspect"
           element={user && user.isAdmin ? <AddSuspect /> : <Home />}

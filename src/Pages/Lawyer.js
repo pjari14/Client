@@ -113,6 +113,7 @@ const Lawyer = () => {
             <th>Experience</th>
             <th>Practice Area</th>
             <th>Court</th>
+            <th>Operations</th>
           </tr>
           {
             lawyer.map(e=>(
@@ -127,7 +128,7 @@ const Lawyer = () => {
                   <td>{e.experience}</td>
                   <td>{e.practiceareas}</td>
                   <td>{e.court}</td>
-
+                <td><button class="btn-success">Hire</button></td>
                 </tr>
               </>
             ))

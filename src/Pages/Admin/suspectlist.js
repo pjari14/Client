@@ -1,9 +1,36 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 
 const SuspectList = () => {
   
+  const [suspect,setSuspect] = useState([]);
+  useEffect(()=>{
+   fetchSuspect();
+  })
+   function fetchSuspect(){
+   fetch("http://localhost:5000/suspect").then((response)=>{
+   
+   return response.json()
+   })
+   .then((data)=>{
+     console.log(data.data.data);
+     const transformSuspect = data.data.data.map(suspectData =>{
+       return {
+         susname:          suspectData.susname,
+         sussocial: suspectData.sussocial,
+         sususername:         suspectData.sususername,
+         otherdetails:     suspectData.otherdetails,
+        
  
+       }
+     
+     });
+ 
+     setSuspect(transformSuspect);
+   })
+  }
+
+
   return (
     <>
       <div
@@ -35,12 +62,15 @@ const SuspectList = () => {
                   </th>
                 </tr>
               </thead>
+              {suspect.map(e=>(
+                <>
+                
               <tr>
-                <td>1</td>
-                <td>AHBH</td>
-                <td>wjdna</td>
+                <td>{e.susname}</td>
+                <td>{e.sussocial}</td>
+                <td>{e.sususername}</td>
                 <td>JWND</td>
-                <td>JFNCSAM</td>
+                <td>{e.otherdetails}</td>
                 <td>
                   <Link
                     to="/updateSuspect"
@@ -56,6 +86,8 @@ const SuspectList = () => {
                   </button>
                 </td>
               </tr>
+                </>
+              ))}
             </table>
           </div>
         </div>
