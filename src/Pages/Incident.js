@@ -8,6 +8,8 @@ import {
   THContent,
   ABContent,
 } from "../Components/crimecomponent";
+import axios from "axios";
+import { useForm } from "react-hook-form";
 const crimeTypes = [
   { id: "CC", label: "Cyber Crime" },
   { id: "DV", label: "Domestic Violence" },
@@ -41,6 +43,9 @@ const crimeDetails = {
 
 const Incident = () => {
   const [selectedCrime, setSelectedCrime] = useState(null);
+  const [selectedState, setSelectedState] = useState("");
+  const [cities, setCities] = useState([]);
+  const [policestation, setPoliceStation] = useState("");
 
   const handleCrimeChange = (e) => {
     setSelectedCrime(e.target.value);
@@ -49,6 +54,40 @@ const Incident = () => {
   const renderCrimeDetails = () => {
     const CrimeDetailComponent = crimeDetails[selectedCrime].component;
     return CrimeDetailComponent ? <CrimeDetailComponent /> : null;
+  };
+
+  const {
+    formState: { errors },
+    handleSubmit,
+    register,
+    reset,
+  } = useForm();
+
+  const insertIncident = async (data) => {
+    try {
+      const url = "http://localhost:5000/incident/insert";
+      const incident = {
+        category: data.category,
+        state: selectedState,
+        city: cities[0],
+        // policestation: policestation,
+        dateofincident: data.dateofincident,
+        reasonofdelay: data.reasonofdelay,
+        location: data.location,
+        nameofsus: data.nameofsus,
+        additionalinfo: data.additionalinfo,
+      };
+      console.log(data, incident, cities, selectedState);
+      const res = await axios.post(
+        url,
+        { incident },
+        { withCredentials: true }
+      );
+      console.log(res);
+      reset();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -60,7 +99,11 @@ const Incident = () => {
           </div>
           <hr />
         </div>
-        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
+        <form
+          class="row g-3 shadow py-4 px-4 mx-5 my-5 "
+          id="complaintdetails"
+          onSubmit={handleSubmit(insertIncident)}
+        >
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Complaint/Incident details</h2>
           </div>
@@ -75,11 +118,14 @@ const Incident = () => {
               name="crimeType"
               value={selectedCrime}
               onChange={handleCrimeChange}
+              {...register("category", {
+                required: true,
+              })}
             >
               {" "}
               <option value="">Select a crime type</option>
               {crimeTypes.map((crime) => (
-                <option key={crime.id} value={crime.id}>
+                <option key={crime.id} value={crime.label}>
                   {crime.label}
                 </option>
               ))}
@@ -92,7 +138,12 @@ const Incident = () => {
           <div class="col-md-6">
             <input class="form-control" type="date" name="doc" id="cdate" />
           </div>
-          <IndiaCities />
+          <IndiaCities
+            selectedState={selectedState}
+            cities={cities}
+            setCities={setCities}
+            setSelectedState={setSelectedState}
+          />
 
           <div class="col-md-6">
             <label class="form-label">
@@ -100,13 +151,36 @@ const Incident = () => {
             </label>
           </div>
           <div class="col-md-4">
-            <input type="date" class="form-control" id="dtincident" />
+            <input
+              type="date"
+              class="form-control"
+              id="dateofincident"
+              {...register("dateofincident", {
+                required: true,
+              })}
+            />
           </div>
+
           <div class="col-md-2">
             <input type="time" class="form-control" />
           </div>
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">
+            <label for="policestation" class="form-label">
+              Select Police Station
+            </label>
+          </div>
+          <div class="col-md-6">
+            <select
+              id="policestation"
+              value={policestation}
+              onChange={(evt) => setPoliceStation(evt.target.value)}
+            >
+              <option value="Athva">Athva</option>
+              <option value="Bhatar">Bhatar</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="reasonofdelay" class="form-label">
               Reason of delay in report:
             </label>
           </div>
@@ -115,11 +189,12 @@ const Incident = () => {
               type="textarea"
               placeholder="Enter reason of delay"
               class="form-control"
-              id="reasonindelay"
+              id="reasonofdelay"
+              {...register("reasonofdelay")}
             />
           </div>
           <div class="col-md-6">
-            <label for="inputIncidentplace" class="form-label">
+            <label for="location" class="form-label">
               Where did the incident occur?
             </label>
           </div>
@@ -128,16 +203,22 @@ const Incident = () => {
               type="text"
               class="form-control"
               placeholder="Enter where did the incident occur"
-              id="inputIncidentplace"
+              id="location"
+              {...register("location")}
             />
           </div>
           <div class="col-md-6">
-            <label for="supportingevidence" class="form-label">
+            <label for="evidence" class="form-label">
               Supporting Evidence
             </label>
           </div>
           <div class="col-md-6">
-            <input type="file" class="form-control" id="supportingevidence" />
+            <input
+              type="file"
+              class="form-control"
+              id="evidence"
+              {...register("evidence")}
+            />
           </div>
           <div class="col-md-6">
             <label class="form-label">
@@ -146,7 +227,13 @@ const Incident = () => {
             </label>
           </div>
           <div class="col-md-6">
-            <input class="form-control" name="suspect" type="text" id="" />
+            <input
+              class="form-control"
+              name="suspect"
+              type="text"
+              id="nameofsus"
+              {...register("nameofsus")}
+            />
           </div>
           <div class="col-md-6">
             <label for="additionalinfo" class="form-label">
@@ -154,7 +241,12 @@ const Incident = () => {
             </label>
           </div>
           <div class="col-md-6">
-            <textarea class="form-control" id="additionalinfo" rows="3" />
+            <textarea
+              class="form-control"
+              id="additionalinfo"
+              rows="3"
+              {...register("additionalinfo")}
+            />
           </div>
 
           <div class="col-md-12 mx-3 text-danger">
@@ -192,6 +284,7 @@ const Incident = () => {
               >
                 <span>Next</span>
               </Link>
+              <button type="submit">Insert</button>
             </div>
           </div>
           <div class="col-4 text-end"></div>
