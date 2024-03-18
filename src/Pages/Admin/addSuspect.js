@@ -70,7 +70,7 @@ const AddSuspect = () => {
           </div>
           <div class="row py-4 justify-content-end">
             <div class="col-6">
-              <Link to="/criminallist">
+              <Link to="/suspectlist">
                 <button
                   type="button"
                   class="btn btn-danger"

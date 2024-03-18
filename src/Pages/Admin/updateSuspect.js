@@ -73,7 +73,7 @@ const UpdateSuspect = () => {
           <div class="row py-4 justify-content-end">
             <div class="col-6 ">
               <Link
-                to="/criminallist"
+                to="/suspectlist"
                 
               >
                 <button type="button" class="btn btn-danger" style={{fontSize:"25px"}}>Update</button>
