@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const SuspectList = () => {
+  
   return (
     <>
       <div class=" p-4 text-center mb-1 fs-1 text-danger">Complaints List</div>
