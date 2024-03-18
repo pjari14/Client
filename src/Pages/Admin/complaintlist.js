@@ -9,7 +9,7 @@ const ComplaintList = () => {
       <Link
         to="/addComplaint"
         class="btn btn-success"
-        style={{ marginLeft: "1280px" }}
+        style={{ marginLeft: "1000px" }}
       >
         + Add New
       </Link>
@@ -45,12 +45,12 @@ const ComplaintList = () => {
             <td>
               <Link
                 to="/updateComplaint"
-                class="btn btn-success btn-outline-success"
+                class="btn btn-warning btn-outline-warning"
                 id="updateComplaint"
               >
                 Update
               </Link>
-
+              <br></br> &nbsp;&nbsp;
               <button class="btn btn-danger" id="deleteComplaint">
                 Delete
               </button>
