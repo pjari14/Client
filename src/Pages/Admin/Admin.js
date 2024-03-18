@@ -49,7 +49,7 @@ const admin = () => {
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/admin">
+            <a className="nav-link" href="/evidencelist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Evidence</span>
             </a>

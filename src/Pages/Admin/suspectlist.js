@@ -42,6 +42,7 @@ const SuspectList = () => {
           >
             <thead style={{ backgroundColor: "#B5B2C2" }}>
               <tr>
+                <th>Suspect ID</th>
                 <th>Suspect Name</th>
                 <th>Suspect Identity</th>
                 <th>Suspect Photograph</th>
@@ -50,6 +51,7 @@ const SuspectList = () => {
               </tr>
             </thead>
             <tr>
+              <td>1</td>
               <td>AHBH</td>
               <td>wjdna</td>
               <td>JWND</td>
@@ -83,6 +85,7 @@ const SuspectList = () => {
               </td>
             </tr>
             <tr>
+              <td>2</td>
               <td>AHBH</td>
               <td>wjdna</td>
               <td>JWND</td>
