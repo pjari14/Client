@@ -25,6 +25,7 @@ const Signup = () => {
       };
       const res = await axios.post(url, { user }, { withCredentials: true });
       console.log(res);
+      alert("User registered successfully!");
       reset();
     } catch (error) {
       console.error(error);

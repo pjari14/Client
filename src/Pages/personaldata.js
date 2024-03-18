@@ -17,56 +17,60 @@ const PersonalData = () => {
           </div>
           <hr />
           <div class="col-md-6">
-            <label for="inputName" class="form-label">
+            <label for="FName" class="form-label">
               First Name
             </label>
             <input
               type="text"
               class="form-control"
-              id="inputName"
+              id="FName"
               placeholder="First Name"
+              required
             />
           </div>
 
           <div class="col-md-6">
-            <label for="inputName" class="form-label">
+            <label for="LName" class="form-label">
               Last Name
             </label>
             <input
               type="text"
               class="form-control"
-              id="inputName"
+              id="LName"
               placeholder="Last Name"
+              required
             />
           </div>
 
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">
+            <label for="inputEmail" class="form-label">
               Email
             </label>
             <input
               type="email"
               class="form-control"
-              id="inputEmail4"
+              id="inputEmail"
               placeholder="example@email.com"
+              required
             />
           </div>
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">
+            <label for="contact" class="form-label">
               Contact No.
             </label>
             <input
-              type="password"
+              type="text"
               class="form-control"
-              id="inputPassword4"
+              id="contact"
               placeholder="Contact Number"
+              required
             />
           </div>
           <div class="col-md-6">
-            <label for="inputZip" class="form-label">
+            <label for="date" class="form-label">
               Date
             </label>
-            <input type="date" class="form-control" id="inputZip" />
+            <input type="date" class="form-control" id="date" />
           </div>
           <div class="col-md-6">
             <label for="Identityproof" class="form-label">
@@ -77,6 +81,7 @@ const PersonalData = () => {
               class="form-control"
               id="identityproof"
               placeholder="Upload here"
+              required
             />
           </div>
           <div class="col "></div>
@@ -89,6 +94,7 @@ const PersonalData = () => {
               class="form-control"
               id="inputAddress"
               placeholder="1234 Main St"
+              required
             />
           </div>
 
@@ -105,12 +111,13 @@ const PersonalData = () => {
             </button>
           </div>
           <div class="col-3 ">
-            <Link
-              to="/Incident"
+            <button
+              type="submit"
+              href="/Incident"
               class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
             >
               <span>Next</span>
-            </Link>
+            </button>
           </div>
           <div class="col-4 text-end"></div>
         </form>
