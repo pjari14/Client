@@ -45,15 +45,6 @@ div.scroll {
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active,
-.btn.active,
-.open > .dropdown-toggle.btn-primary {
-  color: #fff;
-  background-color: #d52a1a;
-  /*set the color you want here*/
-}
 .button span {
   cursor: pointer;
   display: inline-block;

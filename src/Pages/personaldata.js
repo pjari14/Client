@@ -1,6 +1,6 @@
 import React from "react";
-import {useForm} from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const PersonalData = () => {
@@ -10,9 +10,10 @@ const PersonalData = () => {
     register,
     reset,
   } = useForm();
-
+  const navigate = useNavigate();
   const insertComplaint = async (data) => {
     try {
+      console.log(data);
       const url = "http://localhost:5000/complaint/insert";
       const details = {
         fname: data.firstname,
@@ -22,10 +23,10 @@ const PersonalData = () => {
         address: data.address,
         // idproof: data.identityproof,
         // date: data.date,
-        
       };
-      const res = await axios.post(url, { details },{withCredentials: true});
+      const res = await axios.post(url, { details }, { withCredentials: true });
       console.log(res);
+      navigate("/incident");
       reset();
     } catch (error) {
       console.error(error);
@@ -40,7 +41,11 @@ const PersonalData = () => {
           </div>
           <hr />
         </div>
-        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails" onSubmit={handleSubmit(insertComplaint)}>
+        <form
+          class="row g-3 shadow py-4 px-4 mx-5 my-5 "
+          id="complaintdetails"
+          onSubmit={handleSubmit(insertComplaint)}
+        >
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Personal details</h2>
           </div>
@@ -54,8 +59,8 @@ const PersonalData = () => {
               class="form-control"
               id="firstname"
               placeholder="First Name"
-              {...register("firstname",{
-                required:true,
+              {...register("firstname", {
+                required: true,
               })}
             />
           </div>
@@ -69,7 +74,7 @@ const PersonalData = () => {
               class="form-control"
               id="lastname"
               placeholder="Last Name"
-              {...register("lastname",{
+              {...register("lastname", {
                 required: true,
               })}
             />
@@ -84,8 +89,8 @@ const PersonalData = () => {
               class="form-control"
               id="email"
               placeholder="example@email.com"
-              {...register("email",{
-                required: true
+              {...register("email", {
+                required: true,
               })}
             />
           </div>
@@ -98,7 +103,7 @@ const PersonalData = () => {
               class="form-control"
               id="contactno"
               placeholder="Contact Number"
-              {...register("contactno",{
+              {...register("contactno", {
                 required: true,
               })}
             />
@@ -107,9 +112,12 @@ const PersonalData = () => {
             <label for="date" class="form-label">
               Date
             </label>
-            <input type="date" class="form-control" id="date"
-              {...register("date",{
-                required:true,
+            <input
+              type="date"
+              class="form-control"
+              id="date"
+              {...register("date", {
+                required: true,
               })}
             />
           </div>
@@ -122,7 +130,7 @@ const PersonalData = () => {
               class="form-control"
               id="idproof"
               placeholder="Upload here"
-              {...register("idproof",{
+              {...register("idproof", {
                 required: true,
               })}
             />
@@ -137,7 +145,7 @@ const PersonalData = () => {
               class="form-control"
               id="address"
               placeholder="1234 Main St"
-              {...register("address",{
+              {...register("address", {
                 required: true,
               })}
             />
@@ -160,9 +168,12 @@ const PersonalData = () => {
               to="/Incident"
               class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
             > */}
-              {/* <span>Next</span> */}
+            {/* <span>Next</span> */}
             {/* </Link> */}
-            <button type="submit"> Insert</button>
+            <button class="btn btn-success text-white" type="submit">
+              {" "}
+              Insert
+            </button>
           </div>
           <div class="col-4 text-end"></div>
         </form>
