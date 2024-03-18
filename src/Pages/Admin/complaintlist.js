@@ -45,12 +45,12 @@ const ComplaintList = () => {
             <td>
               <Link
                 to="/updateComplaint"
-                class="btn btn-warning"
+                class="btn btn-success btn-outline-success"
                 id="updateComplaint"
               >
                 Update
               </Link>
-              <br></br> &nbsp;&nbsp;
+
               <button class="btn btn-danger" id="deleteComplaint">
                 Delete
               </button>
