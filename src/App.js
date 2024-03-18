@@ -31,6 +31,7 @@ import UpdateComplaint from "./Pages/Admin/updateComplaint";
 import EvidenceList from "./Pages/Admin/evidencelist";
 import AddEvidence from "./Pages/Admin/addEvidence";
 import UpdateEvidence from "./Pages/Admin/updateEvidence";
+import Sidebar from "./Components/sidebar";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function App() {
     <div>
       {!user && <Navbar />}
       {user && !user.isAdmin && <Navbar />}
+      {user && user.isAdmin && <Sidebar />}
       <Routes>
         {!user && <Route path="/" element={<Home />}></Route>}
         {user && (
@@ -57,23 +59,52 @@ function App() {
         <Route path="/cybercrime" element={<Cybercrime />}></Route>
         <Route path="/citizenmanual" element={<Citizenmanual />}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
-        <Route path="/admin" element={<Admin />}></Route>
         <Route path="/preview" element={<Preview />}></Route>
         <Route path="/Incident" element={<Incident />}></Route>
         <Route path="/Suspect" element={<Suspect />}></Route>
-        <Route path="/Adminlogin" element={<AdminLogin />}></Route>
-        <Route path="/registereduser" element={<UsersTable />}></Route>
-        <Route path="/suspectlist" element={<SuspectList />}></Route>
-        <Route path="/addSuspect" element={<AddSuspect />}></Route>
-        <Route path="/updateSuspect" element={<UpdateSuspect />}></Route>
-        <Route path="/complaintlist" element={<ComplaintList />}></Route>
-        <Route path="/addComplaint" element={<AddComplaint />}></Route>
-        <Route path="/updateComplaint" element={<UpdateComplaint />}></Route>
-        <Route path="/evidencelist" element={<EvidenceList />}></Route>
-        <Route path="/addEvidence" element={<AddEvidence />}></Route>
-        <Route path="/updateEvidence" element={<UpdateEvidence />}></Route>
+        <Route
+          path="/registereduser"
+          element={user && user.isAdmin ? <UsersTable /> : <Home />}
+        ></Route>
+        <Route
+          path="/suspectlist"
+          element={user && user.isAdmin ? <SuspectList /> : <Home />}
+        ></Route>
+        <Route
+          path="/addSuspect"
+          element={user && user.isAdmin ? <AddSuspect /> : <Home />}
+        ></Route>
+        <Route
+          path="/updateSuspect"
+          element={user && user.isAdmin ? <UpdateSuspect /> : <Home />}
+        ></Route>
+        <Route
+          path="/complaintlist"
+          element={user && user.isAdmin ? <ComplaintList /> : <Home />}
+        ></Route>
+        <Route
+          path="/addComplaint"
+          element={user && user.isAdmin ? <AddComplaint /> : <Home />}
+        ></Route>
+        <Route
+          path="/updateComplaint"
+          element={user && user.isAdmin ? <UpdateComplaint /> : <Home />}
+        ></Route>
+        <Route
+          path="/evidencelist"
+          element={user && user.isAdmin ? <EvidenceList /> : <Home />}
+        ></Route>
+        <Route
+          path="/addEvidence"
+          element={user && user.isAdmin ? <AddEvidence /> : <Home />}
+        ></Route>
+        <Route
+          path="/updateEvidence"
+          element={user && user.isAdmin ? <UpdateEvidence /> : <Home />}
+        ></Route>
       </Routes>
-      <Footer />
+      {!user && <Footer />}
+      {user && !user.isAdmin && <Footer />}
     </div>
   );
 }
