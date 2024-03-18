@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-const IndiaCities = () => {
-  const [selectedState, setSelectedState] = useState("");
-  const [cities, setCities] = useState([]);
+const IndiaCities = (props) => {
+
+  const {selectedState,cities,setCities,setSelectedState} = props;
 
   const states = [
     {
