@@ -105,7 +105,7 @@ const PersonalData = () => {
               type="reset"
               id="btnclear"
               to=""
-              class="btn btn-smshadow-sm    w-100 bg-gradient  p-3 text-center  fw-bold "
+              class=" btn btn-outline-danger btn-smshadow-sm    w-100 bg-gradient  p-3 text-center  fw-bold "
             >
               Clear
             </button>
@@ -114,7 +114,7 @@ const PersonalData = () => {
             <button
               type="submit"
               href="/Incident"
-              class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
+              class=" btn btn-outline-danger shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
             >
               <span>Next</span>
             </button>

@@ -63,7 +63,7 @@ const contactus = () => {
 
           <div class="d-grid">
             <button
-              class="btn btn-warning btn-lg "
+              class=" btn btn-outline-danger btn-lg "
               id="submitButton"
               type="submit"
             >

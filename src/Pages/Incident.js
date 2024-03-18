@@ -172,7 +172,7 @@ const Incident = () => {
             <div class="col-4 ">
               <button
                 type="reset"
-                class="btn btn-sm shadow-sm  btn-dark   bg-gradient  p-3 text-center  fw-bold "
+                class=" btn btn-outline-danger btn-sm shadow-sm   bg-gradient  p-3 text-center  fw-bold "
               >
                 Clear
               </button>
@@ -180,7 +180,7 @@ const Incident = () => {
             <div class="col-4 ">
               <Link
                 to="/personaldata"
-                class="btn shadow-sm  btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
+                class="  btn btn-outline-danger btn-outline-dangershadow-sm  btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
               >
                 <span>Back</span>
               </Link>
@@ -188,7 +188,7 @@ const Incident = () => {
             <div class="col-4 ">
               <Link
                 to="/suspect"
-                class="btn shadow-sm button btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
+                class=" btn btn-outline-danger shadow-sm button btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
               >
                 <span>Next</span>
               </Link>

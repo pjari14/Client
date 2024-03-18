@@ -29,7 +29,10 @@ const CheckStatus = () => {
                 />
               </div>
               <div class="col-sm-4">
-                <Link to="" class="btn btn-sm btn-danger  py-2 px-3 mx-2">
+                <Link
+                  to=""
+                  class=" btn btn-outline-danger btn-sm   py-2 px-3 mx-2"
+                >
                   Search
                 </Link>
               </div>

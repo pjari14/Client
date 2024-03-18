@@ -40,11 +40,9 @@ const Login = () => {
           <div className="col-12 col-md-6 col-xl-7">
             <div className="d-flex justify-content-center text-bg-primary">
               <div className="col-12 col-xl-9">
-                <h1 class="heading" style={{ color: "#BA68C8" }}>
-                  WELCOME!
-                </h1>
+                <h1 class="heading text-dark">WELCOME!</h1>
                 <hr className="border-primary-subtle mb-4" />
-                <h2 className=" mb-4 text-info">
+                <h2 className=" mb-4 text-secondary">
                   Reporting incidents made easy. Sign in here
                 </h2>
                 <p className="lead mb-5"></p>
@@ -104,7 +102,7 @@ const Login = () => {
                     <div className="col-12">
                       <div className="d-grid">
                         <button
-                          className="btn btn-warning btn-gradient btn-lg"
+                          className=" btn btn-outline-danger btn-gradient btn-lg"
                           type="submit"
                         >
                           Log in now

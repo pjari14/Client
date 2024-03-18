@@ -156,14 +156,13 @@ const Signup = () => {
                       <div class="d-flex justify-content-end pt-3">
                         <button
                           type="reset"
-                          class="btn text-light btn-lg "
-                          style={{ backgroundColor: "#BA68C8" }}
+                          class=" btn btn-outline-danger btn-lg "
                         >
                           Reset all
                         </button>
                         <button
                           type="submit"
-                          class="btn btn-warning btn-lg ms-2"
+                          class=" btn btn-outline-danger  btn-lg ms-2"
                         >
                           Register
                         </button>
@@ -173,7 +172,7 @@ const Signup = () => {
                         <h3>Already have an account?</h3>
                         <Link
                           to="/login"
-                          class="btn btn-dark"
+                          class="btn btn-white"
                           style={{ marginTop: "-80px", marginLeft: "420px" }}
                         >
                           Login now
