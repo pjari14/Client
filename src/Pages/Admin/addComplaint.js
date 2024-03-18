@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import IndiaCities from "../../Components/incidancities";
+import admin from "./Admin";
 import {
   CCContent,
   DVContent,
@@ -54,7 +55,6 @@ const AddComplaint = () => {
   return (
     <>
       <div class="container mt-2 pt-2">
-       
         <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails">
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Complaint/Incident details</h2>
@@ -164,13 +164,15 @@ const AddComplaint = () => {
             </label>
           </div>
           <div class="row py-4 justify-content-end ">
-            
             <div class="col-6 ">
-              <Link
-                to="/complaintlist"
-                
-              >
-                <button type="button" class="btn btn-danger" style={{fontSize:"25px"}}>Add</button>
+              <Link to="/complaintlist">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  style={{ fontSize: "25px" }}
+                >
+                  Add
+                </button>
               </Link>
             </div>
           </div>

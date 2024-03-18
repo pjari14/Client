@@ -18,17 +18,19 @@ const EvidenceList = () => {
         <table class="table table-bordered table-hover py-1 my-1">
           <thead class="table-dark text-light">
             <tr>
-              <th>Evidence ID</th>
-              <th>Complaint ID</th>
-              <th>Type of Evidence</th>
-              <th>Description</th>
-              <th>Uploaded By</th>
-              <th>Date of Upload</th>
-              <th>Time of Upload</th>
-              <th>Status</th>
-              <th>Notes</th>
-              <th>Timestamp</th>
-              <th>Options</th>
+              <th scope="col">Evidence ID</th>
+              <th scope="col">Complaint ID</th>
+              <th scope="col">Type of Evidence</th>
+              <th scope="col">Description</th>
+              <th scope="col">Uploaded By</th>
+              <th scope="col">Date of Upload</th>
+              <th scope="col">Time of Upload</th>
+              <th scope="col">Status</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Timestamp</th>
+              <th scope="col" colSpan={2}>
+                Options
+              </th>
             </tr>
           </thead>
           <tr>
@@ -45,12 +47,13 @@ const EvidenceList = () => {
             <td>
               <Link
                 to="/updateEvidence"
-                class="btn btn-warning"
+                class="btn btn-outline-success"
                 id="updateEvidence"
               >
                 Update
               </Link>
-              &nbsp;
+            </td>
+            <td>
               <button class="btn btn-danger " id="deleteEvidence">
                 Delete
               </button>

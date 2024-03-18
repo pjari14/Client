@@ -96,9 +96,6 @@ const Navbar = () => {
                 Logout
               </button>
             )}
-            <Link className="nav-link" to="/adminlogin">
-              Admin
-            </Link>
           </div>
         </div>
       </div>

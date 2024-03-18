@@ -16,7 +16,7 @@ import Gallery from "./Pages/gallery";
 import Admin from "./Pages/Admin/Admin";
 import Preview from "./Pages/preview";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "./ReduxStore/Userslice/Userslice";
 import Incident from "./Pages/Incident";
 import Suspect from "./Pages/Suspect";
@@ -34,14 +34,19 @@ import UpdateEvidence from "./Pages/Admin/updateEvidence";
 
 function App() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   useEffect(() => {
     dispatch(fetchUser());
   }, []);
   return (
     <div>
-      <Navbar />
+      {!user && <Navbar />}
+      {user && !user.isAdmin && <Navbar />}
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        {!user && <Route path="/" element={<Home />}></Route>}
+        {user && (
+          <Route path="/" element={user.isAdmin ? <Admin /> : <Home />}></Route>
+        )}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/CheckStatus" element={<CheckStatus />}></Route>

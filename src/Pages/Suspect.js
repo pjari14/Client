@@ -49,7 +49,7 @@ const Suspect = () => {
             />
           </div>
           <div class="col-md-3">
-            <button class=" btn btn-outline-danger btn-md ">Add</button>
+            <button class=" btn btn-outline-success btn-md ">Add</button>
           </div>
           <div class="col-md-6">
             <h6>
@@ -80,7 +80,7 @@ const Suspect = () => {
             <div class="col-3 ">
               <Link
                 to="/preview"
-                class=" btn btn-outline-danger shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
+                class=" btn btn-outline-success shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
               >
                 <span>Preview & Next</span>
               </Link>

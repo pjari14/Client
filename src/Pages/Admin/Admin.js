@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const admin = () => {
+import { logoutUser } from "../../ReduxStore/Userslice/Userslice";
+import { useSelector, useDispatch } from "react-redux";
+
+const Admin = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return (
     <>
       {/* Page Wrapper */}
@@ -67,6 +72,21 @@ const admin = () => {
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Registered Users</span>
             </a>
+          </li>
+          <hr className="sidebar-divider my-0" />
+          <li className="nav-item active">
+            <i className="fas fa-fw fa-tachometer-alt" />
+            <button
+              class="btn"
+              style={{
+                backgroundColor: "transparent",
+                color: "white",
+                border: 0,
+              }}
+              onClick={() => dispatch(logoutUser())}
+            >
+              Logout{" "}
+            </button>
           </li>
           <hr className="sidebar-divider my-0" />
         </ul>
@@ -148,4 +168,4 @@ const admin = () => {
   );
 };
 
-export default admin;
+export default Admin;

@@ -151,28 +151,33 @@ const PersonalData = () => {
             />
           </div>
 
-          <div class="col-md-4"></div>
+          <div class="col-md-12"></div>
 
-          <div class="col-3 ">
+          <div class="col-6 ">
             <button
               type="reset"
               id="btnclear"
               to=""
-              class="btn btn-smshadow-sm    w-100 bg-gradient  p-3 text-center  fw-bold "
+              class="btn shadow-sm  btn-outline-success bg-gradient  p-3 text-center  fw-bold "
+              style={{ marginLeft: "400px", width: "150px" }}
             >
               Clear
             </button>
           </div>
-          <div class="col-3 ">
+          <div class="col-6 ">
             {/* <Link
               to="/Incident"
               class="btn shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
             > */}
             {/* <span>Next</span> */}
             {/* </Link> */}
-            <button class="btn btn-success text-white" type="submit">
+            <button
+              class="btn button btn-smshadow-sm     bg-gradient  p-3 text-center  fw-bold btn-success text-white"
+              type="submit"
+              style={{ width: "150px" }}
+            >
               {" "}
-              Insert
+              Next
             </button>
           </div>
           <div class="col-4 text-end"></div>

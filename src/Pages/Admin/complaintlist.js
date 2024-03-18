@@ -8,8 +8,8 @@ const ComplaintList = () => {
 
       <Link
         to="/addComplaint"
-        class="btn btn-success"
-        style={{ marginLeft: "1000px" }}
+        class="btn btn-outline-success"
+        style={{ marginLeft: "1200px" }}
       >
         + Add New
       </Link>
@@ -18,6 +18,7 @@ const ComplaintList = () => {
         <table class="table table-bordered table-hover py-1 my-1">
           <thead class="table-dark text-light">
             <tr>
+              <th scope="col">Com_ID</th>
               <th scope="col">Complaint Category</th>
               <th scope="col">Complaint Date</th>
               <th scope="col">State</th>
@@ -29,9 +30,13 @@ const ComplaintList = () => {
               <th scope="col">Evidence</th>
               <th scope="col">Suspect person or company name</th>
               <th scope="col">Additional Details</th>
+              <th scope="col" colSpan={2}>
+                Options
+              </th>
             </tr>
           </thead>
           <tr>
+            <td>1</td>
             <td>AHBH</td>
             <td>wjdna</td>
             <td>JWND</td>
@@ -42,15 +47,17 @@ const ComplaintList = () => {
             <td>JFNCSAM</td>
             <td>JFNCSAM</td>
             <td>JFNCSAM</td>
+            <td>JFNCSAM</td>
             <td>
               <Link
                 to="/updateComplaint"
-                class="btn btn-warning btn-outline-warning"
+                class="btn btn-outline-success"
                 id="updateComplaint"
               >
                 Update
               </Link>
-              <br></br> &nbsp;&nbsp;
+            </td>
+            <td>
               <button class="btn btn-danger" id="deleteComplaint">
                 Delete
               </button>

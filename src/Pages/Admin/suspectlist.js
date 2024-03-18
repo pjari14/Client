@@ -18,12 +18,14 @@ const SuspectList = () => {
         <table class="table table-bordered table-hover py-1 my-1">
           <thead class="table-dark text-light">
             <tr>
-              <th>Suspect ID</th>
-              <th>Suspect Name</th>
-              <th>Suspect Identity</th>
-              <th>Suspect Photograph</th>
-              <th>Additional Details</th>
-              <th>Options</th>
+              <th scope="col">Suspect ID</th>
+              <th scope="col">Suspect Name</th>
+              <th scope="col">Suspect Identity</th>
+              <th scope="col">Suspect Photograph</th>
+              <th scope="col">Additional Details</th>
+              <th scope="col" colSpan={2}>
+                Options
+              </th>
             </tr>
           </thead>
           <tr>
@@ -35,13 +37,14 @@ const SuspectList = () => {
             <td>
               <Link
                 to="/updateSuspect"
-                class="btn btn-warning"
+                class="btn btn-outline-success"
                 id="updateSuspect"
               >
                 Update
               </Link>
-              &nbsp;
-              <button class="btn btn-danger text-light" id="deleteSuspect">
+            </td>
+            <td>
+              <button class="btn btn-danger" id="deleteSuspect">
                 Delete
               </button>
             </td>
