@@ -51,7 +51,7 @@ const ComplaintList = () => {
                 Update
               </Link>
               <br></br> &nbsp;&nbsp;
-              <button class="btn btn-outline-danger" id="deleteComplaint">
+              <button class="btn btn-danger" id="deleteComplaint">
                 Delete
               </button>
             </td>
