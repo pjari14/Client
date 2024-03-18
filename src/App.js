@@ -28,6 +28,9 @@ import UpdateSuspect from "./Pages/Admin/updateSuspect";
 import ComplaintList from "./Pages/Admin/complaintlist";
 import AddComplaint from "./Pages/Admin/addComplaint";
 import UpdateComplaint from "./Pages/Admin/updateComplaint";
+import EvidenceList from "./Pages/Admin/evidencelist";
+import AddEvidence from "./Pages/Admin/addEvidence";
+import UpdateEvidence from "./Pages/Admin/updateEvidence";
 
 function App() {
   const dispatch = useDispatch();
@@ -61,6 +64,9 @@ function App() {
         <Route path="/complaintlist" element={<ComplaintList />}></Route>
         <Route path="/addComplaint" element={<AddComplaint />}></Route>
         <Route path="/updateComplaint" element={<UpdateComplaint />}></Route>
+        <Route path="/evidencelist" element={<EvidenceList />}></Route>
+        <Route path="/addEvidence" element={<AddEvidence />}></Route>
+        <Route path="/updateEvidence" element={<UpdateEvidence />}></Route>
       </Routes>
       <Footer />
     </div>

@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const ComplaintList = () => {
-  return (
-    <>
-      <div class="container mt-1 pt-1">
+const EvidenceList = () => {
+    return(
+        <>
+        <div class="container mt-1 pt-1">
         <div class="col-sm-12">
-          <div class=" p-1 text-center mb-1 fs-1" style={{ color: "#827191" }}>
-            Complaints List
+          <div class=" p-1 text-center mb-1 fs-1" style={{ color: "#F45D01" }}>
+            Evidence List
             <div class="container" style={{ marginLeft: "500px" }}>
-              <Link to="/addComplaint">
+              <Link to="/addEvidence">
                 <button
                   type="button"
-                  id="addComplaint"
+                  id="addEvidence"
                   style={{
                     width: "12%",
                     marginLeft: "10px",
@@ -36,28 +36,23 @@ const ComplaintList = () => {
           <hr />
         </div>
         <div class="container">
-          <table
-            className="table table-bordered table-hover py-1 my-1"
+        <table className="table table-bordered table-hover py-1 my-1"
             style={{ border: "2px solid black", borderCollapse: "collapse" }}
-          >
-            <thead style={{ backgroundColor: "#B5B2C2" }}>
-              <tr>
-                <th>Complaint ID</th>
-                <th>Complaint Category</th>
-                <th>Complaint Date</th>
-                <th>State</th>
-                <th>City</th>
-                <th>Date of Incident</th>
-                <th>Time of Incident</th>
-                <th>Reason for delay</th>
-                <th>Place of incident occurance</th>
-                <th>Evidence</th>
-                <th>Suspect person or company name</th>
-                <th>Additional Details</th>
-              </tr>
-            </thead>
-            <tr>
-              <td>1</td>
+          ><thead style={{ backgroundColor: "#B5B2C2" }}>
+          <tr>
+            <th>Evidence ID</th>
+            <th>Complaint ID</th>
+            <th>Type of Evidence</th>
+            <th>Description</th>
+            <th>Uploaded By</th>
+            <th>Date Uploaded</th>
+            <th>Status</th>
+            <th>Notes</th>
+            <th>Timestamp</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tr>
               <td>AHBH</td>
               <td>wjdna</td>
               <td>JWND</td>
@@ -67,12 +62,11 @@ const ComplaintList = () => {
               <td>JFNCSAM</td>
               <td>JFNCSAM</td>
               <td>JFNCSAM</td>
-              <td>JFNCSAM</td>
               <td>
-                <Link to="/updateComplaint">
+                <Link to="/updateEvidence">
                   <button
                     type="button"
-                    id="updateComplaint"
+                    id="updateEvidence"
                     style={{
                       backgroundColor: "#F5B700",
                       borderStyle: "groove",
@@ -82,24 +76,23 @@ const ComplaintList = () => {
                     Update
                   </button>
                 </Link>
-                <br></br> &nbsp;&nbsp;
+                &nbsp;
                 <button
                   type="button"
-                  id="deleteComplaint"
+                  id="deleteEvidence"
                   style={{
-                    borderStyle: "groove",
                     backgroundColor: "#E54B4B",
+                    borderStyle: "groove",
                     borderRadius: "5px 5px 5px 5px",
                   }}
                 >
                   Delete
                 </button>
               </td>
-            </tr>
-          </table>
+            </tr></table>
         </div>
-      </div>
-    </>
-  );
+        </div>
+        </>
+    );
 };
-export default ComplaintList;
+export default EvidenceList;
