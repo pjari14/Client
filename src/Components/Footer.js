@@ -9,7 +9,7 @@ const Footer = () => {
             <div class="row text-center d-flex justify-content-center pt-5">
               <div class="col-md-2">
                 <h6 class="text-uppercase font-weight-bold">
-                  <a href="#!" class="text-light">
+                  <a href="/cybercrime" class="text-light">
                     Blog
                   </a>
                 </h6>
@@ -67,7 +67,7 @@ const Footer = () => {
         <div class="text-center p-3">
           © 2020 Copyright:
           <Link class="text-light" to="/">
-            SCRP
+            CYBERIRIS
           </Link>
         </div>
       </footer>

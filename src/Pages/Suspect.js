@@ -1,11 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {useForm} from "react-hook-form";
-
+import { useForm } from "react-hook-form";
 
 const Suspect = () => {
-
   const {
     formState: { errors },
     handleSubmit,
@@ -22,21 +20,15 @@ const Suspect = () => {
         sususername: data.sususername,
         // susphoto: data.susphoto,
         otherdetails: data.otherdetails,
-      
       };
       // console.log(data, incident, cities, selectedState);
-      const res = await axios.post(
-        url,
-        { suspect },
-        { withCredentials: true }
-      );
+      const res = await axios.post(url, { suspect }, { withCredentials: true });
       console.log(res);
       reset();
     } catch (error) {
       console.error(error);
     }
   };
-
 
   return (
     <>
@@ -47,7 +39,11 @@ const Suspect = () => {
           </div>
           <hr />
         </div>
-        <form class="row g-3 shadow py-4 px-4 mx-5 my-5 " id="complaintdetails" onSubmit={handleSubmit(insertSuspect)}>
+        <form
+          class="row g-3 shadow py-4 px-4 mx-5 my-5 "
+          id="complaintdetails"
+          onSubmit={handleSubmit(insertSuspect)}
+        >
           <div class="col-sm-12">
             <h2 class="text text-danger fw-3">Suspect details</h2>
             <h6 class="text-white bg-primary py-2 my-2 px-2">
@@ -66,8 +62,10 @@ const Suspect = () => {
             />
           </div>
           <div class="col-md-3">
-            <select class="form-control" id="sussocial" 
-            {...register("sussocial")}
+            <select
+              class="form-control"
+              id="sussocial"
+              {...register("sussocial")}
             >
               <option value="Select">Select Suspect Identity</option>
               <option value="Instagram id">Instagram id</option>
@@ -99,7 +97,10 @@ const Suspect = () => {
           </div>
 
           <div class="col-md-6">
-            <input type="file" class="form-control" id="susphoto" 
+            <input
+              type="file"
+              class="form-control"
+              id="susphoto"
               {...register("susphoto")}
             />
           </div>
@@ -107,8 +108,11 @@ const Suspect = () => {
             <label class="form-label">Any other details:</label>
           </div>
           <div class="col-md-6">
-            <textarea className="form-control" rows="3" id="otherdetails"
-            {...register("otherdetails")}
+            <textarea
+              className="form-control"
+              rows="3"
+              id="otherdetails"
+              {...register("otherdetails")}
             />
           </div>
           <div class="row py-4 justify-content-end">
@@ -122,13 +126,12 @@ const Suspect = () => {
             </div>
 
             <div class="col-3 ">
-              <Link
-                to="/preview"
-                class=" btn btn-outline-success shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
+              <button
+                type="submit"
+                class="btn btn-outline-success shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
               >
-                <span>Preview & Next</span>
-              </Link>
-              <button type="submit">insert</button>
+                Preview and submit
+              </button>
             </div>
           </div>
           <div class="col-4 text-end"></div>

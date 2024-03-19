@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IndiaCities from "../Components/incidancities";
 import {
   CCContent,
@@ -62,7 +62,7 @@ const Incident = () => {
     register,
     reset,
   } = useForm();
-
+  const navigate = useNavigate();
   const insertIncident = async (data) => {
     try {
       const url = "http://localhost:5000/incident/insert";
@@ -84,6 +84,7 @@ const Incident = () => {
         { withCredentials: true }
       );
       console.log(res);
+      navigate("/suspect");
       reset();
     } catch (error) {
       console.error(error);
@@ -171,6 +172,7 @@ const Incident = () => {
           </div>
           <div class="col-md-6">
             <select
+              class="form-control"
               id="policestation"
               value={policestation}
               onChange={(evt) => setPoliceStation(evt.target.value)}

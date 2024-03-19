@@ -287,7 +287,7 @@ const Citizenmanual = () => {
                   fontSize: "20px",
                 }}
               >
-                Step 4 :- Provide suspect details.
+                Step 5 :- Provide suspect details.
               </td>
             </tr>
             <br></br>

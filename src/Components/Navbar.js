@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../Assets/images/Heading-removebg-preview.png";
+import image from "../Assets/images/logo.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutUser } from "../ReduxStore/Userslice/Userslice";
@@ -30,13 +30,17 @@ const Navbar = () => {
               Home
             </Link>
 
-            <Link class="nav-link" to="/PersonalData">
-              Register & Track
-            </Link>
+            {user && (
+              <Link class="nav-link" to="/PersonalData">
+                Register & Track
+              </Link>
+            )}
 
-            <Link className="nav-link" to="/CheckStatus">
-              View FIR status
-            </Link>
+            {user && (
+              <Link className="nav-link" to="/CheckStatus">
+                View FIR status
+              </Link>
+            )}
             <li className="nav-item dropdown">
               <Link
                 class="nav-link dropdown-toggle"

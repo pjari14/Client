@@ -51,7 +51,7 @@ function App() {
         )}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/CheckStatus" element={<CheckStatus />}></Route>
+        <Route path="/CheckStatus" element={user && <CheckStatus />}></Route>
         <Route path="/PersonalData" element={<PersonalData />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/cybersafety" element={<Cybersafety />}></Route>
@@ -59,9 +59,9 @@ function App() {
         <Route path="/cybercrime" element={<Cybercrime />}></Route>
         <Route path="/citizenmanual" element={<Citizenmanual />}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
-        <Route path="/preview" element={<Preview />}></Route>
-        <Route path="/Incident" element={<Incident />}></Route>
-        <Route path="/Suspect" element={<Suspect />}></Route>
+        <Route path="/preview" element={user && <Preview />}></Route>
+        <Route path="/Incident" element={user && <Incident />}></Route>
+        <Route path="/Suspect" element={user && <Suspect />}></Route>
         <Route
           path="/registereduser"
           element={user && user.isAdmin ? <UsersTable /> : <Home />}
@@ -70,7 +70,7 @@ function App() {
           path="/suspectlist"
           element={user && user.isAdmin ? <SuspectList /> : <Home />}
         ></Route>
-         {/* <Route
+        {/* <Route
           path="/suspectlist"
           element= {<SuspectList />}>
           </Route> */}

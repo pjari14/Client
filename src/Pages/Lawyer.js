@@ -1,38 +1,35 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import image from "../Assets/images/Lawyer-rafiki.png";
 import { Link } from "react-router-dom";
 
 const Lawyer = () => {
+  const [lawyer, setLawyer] = useState([]);
+  useEffect(() => {
+    fetchLawyers();
+  });
+  function fetchLawyers() {
+    fetch("http://localhost:5000/lawyer")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((lawyerData) => {
+          return {
+            name: lawyerData.Name,
+            officeaddress: lawyerData.OfficeAddress,
+            email: lawyerData.Email,
+            contactno: lawyerData.ContactNo,
+            city: lawyerData.City,
+            state: lawyerData.State,
+            experience: lawyerData.Experience,
+            practiceareas: lawyerData.PracticeAreas,
+            court: lawyerData.Court,
+          };
+        });
 
-  const [lawyer,setLawyer] = useState([]);
-  useEffect(()=>{
-   fetchLawyers();
-  })
-   function fetchLawyers(){
-   fetch("http://localhost:5000/lawyer").then((response)=>{
-   
-   return response.json()
-   })
-   .then((data)=>{
-     console.log(data.data.data);
-     const transformUser = data.data.data.map(lawyerData =>{
-       return {
-         name: lawyerData.Name,
-         officeaddress: lawyerData.OfficeAddress,
-         email: lawyerData.Email,
-         contactno: lawyerData.ContactNo,
-         city: lawyerData.City,
-         state: lawyerData.State,
-         experience: lawyerData.Experience,
-         practiceareas: lawyerData.PracticeAreas,
-         court: lawyerData.Court
- 
-       }
-     
-     });
- 
-     setLawyer(transformUser);
-   })
+        setLawyer(transformUser);
+      });
   }
 
   return (
@@ -44,8 +41,8 @@ const Lawyer = () => {
               <div className="d-flex justify-content-center text-bg-primary">
                 <div className="col-12 col-xl-9">
                   <h1
-                    class="heading py-2"
-                    style={{ color: "#BA68C8", fontSize: "45px" }}
+                    class="heading py-2 text-dark"
+                    style={{ fontSize: "45px" }}
                   >
                     Find your lawyer and make an appointment
                   </h1>
@@ -74,7 +71,7 @@ const Lawyer = () => {
                           src={image}
                         ></img>
                         <div
-                          class="container"
+                          class="container row"
                           style={{
                             position: "absolute",
                             top: "80%",
@@ -88,9 +85,12 @@ const Lawyer = () => {
                             boxShadow: "0px 0px 5px rgba(0,0,0,0.2)",
                           }}
                         >
-                          <h4 style={{ color: "#2193b0" }}>
+                          <h4 class="col-8" style={{ color: "#2193b0" }}>
                             Book appointment now
                           </h4>
+                          <button class="btn col-4 btn-secondary text-light">
+                            Book
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -101,7 +101,7 @@ const Lawyer = () => {
           </div>
         </div>
       </section>
-      <section>
+      {/*<section>
         <table width="100%">
           <tr>
             <th>Name</th>
@@ -134,7 +134,7 @@ const Lawyer = () => {
             ))
           }
         </table>
-      </section>
+        </section>*/}
     </>
   );
 };
