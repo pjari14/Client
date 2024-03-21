@@ -1,8 +1,7 @@
 import React from "react";
 
 const IndiaCities = (props) => {
-
-  const {selectedState,cities,setCities,setSelectedState} = props;
+  const { selectedState, cities, setCities, setSelectedState } = props;
 
   const states = [
     {

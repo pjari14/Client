@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import IndiaCities from "../Components/incidancities";
 import {
   CCContent,
@@ -46,7 +47,7 @@ const Incident = () => {
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
   const [policestation, setPoliceStation] = useState("");
-
+  const user = useSelector((state) => state.user);
   const handleCrimeChange = (e) => {
     setSelectedCrime(e.target.value);
   };
@@ -70,7 +71,8 @@ const Incident = () => {
         category: data.category,
         state: selectedState,
         city: cities[0],
-        // policestation: policestation,
+        userId: user._id,
+        policestation: data.policestation,
         dateofincident: data.dateofincident,
         reasonofdelay: data.reasonofdelay,
         location: data.location,
@@ -93,34 +95,36 @@ const Incident = () => {
 
   return (
     <>
-      <div class="container mt-2 pt-2">
-        <div class="col-sm-12">
-          <div class=" p-3 text-center mb-2 text-danger fs-1">
+      <div className="container mt-2 pt-2">
+        <div className="col-sm-12">
+          <div className=" p-3 text-center mb-2 text-danger fs-1">
             File your complaint here!
           </div>
           <hr />
         </div>
         <form
-          class="row g-3 shadow py-4 px-4 mx-5 my-5 "
+          className="row g-3 shadow py-4 px-4 mx-5 my-5 "
           id="complaintdetails"
           onSubmit={handleSubmit(insertIncident)}
         >
-          <div class="col-sm-12">
-            <h2 class="text text-danger fw-3">Complaint/Incident details</h2>
+          <div className="col-sm-12">
+            <h2 className="text text-danger fw-3">
+              Complaint/Incident details
+            </h2>
           </div>
           <hr />
-          <div class="col-md-6">
-            <label class="form-label"> Category of complaint:</label>
+          <div className="col-md-6">
+            <label className="form-label"> Category of complaint:</label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
-              class="form-select"
+              className="form-select"
               id="ctype"
               name="crimeType"
               value={selectedCrime}
               onChange={handleCrimeChange}
               {...register("category", {
-                required: true,
+                required: { value: true, message: "Category is Required!" },
               })}
             >
               {" "}
@@ -131,14 +135,13 @@ const Incident = () => {
                 </option>
               ))}
             </select>
+            {errors.category && (
+              <span className="text-danger py-2">
+                {errors.category.message}
+              </span>
+            )}
           </div>
 
-          <div class="col-md-6">
-            <label class="form-label">Date of complaint:</label>
-          </div>
-          <div class="col-md-6">
-            <input class="form-control" type="date" name="doc" id="cdate" />
-          </div>
           <IndiaCities
             selectedState={selectedState}
             cities={cities}
@@ -146,33 +149,41 @@ const Incident = () => {
             setSelectedState={setSelectedState}
           />
 
-          <div class="col-md-6">
-            <label class="form-label">
+          <div className="col-md-6">
+            <label className="form-label">
               Approximate date & time of incident:
             </label>
           </div>
-          <div class="col-md-4">
+          <div className="col-md-4">
             <input
               type="date"
-              class="form-control"
+              className="form-control"
               id="dateofincident"
               {...register("dateofincident", {
-                required: true,
+                required: {
+                  value: true,
+                  message: "Date of incident is Required!",
+                },
               })}
             />
+            {errors.dateofincident && (
+              <span className="text-danger py-2">
+                {errors.dateofincident.message}
+              </span>
+            )}
           </div>
 
-          <div class="col-md-2">
-            <input type="time" class="form-control" />
+          <div className="col-md-2">
+            <input type="time" className="form-control" />
           </div>
-          <div class="col-md-6">
-            <label for="policestation" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="policestation" className="form-label">
               Select Police Station
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <select
-              class="form-control"
+              className="form-control"
               id="policestation"
               value={policestation}
               onChange={(evt) => setPoliceStation(evt.target.value)}
@@ -181,117 +192,161 @@ const Incident = () => {
               <option value="Bhatar">Bhatar</option>
             </select>
           </div>
-          <div class="col-md-6">
-            <label for="reasonofdelay" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="reasonofdelay" className="form-label">
               Reason of delay in report:
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="textarea"
               placeholder="Enter reason of delay"
-              class="form-control"
+              className="form-control"
               id="reasonofdelay"
-              {...register("reasonofdelay")}
+              {...register("reasonofdelay", {
+                required: {
+                  value: true,
+                  message: "Reason of delay is Required!",
+                },
+              })}
             />
+            {errors.reasonofdelay && (
+              <span className="text-danger py-2">
+                {errors.reasonofdelay.message}
+              </span>
+            )}
           </div>
-          <div class="col-md-6">
-            <label for="location" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="location" className="form-label">
               Where did the incident occur?
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter where did the incident occur"
               id="location"
-              {...register("location")}
+              {...register("location", {
+                required: { value: true, message: "Location is Required!" },
+              })}
             />
+            {errors.location && (
+              <span className="text-danger py-2">
+                {errors.location.message}
+              </span>
+            )}
           </div>
-          <div class="col-md-6">
-            <label for="evidence" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="evidence" className="form-label">
               Supporting Evidence
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
               type="file"
-              class="form-control"
+              className="form-control"
               id="evidence"
-              {...register("evidence")}
+              {...register("evidence", {
+                required: { value: true, message: "Evidence is Required!" },
+              })}
             />
+            {errors.evidence && (
+              <span className="text-danger py-2">
+                {errors.evidence.message}
+              </span>
+            )}
           </div>
-          <div class="col-md-6">
-            <label class="form-label">
+          <div className="col-md-6">
+            <label className="form-label">
               Name of the person/company against which/whom the complaint is
               filed:
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <input
-              class="form-control"
+              className="form-control"
               name="suspect"
               type="text"
               id="nameofsus"
-              {...register("nameofsus")}
+              {...register("nameofsus", {
+                required: {
+                  value: true,
+                  message: "Name of suspect is Required!",
+                },
+              })}
             />
+            {errors.nameofsus && (
+              <span className="text-danger py-2">
+                {errors.nameofsus.message}
+              </span>
+            )}
           </div>
-          <div class="col-md-6">
-            <label for="additionalinfo" class="form-label">
+          <div className="col-md-6">
+            <label htmlFor="additionalinfo" className="form-label">
               Please provide any additional information:
             </label>
           </div>
-          <div class="col-md-6">
+          <div className="col-md-6">
             <textarea
-              class="form-control"
+              className="form-control"
               id="additionalinfo"
               rows="3"
-              {...register("additionalinfo")}
+              {...register("additionalinfo", {
+                required: {
+                  value: true,
+                  message: "Additional info is Required!",
+                },
+              })}
             />
+            {errors.additionalinfo && (
+              <span className="text-danger py-2">
+                {errors.additionalinfo.message}
+              </span>
+            )}
           </div>
 
-          <div class="col-md-12 mx-3 text-danger">
+          <div className="col-md-12 mx-3 text-danger">
             <input
-              class="form-check-input "
+              className="form-check-input "
               type="checkbox"
               value=""
               id="check"
             />
-            <label class="form-check-label" for="flexCheckDefault">
+            <label className="form-check-label" htmlFor="flexCheckDefault">
               *I confirm that the information I've given is accurate and true.
             </label>
           </div>
-          <div class="row py-4 ">
-            <div class="col-4 ">
+          <div className="row py-4 ">
+            <div className="col-4 ">
               <button
                 type="reset"
-                class=" btn btn-outline-success btn-sm shadow-sm   bg-gradient  p-3 text-center  fw-bold "
+                className=" btn btn-outline-success btn-sm shadow-sm   bg-gradient  p-3 text-center  fw-bold "
               >
                 Clear
               </button>
             </div>
-            <div class="col-4 ">
+            <div className="col-4 ">
               <Link
                 to="/personaldata"
-                class="  btn  btn-outline-danger shadow-sm  btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
+                className="  btn  btn-outline-danger shadow-sm  btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
               >
                 <span>Back</span>
               </Link>
             </div>
-            <div class="col-4 ">
+            <div className="col-4 ">
               <button
                 type="submit"
                 to="/suspect"
-                class=" btn btn-outline-success shadow-sm button btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
+                className=" btn btn-outline-success shadow-sm button btn-sm  shadow-sm bg-gradient p-3 text-center fw-bold "
               >
                 <span>Next</span>
               </button>
             </div>
           </div>
-          <div class="col-4 text-end"></div>
+          <div className="col-4 text-end"></div>
         </form>
-        <div class="container py-3 text-center ">
+        <div className="container py-3 text-center ">
           <h2>IPC sections</h2>
           {selectedCrime && renderCrimeDetails()}
         </div>

@@ -6,7 +6,6 @@ import Contactus from "./Pages/Contactus";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import PersonalData from "./Pages/personaldata";
 import CheckStatus from "./Pages/checkstatus";
 import Cybersafety from "./Pages/cybersafety";
 import Lawyer from "./Pages/Lawyer";
@@ -52,7 +51,6 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/CheckStatus" element={user && <CheckStatus />}></Route>
-        <Route path="/PersonalData" element={<PersonalData />}></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/cybersafety" element={<Cybersafety />}></Route>
         <Route path="/lawyer" element={<Lawyer />}></Route>
