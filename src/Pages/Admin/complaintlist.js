@@ -1,7 +1,38 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../Components/sidebar";
 const ComplaintList = () => {
+
+    const [incident, setIncident] = useState([]);
+    useEffect(() => {
+      fetchIncident();
+    });
+    function fetchIncident() {
+      fetch("http://localhost:5000/incident")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data.data.data);
+          const transformUser = data.data.data.map((incidentData) => {
+            return {
+              category:    incidentData.category,
+              dateofcmp:    incidentData.dateofcmp,
+              state:    incidentData.state,
+              city:incidentData.city,
+              dateofincident:  incidentData.dateofincident,
+              reasonofdelay:     incidentData.reasonofdelay,
+              location: incidentData.location,
+              evidence: incidentData.evidence,
+              nameofsus: incidentData.nameofsus,
+              additionalinfo: incidentData.additionalinfo,
+            };
+          });
+  
+          setIncident(transformUser);
+        });
+    }
+
   return (
     <>
       <div
@@ -24,13 +55,13 @@ const ComplaintList = () => {
             <table class="table table-bordered table-hover py-1 my-1">
               <thead class="table-dark text-light">
                 <tr>
-                  <th scope="col">Com_ID</th>
+                  {/* <th scope="col">Com_ID</th> */}
                   <th scope="col">Complaint Category</th>
                   <th scope="col">Complaint Date</th>
                   <th scope="col">State</th>
                   <th scope="col">City</th>
                   <th scope="col">Date of Incident</th>
-                  <th scope="col">Time of Incident</th>
+                  {/* <th scope="col">Time of Incident</th> */}
                   <th scope="col">Reason for delay</th>
                   <th scope="col">Place of incident occurance</th>
                   <th scope="col">Evidence</th>
@@ -41,19 +72,22 @@ const ComplaintList = () => {
                   </th>
                 </tr>
               </thead>
+              {incident.map(e=>(
+                <>
+                
               <tr>
-                <td>1</td>
-                <td>AHBH</td>
-                <td>wjdna</td>
-                <td>JWND</td>
+                <td>{e.category}</td>
+                <td>{e.dateofcmp}</td>
+                <td>{e.state}</td>
+                <td>{e.city}</td>
+                <td>{e.dateofincident}</td>
+                <td>{e.reasonofdelay}</td>
+                <td>{e.location}</td>
                 <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
-                <td>JFNCSAM</td>
+                <td>{e.nameofsus}</td>
+                <td>{e.additionalinfo}</td>
+                {/* <td>JFNCSAM</td>
+                <td>JFNCSAM</td> */}
                 <td>
                   <Link
                     to="/updateComplaint"
@@ -69,6 +103,8 @@ const ComplaintList = () => {
                   </button>
                 </td>
               </tr>
+                </>
+              ))}
             </table>
           </div>
         </div>
