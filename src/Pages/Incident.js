@@ -203,18 +203,9 @@ const Incident = () => {
               placeholder="Enter reason of delay"
               className="form-control"
               id="reasonofdelay"
-              {...register("reasonofdelay", {
-                required: {
-                  value: true,
-                  message: "Reason of delay is Required!",
-                },
-              })}
+              {...register("reasonofdelay")}
             />
-            {errors.reasonofdelay && (
-              <span className="text-danger py-2">
-                {errors.reasonofdelay.message}
-              </span>
-            )}
+           
           </div>
           <div className="col-md-6">
             <label htmlFor="location" className="form-label">
@@ -227,15 +218,9 @@ const Incident = () => {
               className="form-control"
               placeholder="Enter where did the incident occur"
               id="location"
-              {...register("location", {
-                required: { value: true, message: "Location is Required!" },
-              })}
+              {...register("location")}
             />
-            {errors.location && (
-              <span className="text-danger py-2">
-                {errors.location.message}
-              </span>
-            )}
+            
           </div>
           <div className="col-md-6">
             <label htmlFor="evidence" className="form-label">
@@ -247,15 +232,9 @@ const Incident = () => {
               type="file"
               className="form-control"
               id="evidence"
-              {...register("evidence", {
-                required: { value: true, message: "Evidence is Required!" },
-              })}
+              {...register("evidence")}
             />
-            {errors.evidence && (
-              <span className="text-danger py-2">
-                {errors.evidence.message}
-              </span>
-            )}
+           
           </div>
           <div className="col-md-6">
             <label className="form-label">
@@ -269,18 +248,9 @@ const Incident = () => {
               name="suspect"
               type="text"
               id="nameofsus"
-              {...register("nameofsus", {
-                required: {
-                  value: true,
-                  message: "Name of suspect is Required!",
-                },
-              })}
+              {...register("nameofsus")}
             />
-            {errors.nameofsus && (
-              <span className="text-danger py-2">
-                {errors.nameofsus.message}
-              </span>
-            )}
+            
           </div>
           <div className="col-md-6">
             <label htmlFor="additionalinfo" className="form-label">
@@ -292,18 +262,9 @@ const Incident = () => {
               className="form-control"
               id="additionalinfo"
               rows="3"
-              {...register("additionalinfo", {
-                required: {
-                  value: true,
-                  message: "Additional info is Required!",
-                },
-              })}
+              {...register("additionalinfo")}
             />
-            {errors.additionalinfo && (
-              <span className="text-danger py-2">
-                {errors.additionalinfo.message}
-              </span>
-            )}
+           
           </div>
 
           <div className="col-md-12 mx-3 text-danger">
