@@ -21,7 +21,8 @@ const ComplaintList = () => {
               state:    incidentData.state,
               city:incidentData.city,
               dateofincident:  incidentData.dateofincident,
-              reasonofdelay:     incidentData.reasonofdelay,
+              policestaion:incidentData.policestaion,
+              reasonofdelay: incidentData.reasonofdelay,
               location: incidentData.location,
               evidence: incidentData.evidence,
               nameofsus: incidentData.nameofsus,
@@ -62,6 +63,7 @@ const ComplaintList = () => {
                   <th scope="col">City</th>
                   <th scope="col">Date of Incident</th>
                   {/* <th scope="col">Time of Incident</th> */}
+                  
                   <th scope="col">Reason for delay</th>
                   <th scope="col">Place of incident occurance</th>
                   <th scope="col">Evidence</th>
@@ -81,6 +83,7 @@ const ComplaintList = () => {
                 <td>{e.state}</td>
                 <td>{e.city}</td>
                 <td>{e.dateofincident}</td>
+               
                 <td>{e.reasonofdelay}</td>
                 <td>{e.location}</td>
                 <td>JFNCSAM</td>

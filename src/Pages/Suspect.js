@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 
@@ -10,7 +10,7 @@ const Suspect = () => {
     register,
     reset,
   } = useForm();
-
+  const navigate = useNavigate();
   const insertSuspect = async (data) => {
     try {
       const url = "http://localhost:5000/suspect/insert";
@@ -24,6 +24,7 @@ const Suspect = () => {
       // console.log(data, incident, cities, selectedState);
       const res = await axios.post(url, { suspect }, { withCredentials: true });
       console.log(res);
+      navigate("/preview");
       reset();
     } catch (error) {
       console.error(error);
@@ -52,7 +53,7 @@ const Suspect = () => {
             </h6>
           </div>
           <hr />
-          <div class="col-md-3">
+          <div class="col-md-4">
             <input
               type="text"
               id="susname"
@@ -61,7 +62,7 @@ const Suspect = () => {
               {...register("susname")}
             />
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <select
               class="form-control"
               id="sussocial"
@@ -77,7 +78,7 @@ const Suspect = () => {
             </select>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <input
               type="Text"
               id="sususername"
@@ -86,9 +87,7 @@ const Suspect = () => {
               {...register("sususername")}
             />
           </div>
-          <div class="col-md-3">
-            <button class=" btn btn-outline-success btn-md ">Add</button>
-          </div>
+         
           <div class="col-md-6">
             <h6>
               Please provide any photograph of suspect(Upload JPG/PNG file of

@@ -70,7 +70,7 @@ const Incident = () => {
         category: data.category,
         state: selectedState,
         city: cities[0],
-        // policestation: policestation,
+        policestation: data.policestation,
         dateofincident: data.dateofincident,
         reasonofdelay: data.reasonofdelay,
         location: data.location,
@@ -176,6 +176,7 @@ const Incident = () => {
               id="policestation"
               value={policestation}
               onChange={(evt) => setPoliceStation(evt.target.value)}
+              {...register("policestation")}
             >
               <option value="Athva">Athva</option>
               <option value="Bhatar">Bhatar</option>

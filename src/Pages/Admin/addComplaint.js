@@ -103,6 +103,7 @@ const AddComplaint = () => {
           <div class="col-md-2">
             <input type="time" class="form-control" />
           </div>
+          
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">
               Reason of delay in report:
