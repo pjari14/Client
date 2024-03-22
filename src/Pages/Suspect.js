@@ -1,9 +1,11 @@
 import React from "react";
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
 const Suspect = () => {
+  const incident = useSelector((state) => state.incident);
   const {
     formState: { errors },
     handleSubmit,
@@ -16,6 +18,7 @@ const Suspect = () => {
       const url = "http://localhost:5000/suspect/insert";
       const suspect = {
         susname: data.susname,
+        incidentId: incident._id,
         sussocial: data.sussocial,
         sususername: data.sususername,
         // susphoto: data.susphoto,

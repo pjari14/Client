@@ -1,17 +1,18 @@
 import React from "react";
 import image from "../Assets/images/logo.png";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../ReduxStore/Userslice/Userslice";
 
 const Navbar = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <nav className="navbar sticky-top navbar-expand-lg navbar-dark bg-dark text-large text-white">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          <img className="" height="50%" width="50%" src={image} alt="..." />
+          <img className="" height="40%" width="40%" src={image} alt="..." />
         </Link>
         <button
           className="navbar-toggler"
@@ -31,7 +32,7 @@ const Navbar = () => {
             </Link>
 
             {user && (
-              <Link class="nav-link" to="/PersonalData">
+              <Link class="nav-link" to="/incident">
                 Register & Track
               </Link>
             )}
@@ -89,7 +90,10 @@ const Navbar = () => {
             {user && (
               <button
                 className="nav-link "
-                onClick={() => dispatch(logoutUser())}
+                onClick={() => {
+                  dispatch(logoutUser());
+                  navigate("/");
+                }}
                 style={{
                   backgroundColor: "transparent",
                   color: "white",
