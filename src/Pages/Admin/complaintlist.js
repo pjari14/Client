@@ -16,6 +16,7 @@ const ComplaintList = () => {
           console.log(data.data.data);
           const transformUser = data.data.data.map((incidentData) => {
             return {
+              userId: incidentData.userId,
               category:    incidentData.category,
               dateofcmp:    incidentData.dateofcmp,
               state:    incidentData.state,
@@ -57,6 +58,7 @@ const ComplaintList = () => {
               <thead class="table-dark text-light">
                 <tr>
                   {/* <th scope="col">Com_ID</th> */}
+                  <th scope="col">UserId</th>
                   <th scope="col">Complaint Category</th>
                   <th scope="col">Complaint Date</th>
                   <th scope="col">State</th>
@@ -78,6 +80,7 @@ const ComplaintList = () => {
                 <>
                 
               <tr>
+              <td>{e.userId}</td>
                 <td>{e.category}</td>
                 <td>{e.dateofcmp}</td>
                 <td>{e.state}</td>
