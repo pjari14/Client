@@ -19,8 +19,8 @@ const Gallery = () => {
   return (
     <>
       <div class="container mt-2 pt-2">
-        <div class="col-sm-12">
-          <div class="p-1 text-center mb-1 text-success fs-3">
+        <div class="col-sm-12 my-5">
+          <div class="p-1 text-center mb-1 text-secondary fs-3">
             ━━━ Media Gallery ━━━
           </div>
         </div>
@@ -49,10 +49,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#A3320B" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Silence hides the violence."
                 </h6>
               </div>
@@ -86,10 +83,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#A3320B" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Dollars and sense: Make every cent count."
                 </h6>
               </div>
@@ -123,10 +117,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#A3320B" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Women faces alarming crime rates."
                 </h6>
               </div>
@@ -134,7 +125,7 @@ const Gallery = () => {
           </div>
         </div>
         <br></br>
-        <div class="row">
+        <div class="row my-3">
           <div class="col-sm">
             <div
               class="card mx-auto my-2 h-100 "
@@ -159,10 +150,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#202C59" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Break the chains of domestic abuse."
                 </h6>
               </div>
@@ -196,10 +184,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#202C59" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Digital Intrusion Chronicles"
                 </h6>
               </div>
@@ -233,10 +218,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#202C59" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Illusions of Wealth: Navigating Financial Deceit"
                 </h6>
               </div>
@@ -246,8 +228,8 @@ const Gallery = () => {
 
         <br></br>
 
-        <div class="col-sm-12">
-          <div class="p-1 text-center mb-1 text-success fs-3">
+        <div class="col-sm-12 my-5">
+          <div class="p-1 text-center mb-1 text-secondary fs-3">
             ━━━ Video Gallery ━━━
           </div>
         </div>
@@ -282,10 +264,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#767522" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Password Theft"
                 </h6>
               </div>
@@ -321,10 +300,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#767522" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Whatsapp Lottery Scam"
                 </h6>
               </div>
@@ -360,10 +336,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#767522" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Cyber Stalking"
                 </h6>
               </div>
@@ -371,7 +344,7 @@ const Gallery = () => {
           </div>
         </div>
         <br></br>
-        <div class="row">
+        <div class="row my-3">
           <div class="col-sm">
             <div
               class="card mx-auto my-2 h-100 "
@@ -402,10 +375,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#2F3061" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Debit & Credit Card Fraud"
                 </h6>
               </div>
@@ -441,10 +411,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#2F3061" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Online Games Fraud"
                 </h6>
               </div>
@@ -480,10 +447,7 @@ const Gallery = () => {
                     height: "1%",
                   }}
                 ></hr>
-                <h6
-                  class="card-title"
-                  style={{ fontSize: "20px", color: "#2F3061" }}
-                >
+                <h6 class="card-title text-danger" style={{ fontSize: "20px" }}>
                   "Online Investment Fraud"
                 </h6>
               </div>
@@ -491,8 +455,8 @@ const Gallery = () => {
           </div>
         </div>
         <br></br>
-        <div class="col-sm-12">
-          <div class="p-1 text-center mb-1 text-success fs-3">
+        <div class="col-sm-12 my-5">
+          <div class="p-1 text-center mb-1 text-secondary fs-3">
             ━━━ Radio Jingles ━━━
           </div>
         </div>
@@ -517,11 +481,10 @@ const Gallery = () => {
                 </audio>
                 <br></br>
                 <h6
-                  class="card-title"
+                  class="card-title text-danger"
                   style={{
                     fontSize: "20px",
                     paddingLeft: "15px",
-                    color: "#FB8B24",
                   }}
                 >
                   "Email Scam & Phishing"
@@ -549,11 +512,10 @@ const Gallery = () => {
                 </audio>
                 <br></br>
                 <h6
-                  class="card-title"
+                  class="card-title text-danger"
                   style={{
                     fontSize: "20px",
                     paddingLeft: "15px",
-                    color: "#FB8B24",
                   }}
                 >
                   "Obscene Content"
@@ -581,11 +543,10 @@ const Gallery = () => {
                 </audio>
                 <br></br>
                 <h6
-                  class="card-title"
+                  class="card-title text-danger"
                   style={{
                     fontSize: "20px",
                     paddingLeft: "15px",
-                    color: "#FB8B24",
                   }}
                 >
                   "Cyber Crime"

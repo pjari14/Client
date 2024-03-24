@@ -11,15 +11,13 @@ const Citizenmanual = () => {
     <>
       <div class="container mt-2 pt-2">
         <div class="col-sm-12">
-          <div class="p-1 text-center mb-1 text-warning fs-1 ">
+          <div class="p-1 text-center mb-1  fs-1 text-secondary">
             ━━━ Citizen Manual ━━━
           </div>
           <hr></hr>
-          <div class="row">
+          <div class="row text-danger">
             <td
               style={{
-                backgroundColor: "#74A4BC",
-                color: "white",
                 fontSize: "20px",
               }}
             >
@@ -29,10 +27,10 @@ const Citizenmanual = () => {
           <div class="row g-3 shadow py-4 px-4 mx-10 my-1">
             <tr class="row">
               <td
+                class="bg-light "
                 style={{
-                  backgroundColor: "#BA68C8",
-                  color: "white",
                   fontSize: "20px",
+                  color: "#407cc0",
                 }}
               >
                 Step 1 :- Register to report & track a complaint.
@@ -55,7 +53,6 @@ const Citizenmanual = () => {
                     color: "#150578",
                   }}
                 >
-                  {" "}
                   ➤ You are required to fill the following details to register
                   into the portal to report your complaint.{" "}
                 </p>
@@ -89,9 +86,10 @@ const Citizenmanual = () => {
             <hr></hr>
             <tr class="row">
               <td
+                class="bg-light"
                 style={{
                   backgroundColor: "#BA68C8",
-                  color: "white",
+                  color: "#407cc0",
                   fontSize: "20px",
                 }}
               >
@@ -138,9 +136,10 @@ const Citizenmanual = () => {
             <hr></hr>
             <tr class="row">
               <td
+                class=" bg-light"
                 style={{
                   backgroundColor: "#BA68C8",
-                  color: "white",
+                  color: "#407cc0",
                   fontSize: "20px",
                 }}
               >
@@ -216,9 +215,10 @@ const Citizenmanual = () => {
             <hr></hr>
             <tr class="row">
               <td
+                class="bg-light"
                 style={{
                   backgroundColor: "#BA68C8",
-                  color: "white",
+                  color: "#407cc0",
                   fontSize: "20px",
                 }}
               >
@@ -281,9 +281,10 @@ const Citizenmanual = () => {
             <hr></hr>
             <tr class="row">
               <td
+                class="bg-light"
                 style={{
                   backgroundColor: "#BA68C8",
-                  color: "white",
+                  color: "#407cc0",
                   fontSize: "20px",
                 }}
               >

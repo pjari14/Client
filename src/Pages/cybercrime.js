@@ -153,7 +153,7 @@ const Cybercrime = () => {
                     colspan="2"
                     style={{
                       textAlign: "center",
-                      backgroundColor: "#BA68C8",
+                      backgroundColor: "#407cc0",
                       color: "white",
                     }}
                   >
