@@ -9,17 +9,17 @@ const Footer = () => {
             <div class="row text-center d-flex justify-content-center pt-5">
               <div class="col-md-2">
                 <h6 class="text-uppercase font-weight-bold">
-                  <a href="/cybercrime" class="text-light">
+                  <Link className="text-light" to={"/cybercrime"}>
                     Blog
-                  </a>
+                  </Link>
                 </h6>
               </div>
 
               <div class="col-md-2">
                 <h6 class="text-uppercase font-weight-bold">
-                  <a href="/FAQS" class="text-light">
+                  <Link to={"/FAQS"} className="text-light">
                     FAQ's
-                  </a>
+                  </Link>
                 </h6>
               </div>
 
@@ -41,9 +41,9 @@ const Footer = () => {
 
               <div class="col-md-2">
                 <h6 class="text-uppercase font-weight-bold">
-                  <a href="/contactus" class="text-light">
+                  <Link to={"/contactus"} className="text-light">
                     Contact
-                  </a>
+                  </Link>
                 </h6>
               </div>
             </div>

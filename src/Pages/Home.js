@@ -9,7 +9,7 @@ import Cards from "../Components/Cards";
 
 const Home = () => {
   return (
-    <div>
+    <div id="home">
       <section
         class="bsb-hero-5 px-3 py-5 bsb-overlay"
         style={{

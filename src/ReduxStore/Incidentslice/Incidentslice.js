@@ -3,13 +3,12 @@ import axios from "axios";
 
 const url = "http://localhost:5000/incident";
 export const createIncident = createAsyncThunk(
-  "incident/createIncident",
+  "createIncident",
   async (incident) => {
-    const response = await axios.post(
-      `${url}/insert`,
-      { incident },
-      { withCredentials: true }
-    );
+    const response = await axios.post(`${url}/insert`, incident, {
+      withCredentials: true,
+    });
+    console.log(response?.data);
     return response.data;
   }
 );
@@ -25,8 +24,8 @@ const incidentSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(createIncident.fulfilled, (state, action) => {
-      if (action.payload.success) {
-        return (state = action.payload.incident);
+      if (action.payload.status === "success") {
+        return (state = action.payload.data.data);
       }
     });
     builder.addCase(createIncident.rejected, (state) => {

@@ -19,7 +19,7 @@ const crimeTypes = [
   { id: "TH", label: "Theft" },
   { id: "RB", label: "Robbery" },
 ];
-
+//Use Formik Bitches!!!
 const crimeDetails = {
   CC: {
     title: "Cyber Crime",
@@ -73,21 +73,6 @@ const Incident = () => {
   const navigate = useNavigate();
   const insertIncident = async (data) => {
     try {
-      const url = "http://localhost:5000/incident/insert";
-      const incident = {
-        category: data.category,
-        state: selectedState,
-        city: cities[0],
-        userId: user._id,
-        policestation: policestation,
-        dateofincident: data.dateofincident,
-        reasonofdelay: data.reasonofdelay,
-        location: data.location,
-        nameofsus: data.nameofsus,
-        additionalinfo: data.additionalinfo,
-      };
-      dispatch(createIncident(incident));
-      console.log(incident);
       const formData = new FormData();
       formData.append("category", data.category);
       formData.append("state", selectedState);
@@ -101,15 +86,14 @@ const Incident = () => {
       formData.append("additionalinfo", data.additionalinfo);
       formData.append("evidence", image);
       // console.log(data, incident, cities, selectedState);
-      const res = await axios.post(url, formData, { withCredentials: true });
-      console.log(res);
+      dispatch(createIncident(formData));
+      // console.log(incident);
       navigate("/suspect");
       reset();
     } catch (error) {
       console.error(error);
     }
   };
-
   return (
     <>
       <div className="container mt-2 pt-2">
