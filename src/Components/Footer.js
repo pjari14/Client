@@ -17,7 +17,7 @@ const Footer = () => {
 
               <div class="col-md-2">
                 <h6 class="text-uppercase font-weight-bold">
-                  <a href="#!" class="text-light">
+                  <a href="/FAQS" class="text-light">
                     FAQ's
                   </a>
                 </h6>

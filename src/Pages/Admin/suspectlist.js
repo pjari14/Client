@@ -1,35 +1,30 @@
-import React,{useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SuspectList = () => {
-  
-  const [suspect,setSuspect] = useState([]);
-  useEffect(()=>{
-   fetchSuspect();
-  })
-   function fetchSuspect(){
-   fetch("http://localhost:5000/suspect").then((response)=>{
-   
-   return response.json()
-   })
-   .then((data)=>{
-     console.log(data.data.data);
-     const transformSuspect = data.data.data.map(suspectData =>{
-       return {
-         susname:          suspectData.susname,
-         sussocial: suspectData.sussocial,
-         sususername:         suspectData.sususername,
-         otherdetails:     suspectData.otherdetails,
-        
- 
-       }
-     
-     });
- 
-     setSuspect(transformSuspect);
-   })
-  }
+  const [suspect, setSuspect] = useState([]);
+  useEffect(() => {
+    fetchSuspect();
+  });
+  function fetchSuspect() {
+    fetch("http://localhost:5000/suspect")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformSuspect = data.data.data.map((suspectData) => {
+          return {
+            susname: suspectData.susname,
+            sussocial: suspectData.sussocial,
+            sususername: suspectData.sususername,
+            otherdetails: suspectData.otherdetails,
+          };
+        });
 
+        setSuspect(transformSuspect);
+      });
+  }
 
   return (
     <>
@@ -62,30 +57,29 @@ const SuspectList = () => {
                   </th>
                 </tr>
               </thead>
-              {suspect.map(e=>(
+              {suspect.map((e) => (
                 <>
-                
-              <tr>
-                <td>{e.susname}</td>
-                <td>{e.sussocial}</td>
-                <td>{e.sususername}</td>
-                <td>JWND</td>
-                <td>{e.otherdetails}</td>
-                <td>
-                  <Link
-                    to="/updateSuspect"
-                    class="btn btn-outline-success"
-                    id="updateSuspect"
-                  >
-                    Update
-                  </Link>
-                </td>
-                <td>
-                  <button class="btn btn-danger" id="deleteSuspect">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+                  <tr>
+                    <td>{e.susname}</td>
+                    <td>{e.sussocial}</td>
+                    <td>{e.sususername}</td>
+                    <td>JWND</td>
+                    <td>{e.otherdetails}</td>
+                    <td>
+                      <Link
+                        to="/updateSuspect"
+                        class="btn btn-outline-success"
+                        id="updateSuspect"
+                      >
+                        Update
+                      </Link>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" id="deleteSuspect">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
                 </>
               ))}
             </table>

@@ -1,20 +1,19 @@
 @font-face {
-  font-family: montserrat;
-  src: url(./Assets/Montserrat/Montserrat-VariableFont_wght.ttf);
+  font-family: Poppins;
+  src: url(./Assets/Poppins/Poppins-Regular.ttf);
 }
 
 * {
-  font-family: montserrat !important;
+  font-family: Poppins !important;
   font-weight: 600;
 }
 
 .bg-dark {
-  background-color: #2193b0 !important;
+  background-color: #062d4b !important;
   font-size: larger;
+  opacity: 90%;
 }
-.navbar-nav {
-  margin-left: 100px;
-}
+
 .nav-link {
   padding: 20px;
 }

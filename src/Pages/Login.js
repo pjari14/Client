@@ -101,7 +101,7 @@ const Login = () => {
                     <div className="col-12">
                       <div className="d-grid">
                         <button
-                          className=" btn btn-outline-danger btn-gradient btn-lg"
+                          className=" btn btn-outline-dark btn-gradient btn-lg"
                           type="submit"
                         >
                           Log in now

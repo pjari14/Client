@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import IndiaCities from "../Components/incidancities";
+import { createIncident } from "../ReduxStore/Incidentslice/Incidentslice";
 import {
   CCContent,
   DVContent,
@@ -48,6 +49,8 @@ const Incident = () => {
   const [cities, setCities] = useState([]);
   const [policestation, setPoliceStation] = useState("");
   const user = useSelector((state) => state.user);
+  const incident = useSelector((state) => state.incident);
+  const dispatch = useDispatch();
   const handleCrimeChange = (e) => {
     setSelectedCrime(e.target.value);
   };
@@ -66,26 +69,21 @@ const Incident = () => {
   const navigate = useNavigate();
   const insertIncident = async (data) => {
     try {
-      const url = "http://localhost:5000/incident/insert";
       const incident = {
         category: data.category,
         state: selectedState,
         city: cities[0],
         userId: user._id,
-        policestation: data.policestation,
+        policestation: policestation,
         dateofincident: data.dateofincident,
         reasonofdelay: data.reasonofdelay,
         location: data.location,
         nameofsus: data.nameofsus,
         additionalinfo: data.additionalinfo,
       };
-      console.log(data, incident, cities, selectedState);
-      const res = await axios.post(
-        url,
-        { incident },
-        { withCredentials: true }
-      );
-      console.log(res);
+
+      dispatch(createIncident(incident));
+      console.log(incident);
       navigate("/suspect");
       reset();
     } catch (error) {
@@ -205,7 +203,6 @@ const Incident = () => {
               id="reasonofdelay"
               {...register("reasonofdelay")}
             />
-           
           </div>
           <div className="col-md-6">
             <label htmlFor="location" className="form-label">
@@ -220,7 +217,6 @@ const Incident = () => {
               id="location"
               {...register("location")}
             />
-            
           </div>
           <div className="col-md-6">
             <label htmlFor="evidence" className="form-label">
@@ -234,7 +230,6 @@ const Incident = () => {
               id="evidence"
               {...register("evidence")}
             />
-           
           </div>
           <div className="col-md-6">
             <label className="form-label">
@@ -250,7 +245,6 @@ const Incident = () => {
               id="nameofsus"
               {...register("nameofsus")}
             />
-            
           </div>
           <div className="col-md-6">
             <label htmlFor="additionalinfo" className="form-label">
@@ -264,7 +258,6 @@ const Incident = () => {
               rows="3"
               {...register("additionalinfo")}
             />
-           
           </div>
 
           <div className="col-md-12 mx-3 text-danger">

@@ -16,7 +16,10 @@ const Cards = () => {
               </p>
             </div>
             <div class="card-footer">
-              <Link to="/cybersafety" class="btn btn-lg w-100 bg-danger ">
+              <Link
+                to="/cybersafety"
+                class="btn btn-lg w-100 btn-danger text-light"
+              >
                 Read More
               </Link>
             </div>
@@ -33,7 +36,10 @@ const Cards = () => {
               </p>
             </div>
             <div class="card-footer ">
-              <Link to="cybercrime" class="btn btn-lg w-100 bg-danger ">
+              <Link
+                to="cybercrime"
+                class="btn btn-lg w-100 btn-danger text-light"
+              >
                 Read More
               </Link>
             </div>
@@ -52,7 +58,7 @@ const Cards = () => {
             <div class="card-footer">
               <Link
                 to="citizenmanual"
-                class="btn btn-lg w-100 bg-danger bg-danger "
+                class="btn btn-lg w-100 btn-danger text-light "
               >
                 Read More
               </Link>
@@ -70,7 +76,10 @@ const Cards = () => {
               <p class="card-text"></p>
             </div>
             <div class="card-footer">
-              <Link to="/gallery" class="btn btn-lg w-100 bg-danger ">
+              <Link
+                to="/gallery"
+                class="btn btn-lg w-100 btn-danger text-light"
+              >
                 Read More
               </Link>
             </div>

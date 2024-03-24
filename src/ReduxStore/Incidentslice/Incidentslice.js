@@ -1,14 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "http://localhost:5000/user";
-export const fetchUser = createAsyncThunk("users/fetchUser", async () => {
-  const response = await axios.get(`${url}/get`, { withCredentials: true });
-  return response.data;
-});
+const url = "http://localhost:5000/incident";
+export const createIncident = createAsyncThunk(
+  "incident/createIncident",
+  async (incident) => {
+    const response = await axios.post(
+      `${url}/insert`,
+      { incident },
+      { withCredentials: true }
+    );
+    return response.data;
+  }
+);
 
-const userslice = createSlice({
-  name: "user",
+const incidentSlice = createSlice({
+  name: "incident",
   initialState: null,
 
   reducers: {
@@ -17,13 +24,14 @@ const userslice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUser.fulfilled, (state, action) => {
+    builder.addCase(createIncident.fulfilled, (state, action) => {
       if (action.payload.success) {
-        return (state = action.payload.user);
+        return (state = action.payload.incident);
       }
     });
-    builder.addCase(fetchUser.rejected, (state) => {
+    builder.addCase(createIncident.rejected, (state) => {
       return (state = null);
     });
   },
 });
+export default incidentSlice.reducer;

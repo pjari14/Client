@@ -1,39 +1,38 @@
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../../Components/sidebar";
 const ComplaintList = () => {
-
-    const [incident, setIncident] = useState([]);
-    useEffect(() => {
-      fetchIncident();
-    });
-    function fetchIncident() {
-      fetch("http://localhost:5000/incident")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data.data.data);
-          const transformUser = data.data.data.map((incidentData) => {
-            return {
-              userId: incidentData.userId,
-              category:    incidentData.category,
-              dateofcmp:    incidentData.dateofcmp,
-              state:    incidentData.state,
-              city:incidentData.city,
-              dateofincident:  incidentData.dateofincident,
-              policestaion:incidentData.policestaion,
-              reasonofdelay: incidentData.reasonofdelay,
-              location: incidentData.location,
-              evidence: incidentData.evidence,
-              nameofsus: incidentData.nameofsus,
-              additionalinfo: incidentData.additionalinfo,
-            };
-          });
-  
-          setIncident(transformUser);
+  const [incident, setIncident] = useState([]);
+  useEffect(() => {
+    fetchIncident();
+  });
+  function fetchIncident() {
+    fetch("http://localhost:5000/incident")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestaion: incidentData.policestaion,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+          };
         });
-    }
+
+        setIncident(transformUser);
+      });
+  }
 
   return (
     <>
@@ -54,7 +53,7 @@ const ComplaintList = () => {
 
           <hr />
           <div class="container table-responsive">
-            <table class="table table-bordered table-hover py-1 my-1">
+            <table class="table table-bordered table-hover  table-responsive py-1 my-1">
               <thead class="table-dark text-light">
                 <tr>
                   {/* <th scope="col">Com_ID</th> */}
@@ -65,7 +64,7 @@ const ComplaintList = () => {
                   <th scope="col">City</th>
                   <th scope="col">Date of Incident</th>
                   {/* <th scope="col">Time of Incident</th> */}
-                  
+
                   <th scope="col">Reason for delay</th>
                   <th scope="col">Place of incident occurance</th>
                   <th scope="col">Evidence</th>
@@ -76,39 +75,38 @@ const ComplaintList = () => {
                   </th>
                 </tr>
               </thead>
-              {incident.map(e=>(
+              {incident.map((e) => (
                 <>
-                
-              <tr>
-              <td>{e.userId}</td>
-                <td>{e.category}</td>
-                <td>{e.dateofcmp}</td>
-                <td>{e.state}</td>
-                <td>{e.city}</td>
-                <td>{e.dateofincident}</td>
-               
-                <td>{e.reasonofdelay}</td>
-                <td>{e.location}</td>
-                <td>JFNCSAM</td>
-                <td>{e.nameofsus}</td>
-                <td>{e.additionalinfo}</td>
-                {/* <td>JFNCSAM</td>
+                  <tr>
+                    <td>{e.userId}</td>
+                    <td>{e.category}</td>
+                    <td>{e.dateofcmp}</td>
+                    <td>{e.state}</td>
+                    <td>{e.city}</td>
+                    <td>{e.dateofincident}</td>
+
+                    <td>{e.reasonofdelay}</td>
+                    <td>{e.location}</td>
+                    <td>JFNCSAM</td>
+                    <td>{e.nameofsus}</td>
+                    <td>{e.additionalinfo}</td>
+                    {/* <td>JFNCSAM</td>
                 <td>JFNCSAM</td> */}
-                <td>
-                  <Link
-                    to="/updateComplaint"
-                    class="btn btn-outline-success"
-                    id="updateComplaint"
-                  >
-                    Update
-                  </Link>
-                </td>
-                <td>
-                  <button class="btn btn-danger" id="deleteComplaint">
-                    Delete
-                  </button>
-                </td>
-              </tr>
+                    <td>
+                      <Link
+                        to="/updateComplaint"
+                        class="btn btn-outline-success"
+                        id="updateComplaint"
+                      >
+                        Update
+                      </Link>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" id="deleteComplaint">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
                 </>
               ))}
             </table>

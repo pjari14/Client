@@ -11,7 +11,7 @@ const Sidebar = () => {
     <>
       <div id="wrapper">
         <ul
-          className="navbar-nav bg-gradient bg-dark sidebar sidebar-dark accordion"
+          className="navbar-nav bg-dark sidebar sidebar-dark accordion navbar-sticky"
           id="accordionSidebar"
         >
           <a
