@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import IndiaCities from "../Components/incidancities";
@@ -47,6 +47,7 @@ const Incident = () => {
   const [selectedCrime, setSelectedCrime] = useState(null);
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
+  const [image, setImage] = useState(null);
   const [policestation, setPoliceStation] = useState("");
   const user = useSelector((state) => state.user);
   const incident = useSelector((state) => state.incident);
@@ -60,6 +61,9 @@ const Incident = () => {
     return CrimeDetailComponent ? <CrimeDetailComponent /> : null;
   };
 
+  const handleUpload = (e) => {
+    setImage(e.target.files[0]);
+  };
   const {
     formState: { errors },
     handleSubmit,
@@ -81,9 +85,23 @@ const Incident = () => {
         nameofsus: data.nameofsus,
         additionalinfo: data.additionalinfo,
       };
-
       dispatch(createIncident(incident));
       console.log(incident);
+      const formData = new FormData();
+      formData.append("category", data.category);
+      formData.append("state", selectedState);
+      formData.append("city", cities[0]);
+      formData.append("userId", user._id);
+      formData.append("policestation", data.policestation);
+      formData.append("dateofincident", data.dateofincident);
+      formData.append("reasonofdelay", data.reasonofdelay);
+      formData.append("location", data.location);
+      formData.append("nameofsus", data.nameofsus);
+      formData.append("additionalinfo", data.additionalinfo);
+      formData.append("evidence", image);
+      // console.log(data, incident, cities, selectedState);
+      const res = await axios.post(url, formData, { withCredentials: true });
+      console.log(res);
       navigate("/suspect");
       reset();
     } catch (error) {
@@ -103,6 +121,7 @@ const Incident = () => {
         <form
           className="row g-3 shadow py-4 px-4 mx-5 my-5 "
           id="complaintdetails"
+          encType="multipart/form-data"
           onSubmit={handleSubmit(insertIncident)}
         >
           <div className="col-sm-12">
@@ -228,7 +247,7 @@ const Incident = () => {
               type="file"
               className="form-control"
               id="evidence"
-              {...register("evidence")}
+              onChange={handleUpload}
             />
           </div>
           <div className="col-md-6">
