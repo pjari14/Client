@@ -32,6 +32,7 @@ const ComplaintList = () => {
         });
 
         setIncident(transformUser);
+        console.log("this is incident", incident);
       });
   }
 
@@ -99,7 +100,7 @@ const ComplaintList = () => {
               {incident.map((e) => (
                 <>
                   <tr>
-                    <td>{e._id}</td>
+                    <td>{e.id}</td>
                     <td>{e.userId}</td>
                     <td>{e.category}</td>
                     <td>{e.dateofcmp}</td>
@@ -134,7 +135,7 @@ const ComplaintList = () => {
                       <button
                         class="btn btn-danger"
                         id="deleteComplaint"
-                        onClick={() => deleteComplaint(e._id)}
+                        onClick={() => deleteComplaint(e.id)}
                       >
                         Delete
                       </button>
