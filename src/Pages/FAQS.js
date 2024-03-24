@@ -13,10 +13,11 @@ const FAQS = () => {
               commonly asked questions.
             </p>
             <p class="mb-5 text-center">
-              Whether you're a new customer looking to learn more about what we
-              offer or a long-time user seeking clarification on specific
-              topics, this page has clear and concise information about our
-              products and services.
+              Whether you're unsure of the process, have questions about
+              specific crimes, or simply want to learn more about online
+              reporting, this FAQ page is here to help. We've compiled a list of
+              common questions to guide you through the online reporting process
+              and empower you to report crime effectively.
             </p>
             <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle" />
           </div>
