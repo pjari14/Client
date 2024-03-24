@@ -5,7 +5,7 @@ const ComplaintList = () => {
   const [incident, setIncident] = useState([]);
   useEffect(() => {
     fetchIncident();
-  });
+  }, []);
   function fetchIncident() {
     fetch("http://localhost:5000/incident")
       .then((response) => {
@@ -15,6 +15,7 @@ const ComplaintList = () => {
         console.log(data.data.data);
         const transformUser = data.data.data.map((incidentData) => {
           return {
+            id: incidentData._id,
             userId: incidentData.userId,
             category: incidentData.category,
             dateofcmp: incidentData.dateofcmp,
@@ -34,12 +35,29 @@ const ComplaintList = () => {
       });
   }
 
+  function deleteComplaint(id) {
+    fetch(`http://localhost:5000/incident/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to delete complaint");
+        }
+        // Refresh incident list after successful deletion
+        fetchIncident();
+      })
+      .catch((error) => {
+        console.error("Error deleting complaint:", error);
+      });
+  }
+
   return (
     <>
       <div
         id="content container container scrollable-content"
         className="d-flex flex-column"
         style={{ marginTop: "-694px", marginLeft: "225px" }}
+        // onLoad={fetchIncident()}
       >
         <div id="content">
           <div class=" p-4  mb-1 fs-1 text-dark">Complaints List</div>
@@ -57,6 +75,7 @@ const ComplaintList = () => {
               <thead class="table-dark text-light">
                 <tr>
                   {/* <th scope="col">Com_ID</th> */}
+                  <th scope="col">_id</th>
                   <th scope="col">UserId</th>
                   <th scope="col">Complaint Category</th>
                   <th scope="col">Complaint Date</th>
@@ -70,6 +89,8 @@ const ComplaintList = () => {
                   <th scope="col">Evidence</th>
                   <th scope="col">Suspect person or company name</th>
                   <th scope="col">Additional Details</th>
+                  <th scope="col">Evidence</th>
+
                   <th scope="col" colSpan={2}>
                     Options
                   </th>
@@ -78,6 +99,7 @@ const ComplaintList = () => {
               {incident.map((e) => (
                 <>
                   <tr>
+                    <td>{e._id}</td>
                     <td>{e.userId}</td>
                     <td>{e.category}</td>
                     <td>{e.dateofcmp}</td>
@@ -90,6 +112,13 @@ const ComplaintList = () => {
                     <td>JFNCSAM</td>
                     <td>{e.nameofsus}</td>
                     <td>{e.additionalinfo}</td>
+                    <td>
+                      <img
+                        src={`http://localhost:5000/evidence/` + e.evidence}
+                        width="300px"
+                        alt="evidence"
+                      />
+                    </td>
                     {/* <td>JFNCSAM</td>
                 <td>JFNCSAM</td> */}
                     <td>
@@ -102,7 +131,11 @@ const ComplaintList = () => {
                       </Link>
                     </td>
                     <td>
-                      <button class="btn btn-danger" id="deleteComplaint">
+                      <button
+                        class="btn btn-danger"
+                        id="deleteComplaint"
+                        onClick={() => deleteComplaint(e._id)}
+                      >
                         Delete
                       </button>
                     </td>
