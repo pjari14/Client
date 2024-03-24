@@ -73,6 +73,7 @@ const Incident = () => {
   const navigate = useNavigate();
   const insertIncident = async (data) => {
     try {
+      const url = "http://localhost:5000/incident/insert";
       const incident = {
         category: data.category,
         state: selectedState,
