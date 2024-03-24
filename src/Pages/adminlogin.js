@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import img from "../Assets/images/Wavy_Gen-01_Single-07.jpg";
 
 const AdminLogin = () => {
   return (
@@ -16,7 +15,7 @@ const AdminLogin = () => {
                 <div class="row g-0">
                   <div class="col-xl-6 d-none d-xl-block">
                     <img
-                      src={img}
+                      src=""
                       alt="Sample"
                       class="img-fluid signup-img py-5 "
                       style={{ height: "100%" }}

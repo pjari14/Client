@@ -1,77 +1,91 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import image from "../Assets/images/logo.png";
 const Footer = () => {
   return (
-    <div class="container my-5   text-light w-100">
-      <footer class="text-center text-light bg-dark w-100">
-        <div class="container">
-          <section class="mt-5">
-            <div class="row text-center d-flex justify-content-center pt-5">
-              <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                  <Link className="text-light" to={"/cybercrime"}>
-                    Blog
-                  </Link>
-                </h6>
-              </div>
-
-              <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                  <Link to={"/FAQS"} className="text-light">
-                    FAQ's
-                  </Link>
-                </h6>
-              </div>
-
-              <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                  <a href="#!" class="text-light">
-                    Usefull Links
+    <>
+      <footer class="footer">
+        <div class="bg-dark text-white py-3 py-md-5 py-xl-8 border-top border-light-subtle">
+          <div class="container overflow-hidden">
+            <div class="row gy-3 gy-md-5 gy-xl-0 align-items-sm-center">
+              <div class="col-xs-12 col-sm-6 col-xl-3 order-0 order-xl-0">
+                <div class="footer-logo-wrapper text-center text-sm-start">
+                  <a href="#!">
+                    <img
+                      src={image}
+                      alt="Cyberiris Logo"
+                      height="50%"
+                      width="50%"
+                    />
                   </a>
-                </h6>
+                </div>
               </div>
 
-              <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                  <a href="#!" class="text-light">
-                    Help
-                  </a>
-                </h6>
+              <div class="col-xs-12 col-xl-6 order-2 order-xl-1 ">
+                <ul class="nav justify-content-center">
+                  <li class="nav-item ">
+                    <Link
+                      className="nav-link link-light px-2 px-md-3"
+                      to={"/cybercrime"}
+                    >
+                      Resources
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      className="nav-link link-light px-2 px-md-3"
+                      to={"/contactus"}
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      to="/FAQS"
+                      className="nav-link link-light px-2 px-md-3"
+                    >
+                      FAQ's
+                    </Link>
+                  </li>
+                  <li class="nav-item">
+                    <Link
+                      to="/citizenmanual"
+                      className="nav-link link-light px-2 px-md-3"
+                    >
+                      Help
+                    </Link>
+                  </li>
+                </ul>
               </div>
-
-              <div class="col-md-2">
-                <h6 class="text-uppercase font-weight-bold">
-                  <Link to={"/contactus"} className="text-light">
-                    Contact
+              <div class="col-xs-12 col-sm-6 col-xl-3 order-1 order-xl-2">
+                <div class="footer-copyright-wrapper text-white text-center">
+                  &copy; 2024.{" "}
+                  <Link class="text-light" to="/">
+                    CYBERIRIS
                   </Link>
-                </h6>
+                </div>
               </div>
             </div>
-          </section>
-
-          <hr class="my-5" />
-
-          <section class="mb-5">
-            <div class="row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <p>
-                  Visit the CyberIris Crime Reporting Portal to report incidents
-                  and contribute to a safer environment. Together, we can combat
-                  cybercrime.
-                </p>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
 
-        <div class="text-center p-3">
-          © 2020 Copyright:
-          <Link class="text-light" to="/">
-            CYBERIRIS
-          </Link>
+        <div class="bg-dark py-3 py-md-5 border-top border-light-subtle">
+          <div class="container overflow-hidden">
+            <div class="row">
+              <div class="col">
+                <div class="footer-info-wrapper text-white text-center">
+                  <p class="h6">
+                    Visit the CyberIris Crime Reporting Portal to report
+                    incidents and contribute to a safer environment. Together,
+                    we can combat cybercrime.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 };
 export default Footer;
