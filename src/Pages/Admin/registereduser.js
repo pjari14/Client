@@ -27,46 +27,44 @@ function UsersTable() {
   }
 
   return (
-    <div
-      id="content container"
-      className="d-flex flex-column container scrollable-content"
-      style={{ marginTop: "-694px", marginLeft: "225px", height: "100vh" }}
-    >
-      <div id="content">
-        <div class=" p-4  mb-1 fs-1 text-dark">Registered Users List</div>
-        <hr />
+    <div class="container-fluid d-flex">
+      <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="content">
+        <div className="overflow-auto">
+          <h1 class=" my-5  mb-1 fs-1 text-dark ">Registered Users List</h1>
+          <hr />
 
-        <div class="container table-responsive ">
-          <table class="table  table-hover  ">
-            <thead class="table-dark text-light">
-              <tr>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Address</th>
-                <th scope="col">Contact</th>
-                <th scope="col">Email</th>
-                {/* <th>Password</th> */}
-              </tr>
-            </thead>
-            <tbody>
-              {user.map((e) => (
-                <>
-                  <tr>
-                    <td>
-                      {e.fname.charAt(0).toUpperCase() + e.fname.slice(1)}
-                    </td>
-                    <td>
-                      {e.lname.charAt(0).toUpperCase() + e.lname.slice(1)}
-                    </td>
-                    <td>{e.address}</td>
-                    <td>{e.contact}</td>
-                    <td>{e.email}</td>
-                  </tr>
-                </>
-              ))}
-              {/* ))} */}
-            </tbody>
-          </table>
+          <div class="container table-responsive ">
+            <table class="table  table-hover  ">
+              <thead class="table-dark text-light">
+                <tr>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Contact</th>
+                  <th scope="col">Email</th>
+                  {/* <th>Password</th> */}
+                </tr>
+              </thead>
+              <tbody>
+                {user.map((e) => (
+                  <>
+                    <tr>
+                      <td>
+                        {e.fname.charAt(0).toUpperCase() + e.fname.slice(1)}
+                      </td>
+                      <td>
+                        {e.lname.charAt(0).toUpperCase() + e.lname.slice(1)}
+                      </td>
+                      <td>{e.address}</td>
+                      <td>{e.contact}</td>
+                      <td>{e.email}</td>
+                    </tr>
+                  </>
+                ))}
+                {/* ))} */}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

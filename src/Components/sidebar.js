@@ -2,71 +2,65 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logoutUser } from "../ReduxStore/Userslice/Userslice";
 import { useSelector, useDispatch } from "react-redux";
-
+import image from "../Assets/images/logo.png";
 const Sidebar = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
     <>
-      <div id="wrapper">
+      <div id="wrapper" class="d-flex">
         <ul
           className="navbar-nav bg-dark sidebar sidebar-dark accordion navbar-sticky"
           id="accordionSidebar"
         >
-          <a
-            className="sidebar-brand d-flex align-items-center justify-content-center"
-            href="/admin"
-          >
-            <div className="sidebar-brand-icon rotate-n-15">
-              <i className="fas fa-laugh-wink" />
-            </div>
-            <div className="sidebar-brand-text mx-3">Admin</div>
-          </a>
-          <hr className="sidebar-divider my-0" />
+          <div className="sidebar-brand-icon my-4">
+            <i className="fas fa-laugh-wink">
+              <img src={image} width="100%" height="100%"></img>
+            </i>
+          </div>
 
+          <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/admin">
+            <Link className="nav-link" to="/admin">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Dashboard</span>
-            </a>
+            </Link>
           </li>
-
           <hr className="sidebar-divider my-0" />
-
           <li className="nav-item active">
-            <a className="nav-link" href="/complaintlist">
+            <Link className="nav-link" to="/complaintlist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Complaints</span>
-            </a>
+            </Link>
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/suspectlist">
+            <Link className="nav-link" to="/suspectlist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Suspect</span>
-            </a>
+            </Link>
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/evidencelist">
+            <Link className="nav-link" to="/evidencelist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Evidence</span>
-            </a>
+            </Link>
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/admin">
+            <Link className="nav-link" to="/admin">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Lawyers</span>
-            </a>
+            </Link>
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <a className="nav-link" href="/registereduser">
+            <Link className="nav-link" to="/registereduser">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Registered Users</span>
-            </a>
+            </Link>
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">

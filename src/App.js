@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "./ReduxStore/Userslice/Userslice";
 import Incident from "./Pages/Incident";
 import Suspect from "./Pages/Suspect";
-import AdminLogin from "./Pages/adminlogin";
+
 import UsersTable from "./Pages/Admin/registereduser";
 import SuspectList from "./Pages/Admin/suspectlist";
 import AddSuspect from "./Pages/Admin/addSuspect";

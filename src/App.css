@@ -7,6 +7,34 @@
   font-family: Poppins !important;
   font-weight: 600;
 }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.main-content-container {
+  overflow: auto;
+  overflow-x: scroll;
+  margin-left: 15rem;
+}
 
 .bg-dark {
   background-color: #062d4b !important;
