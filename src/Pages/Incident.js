@@ -189,7 +189,6 @@ const Incident = () => {
               id="policestation"
               value={policestation}
               onChange={(evt) => setPoliceStation(evt.target.value)}
-              {...register("policestation")}
             >
               <option value="Athva">Athva</option>
               <option value="Bhatar">Bhatar</option>

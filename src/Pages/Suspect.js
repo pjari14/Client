@@ -1,11 +1,15 @@
-import React from "react";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
 const Suspect = () => {
+  const [image, setImage] = useState(null);
   const incident = useSelector((state) => state.incident);
+  const handleUpload = (e) => {
+    setImage(e.target.files[0]);
+  };
   const {
     formState: { errors },
     handleSubmit,
@@ -16,16 +20,27 @@ const Suspect = () => {
   const insertSuspect = async (data) => {
     try {
       const url = "http://localhost:5000/suspect/insert";
-      const suspect = {
-        susname: data.susname,
-        incidentId: incident._id,
-        sussocial: data.sussocial,
-        sususername: data.sususername,
-        // susphoto: data.susphoto,
-        otherdetails: data.otherdetails,
-      };
+      // const suspect = {
+      //   susname: data.susname,
+      //   incidentId: incident._id,
+      //   sussocial: data.sussocial,
+      //   sususername: data.sususername,
+      //   // susphoto: data.susphoto,
+      //   otherdetails: data.otherdetails,
+
+      // };
       // console.log(data, incident, cities, selectedState);
-      const res = await axios.post(url, { suspect }, { withCredentials: true });
+      const formData = new FormData();
+      formData.append("susname", data.susname);
+      formData.append("incidentId", incident._id);
+      formData.append("sussocial", data.sussocial);
+      formData.append("sususername", data.sususername);
+      formData.append("susphoto", image);
+      formData.append("otherdetails", data.otherdetails);
+
+      // console.log(data, incident, cities, selectedState);
+      // dispatch(createIncident(formData));
+      const res = await axios.post(url, formData, { withCredentials: true });
       console.log(res);
       navigate("/preview");
       reset();
@@ -90,7 +105,7 @@ const Suspect = () => {
               {...register("sususername")}
             />
           </div>
-         
+
           <div class="col-md-6">
             <h6>
               Please provide any photograph of suspect(Upload JPG/PNG file of
@@ -101,9 +116,9 @@ const Suspect = () => {
           <div class="col-md-6">
             <input
               type="file"
-              class="form-control"
-              id="susphoto"
-              {...register("susphoto")}
+              className="form-control"
+              id="evidence"
+              onChange={handleUpload}
             />
           </div>
           <div class="col-md-6">
