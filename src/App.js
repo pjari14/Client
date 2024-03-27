@@ -49,6 +49,10 @@ function App() {
         {user && (
           <Route path="/" element={user.isAdmin ? <Admin /> : <Home />}></Route>
         )}
+        <Route
+          path="/suspectlist"
+          element={user && user.isAdmin ? <SuspectList /> : <Home />}
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/CheckStatus" element={user && <CheckStatus />}></Route>
@@ -66,10 +70,7 @@ function App() {
           path="/registereduser"
           element={user && user.isAdmin ? <UsersTable /> : <Home />}
         ></Route>
-        <Route
-          path="/suspectlist"
-          element={user && user.isAdmin ? <SuspectList /> : <Home />}
-        ></Route>
+
         {/* <Route
           path="/suspectlist"
           element= {<SuspectList />}>

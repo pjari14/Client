@@ -3,29 +3,61 @@ import { Link } from "react-router-dom";
 
 const SuspectList = () => {
   const [suspect, setSuspect] = useState([]);
-  useEffect(() => {
-    fetchSuspect();
-  }, []);
-  function fetchSuspect() {
-    fetch("http://localhost:5000/suspect")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((suspectData) => {
-          return {
-            susname: suspectData.susname,
-            sussocial: suspectData.sussocial,
-            sususername: suspectData.sususername,
-            otherdetails: suspectData.otherdetails,
-            // susphoto: suspectData.susphoto,
-          };
-        });
+  console.log(fetch("http://localhost:5000/suspect"));
+  // useEffect(() => {
+  //   const fetchSuspect = async () => {
+  //     const response = await fetch("http://localhost:5000/suspect");
+  //     console.log(response);
+  //     // fetch("http://localhost:5000/suspect")
+  //     //   .then(async (data) => {
+  //     //     console.log(data);
+  //     //   })
+  //     //   .then((response) => {
+  //     //     return response.json();
+  //     //   })
+  //     //   .then((data) => {
+  //     //     console.log(data.data.data);
+  //     //     const transformUser = data.data.data.map((suspectData) => {
+  //     //       return {
+  //     //         // id: suspectData._id,
+  //     //         susname: suspectData.susname,
+  //     //         sussocial: suspectData.sussocial,
+  //     //         sususername: suspectData.sususername,
+  //     //         otherdetails: suspectData.otherdetails,
+  //     //       };
+  //     //     });
 
-        setSuspect(transformUser);
-      });
-  }
+  //     //     setSuspect(transformUser);
+  //     //     console.log("this is suspect", suspect);
+  //     //   });
+  //   };
+  //   fetchSuspect();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+  // function fetchSuspect() {
+  //   fetch("http://localhost:5000/suspect")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {});
+  // fetch("http://localhost:5000/suspect")
+  // // .then((response) => {
+  //   return response.json();
+  // })
+  // .then((data) => {
+  //   console.log(data.data.data);
+  //   const transformUser = data.data.data.map((suspectData) => {
+  //     return {
+  //       susname: suspectData.susname,
+  //       sussocial: suspectData.sussocial,
+  //       sususername: suspectData.sususername,
+  //       otherdetails: suspectData.otherdetails,
+  //       // susphoto: suspectData.susphoto,
+  //     };
+  //   });
+  //   setSuspect(transformUser);
+  // });
+  // }
 
   return (
     <>
@@ -55,7 +87,7 @@ const SuspectList = () => {
                     </th>
                   </tr>
                 </thead>
-                {suspect.map((e) => (
+                {suspect?.map((e) => (
                   <>
                     <tr>
                       <td>{e.susname}</td>
