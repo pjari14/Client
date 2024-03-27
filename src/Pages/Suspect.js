@@ -13,7 +13,7 @@ const Suspect = () => {
   const {
     formState: { errors },
     handleSubmit,
-    register,
+    register,   
     reset,
   } = useForm();
   const navigate = useNavigate();

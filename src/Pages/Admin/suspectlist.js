@@ -2,6 +2,63 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SuspectList = () => {
+  const [suspect, setSuspect] = useState([]);
+  console.log(fetch("http://localhost:5000/suspect"));
+  // useEffect(() => {
+  //   const fetchSuspect = async () => {
+  //     const response = await fetch("http://localhost:5000/suspect");
+  //     console.log(response);
+  //     // fetch("http://localhost:5000/suspect")
+  //     //   .then(async (data) => {
+  //     //     console.log(data);
+  //     //   })
+  //     //   .then((response) => {
+  //     //     return response.json();
+  //     //   })
+  //     //   .then((data) => {
+  //     //     console.log(data.data.data);
+  //     //     const transformUser = data.data.data.map((suspectData) => {
+  //     //       return {
+  //     //         // id: suspectData._id,
+  //     //         susname: suspectData.susname,
+  //     //         sussocial: suspectData.sussocial,
+  //     //         sususername: suspectData.sususername,
+  //     //         otherdetails: suspectData.otherdetails,
+  //     //       };
+  //     //     });
+
+  //     //     setSuspect(transformUser);
+  //     //     console.log("this is suspect", suspect);
+  //     //   });
+  //   };
+  //   fetchSuspect();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
+  // function fetchSuspect() {
+  //   fetch("http://localhost:5000/suspect")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {});
+  // fetch("http://localhost:5000/suspect")
+  // // .then((response) => {
+  //   return response.json();
+  // })
+  // .then((data) => {
+  //   console.log(data.data.data);
+  //   const transformUser = data.data.data.map((suspectData) => {
+  //     return {
+  //       susname: suspectData.susname,
+  //       sussocial: suspectData.sussocial,
+  //       sususername: suspectData.sususername,
+  //       otherdetails: suspectData.otherdetails,
+  //       // susphoto: suspectData.susphoto,
+  //     };
+  //   });
+  //   setSuspect(transformUser);
+  // });
+  // }
+
   return (
     <>
       <div class="container-fluid d-flex">
