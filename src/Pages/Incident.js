@@ -47,6 +47,7 @@ const Incident = () => {
   const [selectedCrime, setSelectedCrime] = useState(null);
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
+  const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
   const [policestation, setPoliceStation] = useState("");
   const user = useSelector((state) => state.user);
@@ -76,7 +77,7 @@ const Incident = () => {
       const formData = new FormData();
       formData.append("category", data.category);
       formData.append("state", selectedState);
-      formData.append("city", cities[0]);
+      formData.append("city", city);
       formData.append("userId", user._id);
       formData.append("policestation", data.policestation);
       formData.append("dateofincident", data.dateofincident);
@@ -147,6 +148,8 @@ const Incident = () => {
           <IndiaCities
             selectedState={selectedState}
             cities={cities}
+            city={city}
+            setCity={setCity}
             setCities={setCities}
             setSelectedState={setSelectedState}
           />

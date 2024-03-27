@@ -2,31 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SuspectList = () => {
-  const [suspect, setSuspect] = useState([]);
-  useEffect(() => {
-    fetchSuspect();
-  }, []);
-  function fetchSuspect() {
-    fetch("http://localhost:5000/suspect")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((suspectData) => {
-          return {
-            susname: suspectData.susname,
-            sussocial: suspectData.sussocial,
-            sususername: suspectData.sususername,
-            otherdetails: suspectData.otherdetails,
-            // susphoto: suspectData.susphoto,
-          };
-        });
-
-        setSuspect(transformUser);
-      });
-  }
-
   return (
     <>
       <div class="container-fluid d-flex">
@@ -55,31 +30,30 @@ const SuspectList = () => {
                     </th>
                   </tr>
                 </thead>
-                {suspect.map((e) => (
-                  <>
-                    <tr>
-                      <td>{e.susname}</td>
-                      <td>{e.sussocial}</td>
-                      <td>{e.sususername}</td>
-                      <td>JWND</td>
-                      <td>{e.otherdetails}</td>
-                      <td>
-                        <Link
-                          to="/updateSuspect"
-                          class="btn btn-outline-success"
-                          id="updateSuspect"
-                        >
-                          Update
-                        </Link>
-                      </td>
-                      <td>
-                        <button class="btn btn-danger" id="deleteSuspect">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </>
-                ))}
+
+                <>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      <Link
+                        to="/updateSuspect"
+                        class="btn btn-outline-success"
+                        id="updateSuspect"
+                      >
+                        Update
+                      </Link>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger" id="deleteSuspect">
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </>
               </table>
             </div>
           </div>
@@ -88,4 +62,5 @@ const SuspectList = () => {
     </>
   );
 };
+
 export default SuspectList;

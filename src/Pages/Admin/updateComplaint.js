@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import IndiaCities from "../../Components/incidancities";
 import {
   CCContent,
@@ -46,6 +46,7 @@ const UpdateComplaint = () => {
     setSelectedCrime(e.target.value);
   };
 
+  const [params] = useSearchParams();
   const renderCrimeDetails = () => {
     const CrimeDetailComponent = crimeDetails[selectedCrime].component;
     return CrimeDetailComponent ? <CrimeDetailComponent /> : null;
@@ -62,6 +63,18 @@ const UpdateComplaint = () => {
               class="row g-3 shadow py-4 px-4 mx-5 my-5 "
               id="complaintdetails"
             >
+              <div class="col-md-6">
+                <label class="form-label">Complaint ID:</label>
+              </div>
+              <div class="col-md-6">
+                <input
+                  class="form-control"
+                  type="text"
+                  name="cmpid"
+                  value={params.get("id")}
+                  id="cmpid"
+                />
+              </div>
               <div class="col-md-6">
                 <label class="form-label"> Category of complaint:</label>
               </div>

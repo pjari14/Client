@@ -1,7 +1,8 @@
 import React from "react";
 
 const IndiaCities = (props) => {
-  const { selectedState, cities, setCities, setSelectedState } = props;
+  const { selectedState, cities, city, setCity, setCities, setSelectedState } =
+    props;
 
   const states = [
     {
@@ -84,7 +85,12 @@ const IndiaCities = (props) => {
         <label htmlFor="city">Select a city in {selectedState}</label>
       </div>
       <div class="col-md-6">
-        <select className="form-control" id="city">
+        <select
+          className="form-control"
+          value={city}
+          onChange={(evt) => setCity(evt.target.value)}
+          id="city"
+        >
           {cities.map((city, index) => (
             <option key={index}>{city}</option>
           ))}
