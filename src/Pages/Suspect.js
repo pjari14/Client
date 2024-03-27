@@ -1,5 +1,5 @@
 import React from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -49,8 +49,8 @@ const Suspect = () => {
           onSubmit={handleSubmit(insertSuspect)}
         >
           <div class="col-sm-12">
-            <h2 class="text text-danger fw-3">Suspect details</h2>
-            <h6 class="text-white bg-primary py-2 my-2 px-2">
+            <h2 class="text text-secondary fw-3">Suspect details</h2>
+            <h6 class="text-danger bg-light py-2 my-2 px-2">
               Please provide details of suspect.Any information provided will be
               kept confidential and may help during the investigation.
             </h6>
@@ -90,7 +90,7 @@ const Suspect = () => {
               {...register("sususername")}
             />
           </div>
-         
+
           <div class="col-md-6">
             <h6>
               Please provide any photograph of suspect(Upload JPG/PNG file of

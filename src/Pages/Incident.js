@@ -110,7 +110,7 @@ const Incident = () => {
           onSubmit={handleSubmit(insertIncident)}
         >
           <div className="col-sm-12">
-            <h2 className="text text-danger fw-3">
+            <h2 className="text text-secondary fw-3">
               Complaint/Incident details
             </h2>
           </div>
