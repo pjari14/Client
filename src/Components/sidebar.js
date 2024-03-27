@@ -22,7 +22,7 @@ const Sidebar = () => {
 
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <Link className="nav-link" to="/admin">
+            <Link className="nav-link" to="/">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Dashboard</span>
             </Link>
