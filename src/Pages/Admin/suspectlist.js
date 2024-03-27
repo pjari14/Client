@@ -5,7 +5,7 @@ const SuspectList = () => {
   const [suspect, setSuspect] = useState([]);
   useEffect(() => {
     fetchSuspect();
-  });
+  }, []);
   function fetchSuspect() {
     fetch("http://localhost:5000/suspect")
       .then((response) => {
@@ -13,16 +13,17 @@ const SuspectList = () => {
       })
       .then((data) => {
         console.log(data.data.data);
-        const transformSuspect = data.data.data.map((suspectData) => {
+        const transformUser = data.data.data.map((suspectData) => {
           return {
             susname: suspectData.susname,
             sussocial: suspectData.sussocial,
             sususername: suspectData.sususername,
             otherdetails: suspectData.otherdetails,
+            // susphoto: suspectData.susphoto,
           };
         });
 
-        setSuspect(transformSuspect);
+        setSuspect(transformUser);
       });
   }
 
