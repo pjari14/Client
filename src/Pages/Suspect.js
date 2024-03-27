@@ -64,8 +64,8 @@ const Suspect = () => {
           onSubmit={handleSubmit(insertSuspect)}
         >
           <div class="col-sm-12">
-            <h2 class="text text-danger fw-3">Suspect details</h2>
-            <h6 class="text-white bg-primary py-2 my-2 px-2">
+            <h2 class="text text-secondary fw-3">Suspect details</h2>
+            <h6 class="text-danger bg-light py-2 my-2 px-2">
               Please provide details of suspect.Any information provided will be
               kept confidential and may help during the investigation.
             </h6>
