@@ -19,7 +19,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "./ReduxStore/Userslice/Userslice";
 import Incident from "./Pages/Incident";
 import Suspect from "./Pages/Suspect";
-
+import PasswordRecovery from "./Pages/PasswordRecovery";
+import ResetPassword from "./Pages/ResetPassword";
 import UsersTable from "./Pages/Admin/registereduser";
 import SuspectList from "./Pages/Admin/suspectlist";
 import AddSuspect from "./Pages/Admin/addSuspect";
@@ -70,6 +71,18 @@ function App() {
           path="/registereduser"
           element={user && user.isAdmin ? <UsersTable /> : <Home />}
         ></Route>
+        {!user && (
+          <Route
+            path="/user/accounts/reset"
+            element={<PasswordRecovery />}
+          ></Route>
+        )}
+        {!user && (
+          <Route
+            path="/accounts/user/:token"
+            element={<ResetPassword />}
+          ></Route>
+        )}
 
         {/* <Route
           path="/suspectlist"
