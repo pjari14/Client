@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import IndiaCities from "../../Components/incidancities";
 import {
   CCContent,
@@ -46,12 +46,93 @@ const UpdateComplaint = () => {
     setSelectedCrime(e.target.value);
   };
 
+  const search = useLocation().search;
+  const id = new URLSearchParams(search).get("id");
   const [params] = useSearchParams();
   const renderCrimeDetails = () => {
     const CrimeDetailComponent = crimeDetails[selectedCrime].component;
     return CrimeDetailComponent ? <CrimeDetailComponent /> : null;
   };
 
+  const [incident, setIncident] = useState({
+    id: "",
+    userId: "",
+    category: "",
+    dateofcmp: "",
+    state: "",
+    city: "",
+    dateofincident: "",
+    policestaion: "",
+    reasonofdelay: "",
+    location: "",
+    evidence: "",
+    nameofsus: "",
+    additionalinfo: "",
+  });
+  const [dateofincident, setDateofincident] = useState("");
+  const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    fetchIncident();
+  }, []);
+  function fetchIncident() {
+    fetch(`http://localhost:5000/incident/${params.get("id")}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const incidentData = data.data.data;
+        setIncident({
+          id: incidentData._id,
+          userId: incidentData.userId,
+          category: incidentData.category,
+          dateofcmp: incidentData.dateofcmp,
+          state: incidentData.state,
+          city: incidentData.city,
+          dateofincident: incidentData.dateofincident,
+          policestaion: incidentData.policestaion,
+          reasonofdelay: incidentData.reasonofdelay,
+          location: incidentData.location,
+          evidence: incidentData.evidence,
+          nameofsus: incidentData.nameofsus,
+          additionalinfo: incidentData.additionalinfo,
+        });
+        setDateofincident(incident.dateofincident); // Assuming `dateofincident` is the attribute for Date of Incident
+        setCategory(incident.category);
+      });
+  }
+
+  const updateComplaint = () => {
+    fetch(`http://localhost:5000/incident/${incident.id}`, {
+      method: "PATCH", // Use PATCH method for partial updates
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        category: category,
+        dateofcmp: incident.dateofcmp, // Assuming you don't update dateofcmp
+        state: incident.state, // Assuming you don't update state
+        city: incident.city, // Assuming you don't update city
+        // dateofincident: dateofincident,
+        // policestation: incident.policestation, // Assuming you don't update policestation
+        reasonofdelay: incident.reasonofdelay,
+        location: incident.location,
+        evidence: incident.evidence, // Assuming you don't update evidence
+        nameofsus: incident.nameofsus,
+        additionalinfo: incident.additionalinfo,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update complaint");
+        }
+        console.log("Complaint updated successfully");
+        // You might want to redirect the user to a different page upon successful update
+      })
+      .catch((error) => {
+        console.error("Error updating complaint:", error);
+      });
+  };
   return (
     <>
       <div class="container-fluid d-flex">
@@ -83,16 +164,20 @@ const UpdateComplaint = () => {
                   class="form-select"
                   id="ctype"
                   name="crimeType"
-                  value={selectedCrime}
-                  onChange={handleCrimeChange}
+                  value={incident.category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  {" "}
-                  <option value="">Select a crime type</option>
+                  <option>Select a crime type</option>
                   {/*crimeTypes.map((crime) => (
                     <option key={crime.id} value={crime.id}>
                       {crime.label}
                     </option>
                   ))*/}
+                  <option>Cyber Crime</option>
+                  <option>Domestic Violence </option>
+                  <option>Abuse </option>
+                  <option>Theft</option>
+                  <option>Robbery</option>
                 </select>
               </div>
 
@@ -100,7 +185,14 @@ const UpdateComplaint = () => {
                 <label class="form-label">Date of complaint:</label>
               </div>
               <div class="col-md-6">
-                <input class="form-control" type="date" name="doc" id="cdate" />
+                <input
+                  class="form-control"
+                  type="date"
+                  name="doc"
+                  id="cdate"
+                  // value={cdate}
+                  // onChange={(e) => setCdate(e.target.value)}
+                />
               </div>
               {/*<IndiaCities />*/}
 
@@ -110,7 +202,13 @@ const UpdateComplaint = () => {
                 </label>
               </div>
               <div class="col-md-4">
-                <input type="date" class="form-control" id="dtincident" />
+                <input
+                  type="date"
+                  class="form-control"
+                  id="dtincident"
+                  value={dateofincident}
+                  onChange={(e) => setDateofincident(e.target.value)}
+                />
               </div>
               <div class="col-md-2">
                 <input type="time" class="form-control" />
@@ -126,6 +224,10 @@ const UpdateComplaint = () => {
                   placeholder="Enter reason of delay"
                   class="form-control"
                   id="reasonindelay"
+                  value={incident.reasonofdelay}
+                  onChange={(e) =>
+                    setIncident({ ...incident, reasonofdelay: e.target.value })
+                  }
                 />
               </div>
               <div class="col-md-6">
@@ -139,6 +241,10 @@ const UpdateComplaint = () => {
                   class="form-control"
                   placeholder="Enter where did the incident occur"
                   id="inputIncidentplace"
+                  value={incident.location}
+                  onChange={(e) =>
+                    setIncident({ ...incident, location: e.target.value })
+                  }
                 />
               </div>
               <div class="col-md-6">
@@ -160,7 +266,16 @@ const UpdateComplaint = () => {
                 </label>
               </div>
               <div class="col-md-6">
-                <input class="form-control" name="suspect" type="text" id="" />
+                <input
+                  class="form-control"
+                  name="suspect"
+                  type="text"
+                  id=""
+                  value={incident.nameofsus}
+                  onChange={(e) =>
+                    setIncident({ ...incident, nameofsus: e.target.value })
+                  }
+                />
               </div>
               <div class="col-md-6">
                 <label for="additionalinfo" class="form-label">
@@ -168,7 +283,15 @@ const UpdateComplaint = () => {
                 </label>
               </div>
               <div class="col-md-6">
-                <textarea class="form-control" id="additionalinfo" rows="3" />
+                <textarea
+                  class="form-control"
+                  id="additionalinfo"
+                  rows="3"
+                  value={incident.additionalinfo}
+                  onChange={(e) =>
+                    setIncident({ ...incident, additionalinfo: e.target.value })
+                  }
+                />
               </div>
 
               <div class="col-md-12 mx-3 text-danger">
@@ -189,6 +312,7 @@ const UpdateComplaint = () => {
                     <button
                       type="button"
                       class="btn btn-lg w-100 btn-outline-success"
+                      onClick={updateComplaint}
                     >
                       Update
                     </button>
