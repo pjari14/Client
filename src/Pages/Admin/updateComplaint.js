@@ -206,7 +206,7 @@ const UpdateComplaint = () => {
                   type="date"
                   class="form-control"
                   id="dtincident"
-                  value={dateofincident}
+                  value={incident.dateofincident}
                   onChange={(e) => setDateofincident(e.target.value)}
                 />
               </div>

@@ -15,7 +15,7 @@ const SuspectList = () => {
         console.log(data.data.data);
         const transformUser = data.data.data.map((suspectData) => {
           return {
-            // id: suspectData._id,
+            id: suspectData._id,
             incidentId: suspectData.incidentId,
             susname: suspectData.susname,
             sussocial: suspectData.sussocial,
@@ -30,7 +30,7 @@ const SuspectList = () => {
       });
   }
 
-  function deleteComplaint(id) {
+  function deleteSuspect(id) {
     fetch(`http://localhost:5000/suspect/${id}`, {
       method: "DELETE",
     })
@@ -66,6 +66,7 @@ const SuspectList = () => {
               <table class="table table-bordered table-hover my-1">
                 <thead class="table-dark text-light">
                   <tr>
+                    <th scope="col">Id</th>
                     <th scope="col">Suspect ID</th>
                     <th scope="col">Suspect Name</th>
                     <th scope="col">Suspect Identity</th>
@@ -78,6 +79,7 @@ const SuspectList = () => {
                 {suspect.map((e) => (
                   <>
                     <tr>
+                      <td>{e.id}</td>
                       <td>{e.incidentId}</td>
                       <td>{e.sussocial}</td>
                       <td>{e.sususername}</td>
@@ -91,7 +93,7 @@ const SuspectList = () => {
                       <td>{e.otherdetails}</td>
                       <td>
                         <Link
-                          to="/updateSuspect"
+                          to={`/updateSuspect?id=${e.id}`}
                           class="btn btn-outline-success"
                           id="updateSuspect"
                         >
@@ -99,7 +101,11 @@ const SuspectList = () => {
                         </Link>
                       </td>
                       <td>
-                        <button class="btn btn-danger" id="deleteSuspect">
+                        <button
+                          class="btn btn-danger"
+                          id="deleteSuspect"
+                          onClick={() => deleteSuspect(e.id)}
+                        >
                           Delete
                         </button>
                       </td>

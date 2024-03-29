@@ -1,6 +1,70 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
+
 const UpdateSuspect = () => {
+  const [params] = useSearchParams();
+
+  const [suspect, setSuspect] = useState({
+    id: "",
+    susname: "",
+    sussocial: "",
+    sususername: "",
+    susphoto: "",
+    otherdetails: "",
+  });
+
+  const [identity, setIdentity] = useState("");
+
+  useEffect(() => {
+    fetchSuspect();
+  }, []);
+  function fetchSuspect() {
+    fetch(`http://localhost:5000/suspect/showdata/${params.get("id")}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const suspectData = data.data.data;
+        setSuspect({
+          id: suspectData._id,
+          incidentId: suspectData.incidentId,
+          susname: suspectData.susname,
+          sussocial: suspectData.sussocial,
+          sususername: suspectData.sususername,
+          susphoto: suspectData.photo,
+          otherdetails: suspectData.otherdetails,
+        });
+        // setDateofincident(incident.dateofincident); // Assuming `dateofincident` is the attribute for Date of Incident
+        setIdentity(suspect.sussocial);
+      });
+  }
+
+  const updateSuspect = () => {
+    fetch(`http://localhost:5000/incident/${params.get("id")}`, {
+      method: "PATCH", // Use PATCH method for/ partial updates
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        susname: suspect.susname,
+        sussocial: identity,
+        susphoto: suspect.susphoto, // Assuming you don't update dateofcmp
+        sususername: suspect.sususername,
+        otherdetails: suspect.otherdetails,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update suspect");
+        }
+        console.log("Suspect updated successfully");
+        // You might want to redirect the user to a different page upon successful update
+      })
+      .catch((error) => {
+        console.error("Error updating suspect:", error);
+      });
+  };
+
   return (
     <>
       <div class="container-fluid d-flex">
@@ -22,6 +86,10 @@ const UpdateSuspect = () => {
                   id="suspectname"
                   class="form-control"
                   placeholder="Suspect Name"
+                  value={suspect.susname}
+                  onChange={(e) =>
+                    setSuspect({ ...suspect, susname: e.target.value })
+                  }
                 />
               </div>
 
@@ -29,7 +97,11 @@ const UpdateSuspect = () => {
                 <label class="form-label">Suspect Identity :</label>
               </div>
               <div class="col-md-6">
-                <select class="form-control">
+                <select
+                  class="form-control"
+                  value={identity}
+                  onChange={(e) => setIdentity(e.target.value)}
+                >
                   <option value="Select">Select Suspect Identity</option>
                   <option value="Instagram id">Instagram id</option>
                   <option value="Mobile number">Mobile Contact</option>
@@ -46,6 +118,10 @@ const UpdateSuspect = () => {
                   id="suspectinfo"
                   placeholder=""
                   class="form-control"
+                  value={suspect.sususername}
+                  onChange={(e) =>
+                    setSuspect({ ...suspect, sususername: e.target.value })
+                  }
                 ></input>
               </div>
 
@@ -65,7 +141,14 @@ const UpdateSuspect = () => {
               </div>
 
               <div class="col-md-6">
-                <textarea className="form-control" rows="3" />
+                <textarea
+                  className="form-control"
+                  rows="3"
+                  value={suspect.otherdetails}
+                  onChange={(e) =>
+                    setSuspect({ ...suspect, otherdetails: e.target.value })
+                  }
+                />
               </div>
               <div class="row py-4 justify-content-end">
                 <div class="col-3 ">
