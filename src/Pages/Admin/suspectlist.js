@@ -25,9 +25,8 @@ const SuspectList = () => {
                     <th scope="col">Suspect Identity</th>
                     <th scope="col">Suspect Photograph</th>
                     <th scope="col">Additional Details</th>
-                    <th scope="col" colSpan={2}>
-                      Options
-                    </th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
                   </tr>
                 </thead>
 
@@ -38,19 +37,15 @@ const SuspectList = () => {
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                     <td>
                       <Link
-                        to="/updateSuspect"
-                        class="btn btn-outline-success"
-                        id="updateSuspect"
+                        class="btn btn-success w-100"
+                        id="addcriminal"
+                        to="/addcriminal"
                       >
-                        Update
+                        Edit
                       </Link>
-                    </td>
-                    <td>
-                      <button class="btn btn-danger" id="deleteSuspect">
-                        Delete
-                      </button>
                     </td>
                   </tr>
                 </>
