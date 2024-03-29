@@ -50,9 +50,9 @@ const Sidebar = () => {
           </li>
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
-            <Link className="nav-link" to="/admin">
+            <Link className="nav-link" to="/criminallist">
               <i className="fas fa-fw fa-tachometer-alt" />
-              <span>Lawyers</span>
+              <span>Criminal</span>
             </Link>
           </li>
           <hr className="sidebar-divider my-0" />

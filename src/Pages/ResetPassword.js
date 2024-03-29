@@ -32,19 +32,17 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="bg-dark p-5 d-flex justify-content-center">
-      <div className="card shadow-lg rounded-3 p-4">
+    <div className="p-5 d-flex justify-content-center">
+      <div className="card p-5 shadow-sm  rounded-4 p-4 w-50">
         <form onSubmit={handleSubmit(SubmitData)}>
-          <h1 className="font-mhiora text-center text-dark my-5">
-            Change Password
-          </h1>
-          <div className="mb-3">
-            <label className="form-label text-dark" htmlFor="newPass">
-              New Password
+          <h2 className="text-center my-2">Change Password</h2>
+          <hr />
+          <div className="mb-4 mt-5">
+            <label className="form-label " htmlFor="newPass">
+              New Password:
             </label>
             <input
               type="password"
-              placeholder="•••••••"
               id="newPass"
               {...register("newPassword", {
                 required: {
@@ -57,19 +55,18 @@ const ResetPassword = () => {
                     "New Password must contain at least 8 characters and should contain alphanumeric characters and @,-,_!",
                 },
               })}
-              className="px-2 py-2 w-full  my-3 rounded-3 bg-secondary focus:border-primary focus:border-2 duration-150"
+              className=" form-control  py-2 w-full mt-2 rounded-3 "
             />
             {errors.newPassword && (
-              <h1 className="text-danger">{errors.newPassword.message}</h1>
+              <h6 className="text-danger mt-2">{errors.newPassword.message}</h6>
             )}
           </div>
           <div className="mb-3">
-            <label className="form-label text-dark" htmlFor="confirmPass">
-              Confirm password
+            <label className="form-label" htmlFor="confirmPass">
+              Confirm password:
             </label>
             <input
               type="password"
-              placeholder="•••••••"
               id="confirmPass"
               {...register("confirmPass", {
                 required: {
@@ -82,15 +79,18 @@ const ResetPassword = () => {
                     "New Password must contain at least 8 characters and should contain alphanumeric characters and @,-,_!",
                 },
               })}
-              className="px-2 py-2 w-full  my-3 rounded-3 bg-secondary focus:border-primary focus:border-2 duration-150"
+              className="px-2 py-2 w-full mt-2 rounded-3 form-control"
             />
             {errors.confirmPass && (
-              <h1 className="text-danger">{errors.confirmPass.message}</h1>
+              <h6 className="text-danger  mt-2">
+                {errors.confirmPass.message}
+              </h6>
             )}
           </div>
           <button
             type="submit"
-            className="btn btn-primary w-100 my-4 font-libre"
+            className="btn text-white w-100 my-2 "
+            style={{ backgroundColor: "#062d4b" }}
           >
             Reset password
           </button>

@@ -71,9 +71,8 @@ const SuspectList = () => {
                     <th scope="col">Suspect Identity</th>
                     <th scope="col">Suspect Photograph</th>
                     <th scope="col">Additional Details</th>
-                    <th scope="col" colSpan={2}>
-                      Options
-                    </th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Options</th>
                   </tr>
                 </thead>
                 {suspect.map((e) => (
