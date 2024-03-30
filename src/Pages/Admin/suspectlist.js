@@ -66,10 +66,11 @@ const SuspectList = () => {
               <table class="table table-bordered table-hover my-1">
                 <thead class="table-dark text-light">
                   <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Suspect ID</th>
+                    <th scope="col">Suspect Id</th>
+                    <th scope="col">Incident ID</th>
                     <th scope="col">Suspect Name</th>
                     <th scope="col">Suspect Identity</th>
+                    <th scope="col">Suspect Username/Number</th>
                     <th scope="col">Suspect Photograph</th>
                     <th scope="col">Additional Details</th>
                     <th scope="col">Status</th>
@@ -81,6 +82,7 @@ const SuspectList = () => {
                     <tr>
                       <td>{e.id}</td>
                       <td>{e.incidentId}</td>
+                      <td>{e.susname}</td>
                       <td>{e.sussocial}</td>
                       <td>{e.sususername}</td>
                       <td>

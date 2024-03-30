@@ -19,7 +19,7 @@ const UpdateSuspect = () => {
     fetchSuspect();
   }, []);
   function fetchSuspect() {
-    fetch(`http://localhost:5000/suspect/showdata/${params.get("id")}`)
+    fetch(`http://localhost:5000/suspect/${params.get("id")}`)
       .then((response) => {
         return response.json();
       })
@@ -34,13 +34,14 @@ const UpdateSuspect = () => {
           susphoto: suspectData.photo,
           otherdetails: suspectData.otherdetails,
         });
+        console.log("this is suspect", suspect);
         // setDateofincident(incident.dateofincident); // Assuming `dateofincident` is the attribute for Date of Incident
         setIdentity(suspect.sussocial);
       });
   }
 
   const updateSuspect = () => {
-    fetch(`http://localhost:5000/incident/${params.get("id")}`, {
+    fetch(`http://localhost:5000/suspect/${params.get("id")}`, {
       method: "PATCH", // Use PATCH method for/ partial updates
       headers: {
         "Content-Type": "application/json",
@@ -99,7 +100,7 @@ const UpdateSuspect = () => {
               <div class="col-md-6">
                 <select
                   class="form-control"
-                  value={identity}
+                  value={suspect.sussocial}
                   onChange={(e) => setIdentity(e.target.value)}
                 >
                   <option value="Select">Select Suspect Identity</option>
@@ -156,6 +157,7 @@ const UpdateSuspect = () => {
                     <button
                       type="button"
                       class="btn btn-lg w-100 btn-outline-success"
+                      onClick={updateSuspect}
                     >
                       Update
                     </button>
