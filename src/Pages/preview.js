@@ -78,6 +78,10 @@ const Preview = () => {
               <br></br>
               <table class="table">
                 <tr>
+                  <th>Complaint Id</th>
+                  <td>{incident._id}</td>
+                </tr>
+                <tr>
                   <th>Category:</th>
                   <td>{incident.category}</td>
                 </tr>
