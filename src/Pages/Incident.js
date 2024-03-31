@@ -49,7 +49,7 @@ const Incident = () => {
   const [cities, setCities] = useState([]);
   const [city, setCity] = useState("");
   const [image, setImage] = useState(null);
-  const [policestation, setPoliceStation] = useState("");
+  // const [policestation, setPoliceStation] = useState("");
   const user = useSelector((state) => state.user);
   const incident = useSelector((state) => state.incident);
   const dispatch = useDispatch();
@@ -190,8 +190,14 @@ const Incident = () => {
             <select
               className="form-control"
               id="policestation"
-              value={policestation}
-              onChange={(evt) => setPoliceStation(evt.target.value)}
+              // value={policestation}
+              // onChange={(evt) => setPoliceStation(evt.target.value)}
+              {...register("policestation", {
+                required: {
+                  value: true,
+                  message: "Police Station is Required!",
+                },
+              })}
             >
               <option value="Athva">Athva</option>
               <option value="Bhatar">Bhatar</option>

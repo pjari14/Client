@@ -33,7 +33,7 @@ const Navbar = () => {
 
             {user && (
               <Link class="nav-link" to="/incident">
-                Register & Track
+                File Complaint
               </Link>
             )}
 

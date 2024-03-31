@@ -48,7 +48,7 @@ const UpdateSuspect = () => {
       },
       body: JSON.stringify({
         susname: suspect.susname,
-        sussocial: identity,
+        sussocial: suspect.sussocial,
         susphoto: suspect.susphoto, // Assuming you don't update dateofcmp
         sususername: suspect.sususername,
         otherdetails: suspect.otherdetails,
@@ -101,7 +101,10 @@ const UpdateSuspect = () => {
                 <select
                   class="form-control"
                   value={suspect.sussocial}
-                  onChange={(e) => setIdentity(e.target.value)}
+                  onChange={(e) =>
+                    setSuspect({ ...suspect, sussocial: e.target.value })
+                  }
+                  // onChange={(e) => setIdentity(e.target.value)}
                 >
                   <option value="Select">Select Suspect Identity</option>
                   <option value="Instagram id">Instagram id</option>
