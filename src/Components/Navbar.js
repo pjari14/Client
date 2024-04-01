@@ -38,8 +38,8 @@ const Navbar = () => {
             )}
 
             {user && (
-              <Link className="nav-link" to="/CheckStatus">
-                View FIR status
+              <Link className="nav-link" to="/ViewAllComplaints">
+                My complaints
               </Link>
             )}
             <li className="nav-item dropdown">

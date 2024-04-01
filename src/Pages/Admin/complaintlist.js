@@ -89,6 +89,7 @@ const ComplaintList = () => {
                     <th scope="col">Suspect person or company name</th>
                     <th scope="col">Additional Details</th>
                     <th scope="col">Evidence</th>
+                    <th scope="col">View</th>
 
                     <th scope="col" colSpan={2}>
                       Options
@@ -120,6 +121,15 @@ const ComplaintList = () => {
                       </td>
                       {/* <td>JFNCSAM</td>
                 <td>JFNCSAM</td> */}
+                      <td>
+                        <Link
+                          to="/viewcomplaint"
+                          class="btn btn-outline-warning"
+                          id="viewcomplaint"
+                        >
+                          View
+                        </Link>
+                      </td>
                       <td>
                         <Link
                           to={`/updateComplaint?id=${e.id}`}

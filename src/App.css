@@ -68,7 +68,7 @@ div.scroll {
 .btn {
   font-size: large;
 
-  border-radius: 10px;
+  border-radius: 15px;
   color: black;
   text-align: center;
   transition: all 0.5s;
@@ -99,7 +99,7 @@ div.scroll {
   right: 0;
 }
 .border {
-  border-radius: 25px;
+  border-radius: 15px;
 }
 .card {
   border-radius: 15px;

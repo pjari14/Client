@@ -6,7 +6,7 @@ import Contactus from "./Pages/Contactus";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import CheckStatus from "./Pages/checkstatus";
+import ViewAllComplaints from "./Pages/ViewAllcomplaints";
 import Cybersafety from "./Pages/cybersafety";
 import Lawyer from "./Pages/Lawyer";
 import Cybercrime from "./Pages/cybercrime";
@@ -33,6 +33,7 @@ import AddEvidence from "./Pages/Admin/addEvidence";
 import UpdateEvidence from "./Pages/Admin/updateEvidence";
 import Sidebar from "./Components/sidebar";
 import FAQS from "./Pages/FAQS";
+import ViewComplaint from "./Pages/Admin/ViewComplaint";
 
 function App() {
   const dispatch = useDispatch();
@@ -56,7 +57,10 @@ function App() {
         ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
-        <Route path="/CheckStatus" element={user && <CheckStatus />}></Route>
+        <Route
+          path="/ViewAllComplaints"
+          element={user && <ViewAllComplaints />}
+        ></Route>
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/cybersafety" element={<Cybersafety />}></Route>
         <Route path="/lawyer" element={<Lawyer />}></Route>
@@ -119,6 +123,10 @@ function App() {
         <Route
           path="/updateEvidence"
           element={user && user.isAdmin ? <UpdateEvidence /> : <Home />}
+        ></Route>
+        <Route
+          path="/ViewComplaint"
+          element={user && user.isAdmin ? <ViewComplaint /> : <Home />}
         ></Route>
       </Routes>
       {!user && <Footer />}
