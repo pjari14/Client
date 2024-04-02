@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 const ViewAllComplaints = () => {
+  const user = useSelector((state) => state.user);
   const [incident, setIncident] = useState([]);
   useEffect(() => {
     fetchIncident();
   }, []);
   function fetchIncident() {
-    fetch("http://localhost:5000/incident")
+    fetch(`http://localhost:5000/incident/mycomplaints?userId=${user._id}`)
       .then((response) => {
         return response.json();
       })
