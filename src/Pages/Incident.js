@@ -77,8 +77,10 @@ const Incident = () => {
       const formData = new FormData();
       formData.append("category", data.category);
       formData.append("state", selectedState);
-      formData.append("city", city[0]);
+      formData.append("city", city);
       formData.append("userId", user._id);
+      formData.append("firstname", user.firstname);
+      formData.append("lastname", user.lastname);
       formData.append("policestation", data.policestation);
       formData.append("dateofincident", data.dateofincident);
       formData.append("reasonofdelay", data.reasonofdelay);

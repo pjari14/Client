@@ -28,6 +28,8 @@ const ComplaintList = () => {
             evidence: incidentData.evidence,
             nameofsus: incidentData.nameofsus,
             additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
           };
         });
 
@@ -35,7 +37,31 @@ const ComplaintList = () => {
         console.log("this is incident", incident);
       });
   }
-
+  // const [user, setUser] = useState({
+  //   firstname: "",
+  //   lastname: "",
+  //   address: "",
+  //   contactno: "",
+  //   email: "",
+  // });
+  // function fetchUser() {
+  //   fetch(`http://localhost:5000/user/${}`)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       const userData = data.data.data;
+  //       setUser({
+  //         firstname: userData.firstname,
+  //         lastname: userData.lastname,
+  //         address: userData.address,
+  //         contact: userData.contact,
+  //         email: userData.email,
+  //         city: userData.city,
+  //       });
+  //       console.log("this is user", data.data.data);
+  //     });
+  // }
   function deleteComplaint(id) {
     fetch(`http://localhost:5000/incident/${id}`, {
       method: "DELETE",
@@ -75,20 +101,23 @@ const ComplaintList = () => {
                   <tr>
                     {/* <th scope="col">Com_ID</th> */}
                     <th scope="col">_id</th>
-                    <th scope="col">UserId</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+
+                    {/* <th scope="col">UserId</th> */}
                     <th scope="col">Complaint Category</th>
                     <th scope="col">Complaint Date</th>
-                    <th scope="col">State</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Date of Incident</th>
+                    {/* <th scope="col">State</th> */}
+                    {/* <th scope="col">City</th> */}
+                    {/* <th scope="col">Date of Incident</th> */}
                     {/* <th scope="col">Time of Incident</th> */}
 
-                    <th scope="col">Reason for delay</th>
-                    <th scope="col">Place of incident occurance</th>
-                    <th scope="col">Evidence</th>
-                    <th scope="col">Suspect person or company name</th>
-                    <th scope="col">Additional Details</th>
-                    <th scope="col">Evidence</th>
+                    {/* <th scope="col">Reason for delay</th> */}
+                    {/* <th scope="col">Place of incident occurance</th> */}
+
+                    {/* <th scope="col">Suspect person or company name</th> */}
+                    {/* <th scope="col">Additional Details</th> */}
+                    {/* <th scope="col">Evidence</th> */}
                     <th scope="col">View</th>
 
                     <th scope="col" colSpan={2}>
@@ -100,30 +129,32 @@ const ComplaintList = () => {
                   <>
                     <tr>
                       <td>{e.id}</td>
-                      <td>{e.userId}</td>
+                      <td>{e.firstname}</td>
+                      <td>{e.lastname}</td>
+                      {/* <td>{e.userId}</td> */}
                       <td>{e.category}</td>
                       <td>{e.dateofcmp}</td>
-                      <td>{e.state}</td>
-                      <td>{e.city}</td>
-                      <td>{e.dateofincident}</td>
+                      {/* <td>{e.state}</td> */}
+                      {/* <td>{e.city}</td> */}
+                      {/* <td>{e.dateofincident}</td> */}
 
-                      <td>{e.reasonofdelay}</td>
-                      <td>{e.location}</td>
-                      <td>JFNCSAM</td>
-                      <td>{e.nameofsus}</td>
-                      <td>{e.additionalinfo}</td>
-                      <td>
+                      {/* <td>{e.reasonofdelay}</td> */}
+                      {/* <td>{e.location}</td> */}
+
+                      {/* <td>{e.nameofsus}</td> */}
+                      {/* <td>{e.additionalinfo}</td> */}
+                      {/* <td>
                         <img
                           src={`http://localhost:5000/evidence/` + e.evidence}
                           style={{ width: "80px", height: "fit" }}
                           alt="evidence"
                         />
-                      </td>
+                      </td> */}
                       {/* <td>JFNCSAM</td>
                 <td>JFNCSAM</td> */}
                       <td>
                         <Link
-                          to="/viewcomplaint"
+                          to={`/viewcomplaint?id=${e.id}&userId=${e.userId}`}
                           class="btn btn-outline-warning"
                           id="viewcomplaint"
                         >
