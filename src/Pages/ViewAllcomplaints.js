@@ -29,6 +29,7 @@ const ViewAllComplaints = () => {
             evidence: incidentData.evidence,
             nameofsus: incidentData.nameofsus,
             additionalinfo: incidentData.additionalinfo,
+            status: incidentData.status,
           };
         });
 
@@ -59,6 +60,8 @@ const ViewAllComplaints = () => {
                   <th scope="col">Place of incident occurance</th>
 
                   <th scope="col">Additional Details</th>
+                  <th scope="col">Status</th>
+
                   <th scope="col">View</th>
                 </tr>
                 {incident.map((e) => (
@@ -72,11 +75,8 @@ const ViewAllComplaints = () => {
                       <td>{e.dateofincident}</td>
                       <td>{e.location}</td>
                       <td>{e.additionalinfo}</td>
-                      <td>
-                        <button class="btn btn-md btn-secondary text-white">
-                          View
-                        </button>
-                      </td>
+                      <td>akjdlajsd</td>
+                      <td>{e.status}</td>
                     </tr>
                   </>
                 ))}

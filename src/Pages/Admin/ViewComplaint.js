@@ -45,6 +45,7 @@ const ViewComplaint = () => {
           evidence: incidentData.evidence,
           nameofsus: incidentData.nameofsus,
           additionalinfo: incidentData.additionalinfo,
+          status: incidentData.status,
         });
         console.log(data.data.data);
       });
@@ -100,6 +101,31 @@ const ViewComplaint = () => {
         console.log("this is user", data.data.data);
       });
   }
+  const updateStatus = (status) => {
+    fetch(`http://localhost:5000/incident/${params.get("id")}`, {
+      method: "PATCH", // Use PATCH method for partial updates
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        status: status,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update complaint");
+        }
+        // Update local state with the new status
+        setIncident((prevIncident) => ({
+          ...prevIncident,
+          status: status,
+        }));
+        console.log("Complaint updated successfully");
+      })
+      .catch((error) => {
+        console.error("Error updating complaint:", error);
+      });
+  };
   return (
     <>
       <div class="container-fluid d-flex">
@@ -214,6 +240,10 @@ const ViewComplaint = () => {
                     <th>Additional Information:</th>
                     <td>{incident.additionalinfo}</td>
                   </tr>
+                  <tr>
+                    <th>Status:</th>
+                    <td>{incident.status}</td>
+                  </tr>
                 </table>
               </div>
             </div>
@@ -253,6 +283,48 @@ const ViewComplaint = () => {
                       </tr>
                     </>
                   ))}
+                  <tr>
+                    <td></td>
+
+                    <td>
+                      {incident.status === "Approved" ? (
+                        <button
+                          className="btn btn-danger"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            updateStatus("Closed");
+                          }}
+                        >
+                          Close Complaint
+                        </button>
+                      ) : incident.status === "Closed" ? (
+                        <span class="text-danger"> Complaint is Closed</span>
+                      ) : incident.status === "Denied" ? (
+                        <span class="text-danger">Complaint is Denied</span>
+                      ) : (
+                        <>
+                          <button
+                            className="btn btn-success"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              updateStatus("Approved");
+                            }}
+                          >
+                            Approve
+                          </button>
+                          <button
+                            className="btn btn-danger"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              updateStatus("Denied");
+                            }}
+                          >
+                            Deny
+                          </button>
+                        </>
+                      )}
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
