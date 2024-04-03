@@ -34,7 +34,7 @@ import UpdateEvidence from "./Pages/Admin/updateEvidence";
 import Sidebar from "./Components/sidebar";
 import FAQS from "./Pages/FAQS";
 import ViewComplaint from "./Pages/Admin/ViewComplaint";
-
+import SingleComplaintUSer from "./Pages/SingleComplaintUser";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -70,6 +70,10 @@ function App() {
         <Route path="/preview" element={user && <Preview />}></Route>
         <Route path="/Incident" element={user && <Incident />}></Route>
         <Route path="/Suspect" element={user && <Suspect />}></Route>
+        <Route
+          path="/SingleComplaintUser"
+          element={user && <SingleComplaintUSer />}
+        ></Route>
         <Route path="/FAQS" element={<FAQS />}></Route>
         <Route
           path="/registereduser"

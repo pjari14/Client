@@ -98,7 +98,7 @@ const ComplaintList = () => {
 
             <hr />
             <div class="container table-responsive">
-              <table class="table table-bordered table-hover  table-responsive py-1 my-1">
+              <table class="table table-bordered table-hover   py-1 my-1">
                 <thead class="table-dark text-light">
                   <tr>
                     {/* <th scope="col">Com_ID</th> */}

@@ -46,7 +46,7 @@ const ViewAllComplaints = () => {
           </div>
           <div class="container table-responsive">
             <table class="table table-bordered table-hover  py-1 my-1">
-              <thead class="table-light text-dark">
+              <thead class="table-white  text-dark">
                 <tr>
                   {/* <th scope="col">Com_ID</th> */}
                   <th scope="col">_id</th>
@@ -59,7 +59,7 @@ const ViewAllComplaints = () => {
 
                   <th scope="col">Place of incident occurance</th>
 
-                  <th scope="col">Additional Details</th>
+                  {/*<th scope="col">Additional Details</th>*/}
                   <th scope="col">Status</th>
 
                   <th scope="col">View</th>
@@ -74,9 +74,18 @@ const ViewAllComplaints = () => {
                       <td>{e.city}</td>
                       <td>{e.dateofincident}</td>
                       <td>{e.location}</td>
-                      <td>{e.additionalinfo}</td>
-                      <td>akjdlajsd</td>
+                      {/*<td>{e.additionalinfo}</td>*/}
+
                       <td>{e.status}</td>
+                      <td>
+                        <Link
+                          //to={`/SinlgeComplaintUSer?id=${e.id}&userId=${e.userId}`}
+                          class="btn btn-md btn-outline-secondary"
+                          to="/SingleComplaintUser"
+                        >
+                          View
+                        </Link>
+                      </td>
                     </tr>
                   </>
                 ))}

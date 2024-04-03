@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
-const ViewComplaint = () => {
+const SingleComplaintUSer = () => {
   const [params] = useSearchParams();
   const [incident, setIncident] = useState({
     id: "",
@@ -135,9 +135,9 @@ const ViewComplaint = () => {
 
             <h3
               class="text-danger"
-              style={{ marginLeft: "300px", marginTop: "-43px" }}
+              style={{ marginLeft: "300px", marginTop: "-42px" }}
             >
-              {incident.id}
+              12345
             </h3>
             <hr />
           </div>
@@ -147,13 +147,13 @@ const ViewComplaint = () => {
           >
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Personal details</h2>
-              <div class="col-sm-12">
+              <div>
                 <br></br>
                 <table class="table">
                   <tr>
-                    <th class="col-6">First Name:</th>
+                    <th>First Name:</th>
 
-                    <td class="col-6">{user.firstname}</td>
+                    <td>{user.firstname}</td>
                   </tr>
                   <tr>
                     <th>Last Name:</th>
@@ -177,16 +177,16 @@ const ViewComplaint = () => {
             <hr />
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Incident details</h2>
-              <div class="col-sm-12">
+              <div>
                 <br></br>
-                <table class="table ">
-                  {/*} <tr>
-                    <th>Complaint Id</th>
-                    <td>{incident.id}</td>
-  </tr>*/}
+                <table class="table">
                   <tr>
-                    <th class="col-6">Category:</th>
-                    <td class="col-6">{incident.category}</td>
+                    <th>Complaint Id</th>
+                    <td>{incident._id}</td>
+                  </tr>
+                  <tr>
+                    <th>Category:</th>
+                    <td>{incident.category}</td>
                   </tr>
                   <tr>
                     <th>Date of Comp:</th>
@@ -250,14 +250,14 @@ const ViewComplaint = () => {
             <hr />
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Suspect details</h2>
-              <div class="col-sm-12">
+              <div>
                 <br></br>
                 <table class="table">
                   {suspect.map((e) => (
                     <>
                       <tr>
-                        <th class="col-6">Susname:</th>
-                        <td class="col-6">{e.susname}</td>
+                        <th>Susname:</th>
+                        <td>{e.susname}</td>
                       </tr>
                       <tr>
                         <th>sussocial:</th>
@@ -283,9 +283,10 @@ const ViewComplaint = () => {
                       </tr>
                     </>
                   ))}
-                  <tr class="col-12">
+                  <tr>
                     <td></td>
-                    <td>
+
+                    {/* <td>
                       {incident.status === "Approved" ? (
                         <button
                           className="btn btn-danger"
@@ -303,7 +304,7 @@ const ViewComplaint = () => {
                       ) : (
                         <>
                           <button
-                            className="btn btn-success  btn-md px-2 mx-1"
+                            className="btn btn-success"
                             onClick={(e) => {
                               e.preventDefault();
                               updateStatus("Approved");
@@ -312,7 +313,7 @@ const ViewComplaint = () => {
                             Approve
                           </button>
                           <button
-                            className="btn btn-danger  btn-md px-3 mx-1"
+                            className="btn btn-danger"
                             onClick={(e) => {
                               e.preventDefault();
                               updateStatus("Denied");
@@ -322,15 +323,7 @@ const ViewComplaint = () => {
                           </button>
                         </>
                       )}
-
-                      <Link
-                        to="/complaintList"
-                        class="btn btn-md px-3 btn-secondary mx-1"
-                      >
-                        Back
-                      </Link>
-                    </td>
-                    <td></td>
+                        </td>*/}
                   </tr>
                 </table>
               </div>
@@ -342,4 +335,4 @@ const ViewComplaint = () => {
     </>
   );
 };
-export default ViewComplaint;
+export default SingleComplaintUSer;
