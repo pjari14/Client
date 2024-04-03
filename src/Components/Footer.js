@@ -4,7 +4,16 @@ import image from "../Assets/images/logo.png";
 const Footer = () => {
   return (
     <>
-      <footer class="footer">
+      <style>
+        {`
+          @media print {
+            .no-print {
+              display: none;
+            }
+          }
+        `}
+      </style>
+      <footer class="footer no-print">
         <div class="bg-dark text-white py-3 py-md-5 py-xl-8 border-top border-light-subtle">
           <div class="container overflow-hidden">
             <div class="row gy-3 gy-md-5 gy-xl-0 align-items-sm-center">

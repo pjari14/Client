@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import PDFPreview from "../Components/PDFPreview";
 const Preview = () => {
   const user = useSelector((state) => state.user);
   const incident = useSelector((state) => state.incident);
@@ -32,8 +33,21 @@ const Preview = () => {
         console.log("this is incident", suspect);
       });
   }
+  const handlePrintPreview = (event) => {
+    event.preventDefault(); // Prevent page reload
+    window.print(); // Open print dialog
+  };
   return (
     <>
+      <style>
+        {`
+          @media print {
+            .no-print {
+              display: none;
+            }
+          }
+        `}
+      </style>
       <div class="container mt-2 pt-2">
         <div class="col-sm-12">
           <div class=" p-3 text-center mb-2 text-danger fs-1 ">
@@ -184,13 +198,13 @@ const Preview = () => {
           <hr />
           <div class="col-md-6 text-end">
             <Link
-              class="btn btn-lg px-5 btn-secondary text-white"
+              class="btn btn-lg px-5 btn-secondary text-white no-print"
               to="/suspect"
             >
               Back
             </Link>
           </div>
-          <div class="col-md-6 text-start">
+          <div class="col-md-6 text-start no-print">
             <Link
               class="btn btn-lg px-5  text-white"
               to="/ViewAllComplaints"
@@ -198,6 +212,12 @@ const Preview = () => {
             >
               Okay
             </Link>
+
+            <button class="btn btn-muted" onClick={handlePrintPreview}>
+              Print Preview
+            </button>
+
+            {/* <PDFPreview user={user} incident={incident} suspect={suspect} /> */}
           </div>
         </form>
       </div>
