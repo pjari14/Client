@@ -137,7 +137,7 @@ const ViewComplaint = () => {
               class="text-danger"
               style={{ marginLeft: "300px", marginTop: "-42px" }}
             >
-              12345
+              {incident.id}
             </h3>
             <hr />
           </div>
