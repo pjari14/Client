@@ -30,6 +30,7 @@ const ComplaintList = () => {
             additionalinfo: incidentData.additionalinfo,
             firstname: incidentData.firstname,
             lastname: incidentData.lastname,
+            status: incidentData.status,
           };
         });
 
@@ -100,13 +101,14 @@ const ComplaintList = () => {
                 <thead class="table-dark text-light">
                   <tr>
                     {/* <th scope="col">Com_ID</th> */}
-                    <th scope="col">_id</th>
+                    {/* <th scope="col">_id</th> */}
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
 
                     {/* <th scope="col">UserId</th> */}
                     <th scope="col">Complaint Category</th>
                     <th scope="col">Complaint Date</th>
+                    <th scope="col">Status</th>
                     {/* <th scope="col">State</th> */}
                     {/* <th scope="col">City</th> */}
                     {/* <th scope="col">Date of Incident</th> */}
@@ -128,12 +130,13 @@ const ComplaintList = () => {
                 {incident.map((e) => (
                   <>
                     <tr>
-                      <td>{e.id}</td>
+                      {/* <td>{e.id}</td> */}
                       <td>{e.firstname}</td>
                       <td>{e.lastname}</td>
                       {/* <td>{e.userId}</td> */}
                       <td>{e.category}</td>
                       <td>{e.dateofcmp}</td>
+                      <td>{e.status}</td>
                       {/* <td>{e.state}</td> */}
                       {/* <td>{e.city}</td> */}
                       {/* <td>{e.dateofincident}</td> */}
