@@ -315,10 +315,10 @@ const Incident = () => {
           </div>
           <div className="col-4 text-end"></div>
         </form>
-        <div className="container py-3 text-center ">
+        {/*<div className="container py-3 text-center ">
           <h2>IPC sections</h2>
           {selectedCrime && renderCrimeDetails()}
-        </div>
+            </div>*/}
       </div>
     </>
   );

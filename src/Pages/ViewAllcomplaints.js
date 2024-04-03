@@ -72,7 +72,11 @@ const ViewAllComplaints = () => {
                       <td>{e.dateofincident}</td>
                       <td>{e.location}</td>
                       <td>{e.additionalinfo}</td>
-                      <td>akjdlajsd</td>
+                      <td>
+                        <button class="btn btn-md btn-secondary text-white">
+                          View
+                        </button>
+                      </td>
                     </tr>
                   </>
                 ))}

@@ -182,6 +182,23 @@ const Preview = () => {
             </div>
           </div>
           <hr />
+          <div class="col-md-6 text-end">
+            <Link
+              class="btn btn-lg px-5 btn-secondary text-white"
+              to="/suspect"
+            >
+              Back
+            </Link>
+          </div>
+          <div class="col-md-6 text-start">
+            <Link
+              class="btn btn-lg px-5  text-white"
+              to="/ViewAllComplaints"
+              style={{ backgroundColor: "#062d4b" }}
+            >
+              Okay
+            </Link>
+          </div>
         </form>
       </div>
     </>

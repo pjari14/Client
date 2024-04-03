@@ -37,6 +37,7 @@ const ComplaintList = () => {
         console.log("this is incident", incident);
       });
   }
+
   // const [user, setUser] = useState({
   //   firstname: "",
   //   lastname: "",
