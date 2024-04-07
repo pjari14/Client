@@ -75,8 +75,34 @@ const ViewAllComplaints = () => {
                       <td>{e.dateofincident}</td>
                       <td>{e.location}</td>
                       {/*<td>{e.additionalinfo}</td>*/}
+                      {/* <td>{e.status}</td> */}
+                      {/* <td>
+                        {e.status === "Approved" && (
+                          <p style={{ color: "green" }}>Approved</p>
+                        )}
+                        {e.status === "Closed" && (
+                          <p style={{ color: "red" }}>Closed</p>
+                        )}
+                        {e.status === "Denied" && (
+                          <p className="text-danger">Denied</p>
+                        )}
+                        {e.status !== "Approved" &&
+                          e.status !== "Closed" &&
+                          e.status !== "Denied" && (
+                            <p className="text-muted">Pending</p>
+                          )}
+                      </td> */}
 
-                      <td>{e.status}</td>
+                      {e.status === "Approved" ? (
+                        <td class="text-success">Approved</td>
+                      ) : e.status === "Closed" ? (
+                        <td class="text-danger"> Closed</td>
+                      ) : e.status === "Denied" ? (
+                        <td class="text-danger"> Denied</td>
+                      ) : (
+                        <td class="text-muted">Pending</td>
+                      )}
+
                       <td>
                         <Link
                           //to={`/SinlgeComplaintUSer?id=${e.id}&userId=${e.userId}`}

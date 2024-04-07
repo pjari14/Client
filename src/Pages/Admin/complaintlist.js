@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 const ComplaintList = () => {
   const [incident, setIncident] = useState([]);
+
   useEffect(() => {
     fetchIncident();
   }, []);
@@ -22,7 +23,207 @@ const ComplaintList = () => {
             state: incidentData.state,
             city: incidentData.city,
             dateofincident: incidentData.dateofincident,
-            policestaion: incidentData.policestaion,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+  const [searchText, setSearchText] = useState([]);
+  function searchComplaint(name) {
+    fetch(`http://localhost:5000/incident/search?firstname=${name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+
+  function filterComplaint(name) {
+    fetch(`http://localhost:5000/incident/search?policestation=${name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+  function filterStatus(name) {
+    fetch(`http://localhost:5000/incident/search?status=${name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+  function filterStatus(name) {
+    fetch(`http://localhost:5000/incident/search?status=${name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+  function filterCrimeType(name) {
+    fetch(`http://localhost:5000/incident/search?category=${name}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
+            reasonofdelay: incidentData.reasonofdelay,
+            location: incidentData.location,
+            evidence: incidentData.evidence,
+            nameofsus: incidentData.nameofsus,
+            additionalinfo: incidentData.additionalinfo,
+            firstname: incidentData.firstname,
+            lastname: incidentData.lastname,
+            status: incidentData.status,
+          };
+        });
+
+        setIncident(transformUser);
+        console.log("this is incident", incident);
+      });
+  }
+  const [police, setPolice] = useState([]);
+  const [crime, setCrime] = useState([]);
+  const [status, setStatus] = useState([]);
+
+  function filterAll(policestation, crime, status) {
+    fetch(
+      `http://localhost:5000/incident/search?policestation=${policestation}&category=${crime}&status=${status}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.data.data);
+        const transformUser = data.data.data.map((incidentData) => {
+          return {
+            id: incidentData._id,
+            userId: incidentData.userId,
+            category: incidentData.category,
+            dateofcmp: incidentData.dateofcmp,
+            state: incidentData.state,
+            city: incidentData.city,
+            dateofincident: incidentData.dateofincident,
+            policestation: incidentData.policestation,
             reasonofdelay: incidentData.reasonofdelay,
             location: incidentData.location,
             evidence: incidentData.evidence,
@@ -95,6 +296,100 @@ const ComplaintList = () => {
             >
               + Add New
             </Link>
+            <div class="row mt-3 mb-4">
+              <div class="col-md-6">
+                <input
+                  type="text"
+                  placeholder="search by name"
+                  class="form-control"
+                  style={{ height: "50px" }}
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                ></input>
+              </div>
+              <div class="col-md-6">
+                <button
+                  class="btn btn-success"
+                  style={{ height: "50px", color: "white" }}
+                  onClick={() => searchComplaint(searchText)}
+                >
+                  Search
+                </button>
+                <button
+                  class="btn btn-success ml-3"
+                  style={{ height: "50px", color: "white" }}
+                  onClick={() => {
+                    fetchIncident();
+                    setSearchText("");
+                    document.getElementById(
+                      "selectPoliceStation"
+                    ).selectedIndex = 0;
+                    document.getElementById("crimeSelect").selectedIndex = 0;
+                    document.getElementById("statusSelect").selectedIndex = 0;
+                  }}
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+            <div class="row mt-3 mb-5">
+              <div class="col-md-3">
+                <select
+                  class="form-control"
+                  id="selectPoliceStation"
+                  onChange={(e) => {
+                    filterComplaint(e.target.value);
+                    setPolice(e.target.value);
+                  }}
+                >
+                  <option value="nothing">Select Police Station</option>
+                  <option value="Bhatar">Bhatar</option>
+                  <option value="Athva">Athva</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select
+                  class="form-control"
+                  id="crimeSelect"
+                  onChange={(e) => {
+                    filterCrimeType(e.target.value);
+                    setCrime(e.target.value);
+                  }}
+                >
+                  <option value="nothing">Select Crime Type</option>
+                  <option value="Cyber Crime">Cyber Crime</option>
+                  <option value="Domestic Violence">Domestic Violence</option>
+                  <option value="Abuse">Abuse</option>
+                  <option value="Theft">Theft</option>
+                  <option value="Robbery">Robbery</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <select
+                  class="form-control"
+                  id="statusSelect"
+                  onChange={(e) => {
+                    filterStatus(e.target.value);
+                    setStatus(e.target.value);
+                  }}
+                >
+                  <option value="nothing">Select Status</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Closed">Closed</option>
+                  <option value="Denied">Denied</option>
+                </select>
+              </div>
+              <div class="col-md-3">
+                <button
+                  style={{ color: "white" }}
+                  class="btn btn-success"
+                  onClick={() => filterAll(police, crime, status)}
+                >
+                  Filter
+                </button>
+              </div>
+            </div>
 
             <hr />
             <div class="container table-responsive">
@@ -109,6 +404,7 @@ const ComplaintList = () => {
                     {/* <th scope="col">UserId</th> */}
                     <th scope="col">Complaint Category</th>
                     <th scope="col">Complaint Date</th>
+                    <th scope="col">Police Station</th>
                     <th scope="col">Status</th>
                     {/* <th scope="col">State</th> */}
                     {/* <th scope="col">City</th> */}
@@ -137,7 +433,16 @@ const ComplaintList = () => {
                       {/* <td>{e.userId}</td> */}
                       <td>{e.category}</td>
                       <td>{e.dateofcmp}</td>
-                      <td>{e.status}</td>
+                      <td>{e.policestation}</td>
+                      {e.status === "Approved" ? (
+                        <td class="text-success">Approved</td>
+                      ) : e.status === "Closed" ? (
+                        <td class="text-danger"> Closed</td>
+                      ) : e.status === "Denied" ? (
+                        <td class="text-danger"> Denied</td>
+                      ) : (
+                        <td class="text-secondary">Pending</td>
+                      )}
                       {/* <td>{e.state}</td> */}
                       {/* <td>{e.city}</td> */}
                       {/* <td>{e.dateofincident}</td> */}
