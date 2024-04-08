@@ -18,7 +18,7 @@ const Admin = () => {
             class="row"
             style={{ marginLeft: "-250px", marginTop: "-100px" }}
           >
-            <UsersTable />
+            {/* <UsersTable /> */}
           </div>
         </div>
       </div>

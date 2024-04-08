@@ -42,7 +42,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <hr className="sidebar-divider my-0" />
-          <li className="nav-item active">
+          {/*<li className="nav-item active">
             <Link className="nav-link" to="/evidencelist">
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Evidence</span>
@@ -54,7 +54,7 @@ const Sidebar = () => {
               <i className="fas fa-fw fa-tachometer-alt" />
               <span>Criminal</span>
             </Link>
-          </li>
+  </li>*/}
           <hr className="sidebar-divider my-0" />
           <li className="nav-item active">
             <Link className="nav-link" to="/registereduser">

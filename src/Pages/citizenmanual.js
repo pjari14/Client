@@ -136,85 +136,6 @@ const Citizenmanual = () => {
             <hr></hr>
             <tr class="row">
               <td
-                class=" bg-light"
-                style={{
-                  backgroundColor: "#BA68C8",
-                  color: "#407cc0",
-                  fontSize: "20px",
-                }}
-              >
-                Step 3 :- Provide your personal details.
-              </td>
-            </tr>
-            <div class="row">
-              <div class="col-sm">
-                <img
-                  src={image3}
-                  style={{ width: "100%", height: "450px" }}
-                  class="py-3"
-                ></img>
-              </div>
-              <div class="col-sm">
-                <p
-                  style={{
-                    paddingTop: "30px",
-                    fontSize: "18px",
-                    color: "#150578",
-                  }}
-                >
-                  {" "}
-                  ➤ You are required to fill your personal details into the
-                  portal to report your complaint.
-                </p>
-                <br></br>
-                <p style={{ paddingLeft: "23px" }}>
-                  i. Enter your first name and last name.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>{" "}
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  ii. Enter your email address.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  iii. Enter your contact number.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  iv. Upload your identity proof{" "}
-                  <b style={{ color: "Orange" }}>
-                    (Aadhar card, Driving License, PAN Card)
-                  </b>
-                  <b style={{ color: "red" }}>(mandatory) </b>
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  v. Enter your permanent address.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  vi. Enter your city.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>{" "}
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  vi. Select your area.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>{" "}
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  vi. Enter date of the complaint.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>{" "}
-                </p>
-                <p style={{ paddingLeft: "23px" }}>
-                  vi. Click on <strong>Next</strong> button to proceed.{" "}
-                  <b style={{ color: "red" }}>(mandatory) </b>{" "}
-                </p>
-              </div>
-            </div>
-            <p style={{ color: "red" }}>
-              * Ensure that the information you submit is true, current and
-              reliable.
-            </p>
-            <hr></hr>
-            <tr class="row">
-              <td
                 class="bg-light"
                 style={{
                   backgroundColor: "#BA68C8",
@@ -222,7 +143,7 @@ const Citizenmanual = () => {
                   fontSize: "20px",
                 }}
               >
-                Step 4 :- Provide incident details.
+                Step 3 :- Provide incident details.
               </td>
             </tr>
             <br></br>
@@ -288,7 +209,7 @@ const Citizenmanual = () => {
                   fontSize: "20px",
                 }}
               >
-                Step 5 :- Provide suspect details.
+                Step 4 :- Provide suspect details.
               </td>
             </tr>
             <br></br>

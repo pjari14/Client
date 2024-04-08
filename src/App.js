@@ -35,6 +35,7 @@ import Sidebar from "./Components/sidebar";
 import FAQS from "./Pages/FAQS";
 import ViewComplaint from "./Pages/Admin/ViewComplaint";
 import SingleComplaintUSer from "./Pages/SingleComplaintUser";
+import PageNotFound from "./Pages/PageNotFound";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -132,6 +133,7 @@ function App() {
           path="/ViewComplaint"
           element={user && user.isAdmin ? <ViewComplaint /> : <Home />}
         ></Route>
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
       {!user && <Footer />}
       {user && !user.isAdmin && <Footer />}
