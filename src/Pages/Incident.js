@@ -119,7 +119,13 @@ const Incident = () => {
           </div>
           <hr />
           <div className="col-md-6">
-            <label className="form-label"> Category of complaint:</label>
+            <label className="form-label">
+              {" "}
+              Category of complaint
+              <span style={{ fontSize: "20px" }} class="text-danger ml-1">
+                *
+              </span>
+            </label>
           </div>
           <div className="col-md-6">
             <select
@@ -159,6 +165,9 @@ const Incident = () => {
           <div className="col-md-6">
             <label className="form-label">
               Approximate date & time of incident:
+              <span style={{ fontSize: "20px" }} class="text-danger ml-1">
+                *
+              </span>
             </label>
           </div>
           <div className="col-md-4">
@@ -186,6 +195,9 @@ const Incident = () => {
           <div className="col-md-6">
             <label htmlFor="policestation" className="form-label">
               Select Police Station
+              <span style={{ fontSize: "20px" }} class="text-danger ml-1">
+                *
+              </span>
             </label>
           </div>
           <div className="col-md-6">

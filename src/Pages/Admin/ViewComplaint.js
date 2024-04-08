@@ -253,35 +253,46 @@ const ViewComplaint = () => {
               <div class="col-sm-12">
                 <br></br>
                 <table class="table">
-                  {suspect.map((e) => (
-                    <>
-                      <tr>
-                        <th class="col-6">Susname:</th>
-                        <td class="col-6">{e.susname}</td>
-                      </tr>
-                      <tr>
-                        <th>sussocial:</th>
-                        <td>{e.sussocial}</td>
-                      </tr>
-                      <tr>
-                        <th>sususername:</th>
-                        <td>{e.sususername}</td>
-                      </tr>
-                      <tr>
-                        <th>susphoto:</th>
-                        <td>
-                          <img
-                            src={`http://localhost:5000/suspect/` + e.susphoto}
-                            style={{ width: "250px", height: "auto" }}
-                            alt="suspectphoto"
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>otherdetails:</th>
-                        <td>{e.otherdetails}</td>
-                      </tr>
-                    </>
+                  {suspect.map((e, index) => (
+                    <div key={index}>
+                      <h5>
+                        <b>Suspect No: {index + 1}</b>
+                      </h5>
+                      <table className="table">
+                        <tr>
+                          <th>susphoto:</th>
+                          <td>
+                            <img
+                              src={
+                                `http://localhost:5000/suspect/` + e.susphoto
+                              }
+                              style={{ width: "200px", height: "auto" }}
+                              alt="suspectphoto"
+                            />
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>Susname:</th>
+                          <td>{e.susname}</td>
+                        </tr>
+                        <tr>
+                          <th>sussocial:</th>
+                          <td>{e.sussocial}</td>
+                        </tr>
+                        <tr>
+                          <th>sususername:</th>
+                          <td>{e.sususername}</td>
+                        </tr>
+                        <tr>
+                          <th>otherdetails:</th>
+                          <td>{e.otherdetails}</td>
+                        </tr>
+                      </table>
+                      {/* Add a horizontal line */}
+                      {index !== suspect.length - 1 && <hr />}
+                      <br />
+                      <br />
+                    </div>
                   ))}
                   <tr class="col-12">
                     <td></td>

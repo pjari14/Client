@@ -316,7 +316,7 @@ const ComplaintList = () => {
                   Search
                 </button>
                 <button
-                  class="btn btn-success ml-3"
+                  class="btn btn-secondary ml-3"
                   style={{ height: "50px", color: "white" }}
                   onClick={() => {
                     fetchIncident();
@@ -396,6 +396,7 @@ const ComplaintList = () => {
               <table class="table table-bordered table-hover   py-1 my-1">
                 <thead class="table-dark text-light">
                   <tr>
+                    <th scope="col">Sr No</th>
                     {/* <th scope="col">Com_ID</th> */}
                     {/* <th scope="col">_id</th> */}
                     <th scope="col">First Name</th>
@@ -424,9 +425,10 @@ const ComplaintList = () => {
                     </th>
                   </tr>
                 </thead>
-                {incident.map((e) => (
+                {incident.map((e, index) => (
                   <>
                     <tr>
+                      <td>{index + 1}</td>
                       {/* <td>{e.id}</td> */}
                       <td>{e.firstname}</td>
                       <td>{e.lastname}</td>

@@ -30,7 +30,8 @@ const Preview = () => {
         });
 
         setSuspect(transformUser);
-        console.log("this is incident", suspect);
+        console.log("this is suspect", suspect);
+        console.log("this is incident", incident);
       });
   }
   const handlePrintPreview = (event) => {
@@ -115,7 +116,7 @@ const Preview = () => {
                 <tr></tr>
                 <tr>
                   <th>Police Station:</th>
-                  <td></td>
+                  <td>{incident.policestation}</td>
                 </tr>
                 <tr>
                   <th>Date of Incident:</th>
@@ -159,9 +160,23 @@ const Preview = () => {
             <h2 class="text text-danger fw-3">Suspect details</h2>
             <div>
               <br></br>
-              <table class="table">
-                {suspect.map((e) => (
-                  <>
+
+              {suspect.map((e, index) => (
+                <div key={index}>
+                  <h5>
+                    <b>Suspect No: {index + 1}</b>
+                  </h5>
+                  <table className="table">
+                    <tr>
+                      <th>susphoto:</th>
+                      <td>
+                        <img
+                          src={`http://localhost:5000/suspect/` + e.susphoto}
+                          style={{ width: "200px", height: "auto" }}
+                          alt="suspectphoto"
+                        />
+                      </td>
+                    </tr>
                     <tr>
                       <th>Susname:</th>
                       <td>{e.susname}</td>
@@ -175,24 +190,16 @@ const Preview = () => {
                       <td>{e.sususername}</td>
                     </tr>
                     <tr>
-                      <th>susphoto:</th>
-
-                      <td>
-                        <img
-                          src={`http://localhost:5000/suspect/` + e.susphoto}
-                          style={{ width: "250px", height: "auto" }}
-                          alt="suspectphoto"
-                        />
-                      </td>
-                    </tr>
-                    <tr>
                       <th>otherdetails:</th>
-
                       <td>{e.otherdetails}</td>
                     </tr>
-                  </>
-                ))}
-              </table>
+                  </table>
+                  {/* Add a horizontal line */}
+                  {index !== suspect.length - 1 && <hr />}
+                  <br />
+                  <br />
+                </div>
+              ))}
             </div>
           </div>
           <hr />

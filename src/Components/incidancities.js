@@ -61,7 +61,12 @@ const IndiaCities = (props) => {
   return (
     <>
       <div class="col-md-6">
-        <label htmlFor="state">Select a state</label>
+        <label htmlFor="state">
+          Select a state
+          <span style={{ fontSize: "20px" }} class="text-danger ml-1">
+            *
+          </span>
+        </label>
       </div>
       <div class="col-md-6">
         <select
@@ -82,7 +87,13 @@ const IndiaCities = (props) => {
       </div>
 
       <div class="col-md-6">
-        <label htmlFor="city">Select a city in {selectedState}</label>
+        <label htmlFor="city">
+          Select a city
+          {/* {selectedState} */}
+          <span style={{ fontSize: "20px" }} class="text-danger ml-1">
+            *
+          </span>
+        </label>
       </div>
       <div class="col-md-6">
         <select

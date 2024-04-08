@@ -13,7 +13,7 @@ const Suspect = () => {
   const {
     formState: { errors },
     handleSubmit,
-    register,   
+    register,
     reset,
   } = useForm();
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Suspect = () => {
       // dispatch(createIncident(formData));
       const res = await axios.post(url, formData, { withCredentials: true });
       console.log(res);
-      navigate("/preview");
+      // navigate("/preview");
       reset();
     } catch (error) {
       console.error(error);
@@ -145,6 +145,14 @@ const Suspect = () => {
             <div class="col-3 ">
               <button
                 type="submit"
+                class="btn btn-primary"
+                onClick={() => insertSuspect()}
+              >
+                Add
+              </button>
+              <button
+                // type="submit"
+                onClick={() => navigate("/preview")}
                 class="btn btn-outline-success shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
               >
                 Preview and submit
