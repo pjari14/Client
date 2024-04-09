@@ -183,7 +183,7 @@ const ViewComplaint = () => {
                   {/*} <tr>
                     <th>Complaint Id</th>
                     <td>{incident.id}</td>
-  </tr>*/}
+                  </tr>*/}
                   <tr>
                     <th class="col-6">Category:</th>
                     <td class="col-6">{incident.category}</td>
@@ -191,7 +191,18 @@ const ViewComplaint = () => {
                   <tr>
                     <th>Date of Comp:</th>
 
-                    <td>{incident.dateofcmp}</td>
+                    <td>
+                      {new Date(incident.dateofcmp)
+                        .toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })
+                        .replace(/\//g, "-")}
+                    </td>
                   </tr>
                   <tr>
                     <th>State:</th>
@@ -208,7 +219,15 @@ const ViewComplaint = () => {
                   </tr>
                   <tr>
                     <th>Date of Incident:</th>
-                    <td>{incident.dateofincident}</td>
+                    <td>
+                      {new Date(incident.dateofincident)
+                        .toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })
+                        .replace(/\//g, "-")}
+                    </td>
                   </tr>
 
                   <tr>
@@ -247,21 +266,119 @@ const ViewComplaint = () => {
                 </table>
               </div>
             </div>
-            <hr />
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Suspect details</h2>
               <div class="col-sm-12">
                 <br></br>
-                <table class="table">
+                {suspect.map((e, index) => (
+                  <table class="table ">
+                    <div key={index}>
+                      <h5 class="text-danger p-2">
+                        Suspect No:
+                        {index + 1}
+                      </h5>
+                    </div>
+
+                    <tr>
+                      <th class="col-6">susphoto:</th>
+                      <td class="col-6">
+                        <img
+                          src={`http://localhost:5000/suspect/` + e.susphoto}
+                          style={{ width: "200px", height: "auto" }}
+                          alt="suspectphoto"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Susname:</th>
+                      <td>{e.susname}</td>
+                    </tr>
+                    <tr>
+                      <th>sussocial:</th>
+                      <td>{e.sussocial}</td>
+                    </tr>
+                    <tr>
+                      <th>sususername:</th>
+                      <td>{e.sususername}</td>
+                    </tr>
+                    <tr>
+                      <th>otherdetails:</th>
+                      <td>{e.otherdetails}</td>
+                    </tr>
+                    {/* Add a horizontal line */}
+                    {index !== suspect.length - 1 && <hr />}
+                    <br />
+                    <br />
+                    <tr class="col-12">
+                      <td></td>
+                      <td>
+                        {incident.status === "Approved" ? (
+                          <button
+                            className="btn btn-danger"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              updateStatus("Closed");
+                            }}
+                          >
+                            Close Complaint
+                          </button>
+                        ) : incident.status === "Closed" ? (
+                          <span class="text-danger"> Complaint is Closed</span>
+                        ) : incident.status === "Denied" ? (
+                          <span class="text-danger">Complaint is Denied</span>
+                        ) : (
+                          <>
+                            <button
+                              className="btn btn-success  btn-md px-2 mx-1"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                updateStatus("Approved");
+                              }}
+                            >
+                              Approve
+                            </button>
+                            <button
+                              className="btn btn-danger  btn-md px-3 mx-1"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                updateStatus("Denied");
+                              }}
+                            >
+                              Deny
+                            </button>
+                          </>
+                        )}
+
+                        <Link
+                          to="/complaintList"
+                          class="btn btn-md px-3 btn-secondary mx-1"
+                        >
+                          Back
+                        </Link>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </table>
+                ))}
+              </div>
+            </div>
+            <hr />
+            {/* <div>
+              <h2 class="text text-secondary fw-3">Suspect details</h2>
+              <div>
+                <br></br>
+                <table class="table   col-12">
                   {suspect.map((e, index) => (
                     <div key={index}>
-                      <h5>
-                        <b>Suspect No: {index + 1}</b>
+                      <h5 class="text-danger p-2">
+                        Suspect No:
+                        {index + 1}
                       </h5>
+
                       <table className="table">
                         <tr>
-                          <th>susphoto:</th>
-                          <td>
+                          <th class="col-6">susphoto:</th>
+                          <td class="col-6">
                             <img
                               src={
                                 `http://localhost:5000/suspect/` + e.susphoto
@@ -289,7 +406,7 @@ const ViewComplaint = () => {
                         </tr>
                       </table>
                       {/* Add a horizontal line */}
-                      {index !== suspect.length - 1 && <hr />}
+            {/* {index !== suspect.length - 1 && <hr />}
                       <br />
                       <br />
                     </div>
@@ -345,8 +462,7 @@ const ViewComplaint = () => {
                   </tr>
                 </table>
               </div>
-            </div>
-            <hr />
+            </div> */}
           </form>
         </div>
       </div>

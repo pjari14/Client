@@ -73,8 +73,10 @@ const SuspectList = () => {
                     <th scope="col">Suspect Username/Number</th>
                     <th scope="col">Suspect Photograph</th>
                     <th scope="col">Additional Details</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Options</th>
+
+                    <th scope="col" colSpan={3}>
+                      Options
+                    </th>
                   </tr>
                 </thead>
                 {suspect.map((e) => (
@@ -93,6 +95,15 @@ const SuspectList = () => {
                         />
                       </td>
                       <td>{e.otherdetails}</td>
+                      <td>
+                        <Link
+                          to="/ViewSuspect"
+                          class="btn btn-outline-secondary"
+                          id="viewsuspect"
+                        >
+                          View
+                        </Link>
+                      </td>
                       <td>
                         <Link
                           to={`/updateSuspect?id=${e.id}`}

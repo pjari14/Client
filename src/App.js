@@ -36,6 +36,7 @@ import FAQS from "./Pages/FAQS";
 import ViewComplaint from "./Pages/Admin/ViewComplaint";
 import SingleComplaintUSer from "./Pages/SingleComplaintUser";
 import PageNotFound from "./Pages/PageNotFound";
+import ViewSuspect from "./Pages/Admin/viewsuspect";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -132,6 +133,10 @@ function App() {
         <Route
           path="/ViewComplaint"
           element={user && user.isAdmin ? <ViewComplaint /> : <Home />}
+        ></Route>
+        <Route
+          path="/ViewSuspect"
+          element={user && user.isAdmin ? <ViewSuspect /> : <Home />}
         ></Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>

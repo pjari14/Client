@@ -297,27 +297,25 @@ const ComplaintList = () => {
               + Add New
             </Link>
             <div class="row mt-3 mb-4">
-              <div class="col-md-6">
+              <div class="col-md-7">
                 <input
                   type="text"
-                  placeholder="search by name"
-                  class="form-control"
-                  style={{ height: "50px" }}
+                  placeholder="Search by complainant's name"
+                  class="form-control "
                   value={searchText}
                   onChange={(e) => setSearchText(e.target.value)}
                 ></input>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <button
-                  class="btn btn-success"
-                  style={{ height: "50px", color: "white" }}
+                  class="btn text-white btn-md px-5 py-2"
+                  style={{ backgroundColor: "#062d4b" }}
                   onClick={() => searchComplaint(searchText)}
                 >
                   Search
                 </button>
                 <button
-                  class="btn btn-secondary ml-3"
-                  style={{ height: "50px", color: "white" }}
+                  class="btn btn-secondary text-white btn-md ml-3 px-5 py-2"
                   onClick={() => {
                     fetchIncident();
                     setSearchText("");
@@ -382,8 +380,12 @@ const ComplaintList = () => {
               </div>
               <div class="col-md-3">
                 <button
-                  style={{ color: "white" }}
-                  class="btn btn-success"
+                  style={{
+                    backgroundColor: "#062d4b",
+                    marginTop: "-5px",
+                    padding: "37px",
+                  }}
+                  class="btn text-white btn-md  py-2"
                   onClick={() => filterAll(police, crime, status)}
                 >
                   Filter
@@ -418,9 +420,8 @@ const ComplaintList = () => {
                     {/* <th scope="col">Suspect person or company name</th> */}
                     {/* <th scope="col">Additional Details</th> */}
                     {/* <th scope="col">Evidence</th> */}
-                    <th scope="col">View</th>
 
-                    <th scope="col" colSpan={2}>
+                    <th scope="col" colSpan={3}>
                       Options
                     </th>
                   </tr>
@@ -434,7 +435,15 @@ const ComplaintList = () => {
                       <td>{e.lastname}</td>
                       {/* <td>{e.userId}</td> */}
                       <td>{e.category}</td>
-                      <td>{e.dateofcmp}</td>
+                      <td>
+                        {new Date(e.dateofcmp)
+                          .toLocaleString("en-GB", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                          })
+                          .replace(/\//g, "-")}
+                      </td>
                       <td>{e.policestation}</td>
                       {e.status === "Approved" ? (
                         <td class="text-success">Approved</td>
@@ -466,7 +475,7 @@ const ComplaintList = () => {
                       <td>
                         <Link
                           to={`/viewcomplaint?id=${e.id}&userId=${e.userId}`}
-                          class="btn btn-outline-warning"
+                          class="btn btn-outline-secondary"
                           id="viewcomplaint"
                         >
                           View
