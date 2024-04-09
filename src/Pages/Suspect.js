@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
 const Suspect = () => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState([]);
   const incident = useSelector((state) => state.incident);
   const handleUpload = (e) => {
     setImage(e.target.files[0]);
@@ -31,19 +31,31 @@ const Suspect = () => {
       // };
       // console.log(data, incident, cities, selectedState);
       const formData = new FormData();
-      formData.append("susname", data.susname);
-      formData.append("incidentId", incident._id);
-      formData.append("sussocial", data.sussocial);
-      formData.append("sususername", data.sususername);
-      formData.append("susphoto", image);
-      formData.append("otherdetails", data.otherdetails);
+      if (
+        data.susname === "" &&
+        data.sussocial === "" &&
+        data.sususername === "" &&
+        image === "" &&
+        data.otherdetails === ""
+      ) {
+        alert("can't send empty form!!");
+      } else {
+        formData.append("susname", data.susname);
+        formData.append("incidentId", incident._id);
+        formData.append("sussocial", data.sussocial);
+        formData.append("sususername", data.sususername);
+        formData.append("susphoto", image);
+        formData.append("otherdetails", data.otherdetails);
+        alert("sent successfuly");
 
-      // console.log(data, incident, cities, selectedState);
-      // dispatch(createIncident(formData));
-      const res = await axios.post(url, formData, { withCredentials: true });
-      console.log(res);
-      // navigate("/preview");
-      reset();
+        // console.log(data, incident, cities, selectedState);
+        // dispatch(createIncident(formData));
+        const res = await axios.post(url, formData, { withCredentials: true });
+        console.log(res);
+        // navigate("/preview");
+        reset();
+        setImage("");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -86,7 +98,7 @@ const Suspect = () => {
               id="sussocial"
               {...register("sussocial")}
             >
-              <option value="Select">Select Suspect Identity</option>
+              <option value="">Select Suspect Identity</option>
               <option value="Instagram id">Instagram id</option>
               <option value="Mobile number">Mobile Contact</option>
               <option value="Facebook">Facebook</option>

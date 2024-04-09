@@ -73,7 +73,7 @@ const ViewComplaint = () => {
         });
 
         setSuspect(transformUser);
-        // console.log("this is incident", suspect);
+        console.log("this is suspect", suspect);
       });
   }
   const [user, setUser] = useState({
@@ -271,95 +271,132 @@ const ViewComplaint = () => {
               <div class="col-sm-12">
                 <br></br>
                 {suspect.map((e, index) => (
-                  <table class="table ">
-                    <div key={index}>
-                      <h5 class="text-danger p-2">
-                        Suspect No:
-                        {index + 1}
-                      </h5>
-                    </div>
+                  <>
+                    <table class="table ">
+                      <div key={index}>
+                        <h5 class="text-danger p-2">
+                          Suspect No:
+                          {index + 1}
+                        </h5>
+                      </div>
+                      {e.susphoto && (
+                        <>
+                          <tr>
+                            <th class="col-6">susphoto:</th>
+                            <td class="col-6">
+                              <img
+                                src={
+                                  `http://localhost:5000/suspect/` + e.susphoto
+                                }
+                                style={{ width: "200px", height: "auto" }}
+                                alt="suspectphoto"
+                              />
+                            </td>
+                          </tr>
+                        </>
+                      )}
+                      {e.susname && (
+                        <>
+                          <tr>
+                            <th>Susname:</th>
+                            <td>{e.susname}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.sussocial && (
+                        <>
+                          <tr>
+                            <th>sussocial:</th>
+                            <td>{e.sussocial}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.sususername && (
+                        <>
+                          <tr>
+                            <th>sususername:</th>
+                            <td>{e.sususername}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.otherdetails && (
+                        <>
+                          <tr>
+                            <th>otherdetails:</th>
+                            <td>{e.otherdetails}</td>
+                          </tr>
+                        </>
+                      )}
 
-                    <tr>
-                      <th class="col-6">susphoto:</th>
-                      <td class="col-6">
-                        <img
-                          src={`http://localhost:5000/suspect/` + e.susphoto}
-                          style={{ width: "200px", height: "auto" }}
-                          alt="suspectphoto"
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Susname:</th>
-                      <td>{e.susname}</td>
-                    </tr>
-                    <tr>
-                      <th>sussocial:</th>
-                      <td>{e.sussocial}</td>
-                    </tr>
-                    <tr>
-                      <th>sususername:</th>
-                      <td>{e.sususername}</td>
-                    </tr>
-                    <tr>
-                      <th>otherdetails:</th>
-                      <td>{e.otherdetails}</td>
-                    </tr>
-                    {/* Add a horizontal line */}
-                    {index !== suspect.length - 1 && <hr />}
-                    <br />
-                    <br />
-                    <tr class="col-12">
-                      <td></td>
-                      <td>
-                        {incident.status === "Approved" ? (
-                          <button
-                            className="btn btn-danger"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              updateStatus("Closed");
-                            }}
-                          >
-                            Close Complaint
-                          </button>
-                        ) : incident.status === "Closed" ? (
-                          <span class="text-danger"> Complaint is Closed</span>
-                        ) : incident.status === "Denied" ? (
-                          <span class="text-danger">Complaint is Denied</span>
-                        ) : (
-                          <>
-                            <button
-                              className="btn btn-success  btn-md px-2 mx-1"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                updateStatus("Approved");
-                              }}
-                            >
-                              Approve
-                            </button>
-                            <button
-                              className="btn btn-danger  btn-md px-3 mx-1"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                updateStatus("Denied");
-                              }}
-                            >
-                              Deny
-                            </button>
-                          </>
-                        )}
-
-                        <Link
-                          to="/complaintList"
-                          class="btn btn-md px-3 btn-secondary mx-1"
-                        >
-                          Back
-                        </Link>
-                      </td>
-                      <td></td>
-                    </tr>
-                  </table>
+                      {index !== suspect.length - 1 && <hr />}
+                      <br />
+                      <br />
+                    </table>
+                  </>
                 ))}
+                <table class="table">
+                  <tr class="col-12" style={{ alignContent: "right" }}>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <td></td>
+                      </div>
+                      <div class="col-md-6">
+                        <td>
+                          {incident.status === "Approved" ? (
+                            <button
+                              style={{ color: "white" }}
+                              className="btn btn-danger"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                updateStatus("Closed");
+                              }}
+                            >
+                              Close Complaint
+                            </button>
+                          ) : incident.status === "Closed" ? (
+                            <span class="text-danger">
+                              {" "}
+                              Complaint is Closed
+                            </span>
+                          ) : incident.status === "Denied" ? (
+                            <span class="text-danger">Complaint is Denied</span>
+                          ) : (
+                            <>
+                              <button
+                                className="btn btn-success  btn-md px-2 mx-1"
+                                style={{ color: "white" }}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  updateStatus("Approved");
+                                }}
+                              >
+                                Approve
+                              </button>
+                              <button
+                                className="btn btn-danger  btn-md px-3 mx-1"
+                                style={{ color: "white" }}
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  updateStatus("Denied");
+                                }}
+                              >
+                                Deny
+                              </button>
+                            </>
+                          )}
+
+                          <Link
+                            to="/complaintList"
+                            class="btn btn-md px-3 btn-secondary mx-1"
+                            style={{ color: "white" }}
+                          >
+                            Back
+                          </Link>
+                        </td>
+                      </div>
+                    </div>
+                  </tr>
+                </table>
               </div>
             </div>
             <hr />

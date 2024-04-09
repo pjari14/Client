@@ -156,53 +156,89 @@ const Preview = () => {
             </div>
           </div>
           <hr />
-          <div class="col-sm-12">
-            <h2 class="text text-danger fw-3">Suspect details</h2>
-            <div>
-              <br></br>
+          {suspect.length > 0 ? (
+            <>
+              <div class="col-sm-12">
+                <h2 class="text text-danger fw-3">Suspect details</h2>
+                <div>
+                  <br></br>
+                  {suspect.map((e, index) => (
+                    <>
+                      <table class="table ">
+                        <div key={index}>
+                          <h5 class="text-danger p-2">
+                            Suspect No:
+                            {index + 1}
+                          </h5>
+                        </div>
+                        {e.susphoto && (
+                          <>
+                            <tr>
+                              <th class="col-6">susphoto:</th>
+                              <td class="col-6">
+                                <img
+                                  src={
+                                    `http://localhost:5000/suspect/` +
+                                    e.susphoto
+                                  }
+                                  style={{ width: "200px", height: "auto" }}
+                                  alt="suspectphoto"
+                                />
+                              </td>
+                            </tr>
+                          </>
+                        )}
+                        {e.susname && (
+                          <>
+                            <tr>
+                              <th>Susname:</th>
+                              <td>{e.susname}</td>
+                            </tr>
+                          </>
+                        )}
+                        {e.sussocial && (
+                          <>
+                            <tr>
+                              <th>sussocial:</th>
+                              <td>{e.sussocial}</td>
+                            </tr>
+                          </>
+                        )}
+                        {e.sususername && (
+                          <>
+                            <tr>
+                              <th>sususername:</th>
+                              <td>{e.sususername}</td>
+                            </tr>
+                          </>
+                        )}
+                        {e.otherdetails && (
+                          <>
+                            <tr>
+                              <th>otherdetails:</th>
+                              <td>{e.otherdetails}</td>
+                            </tr>
+                          </>
+                        )}
 
-              {suspect.map((e, index) => (
-                <div key={index}>
-                  <h5>
-                    <b>Suspect No: {index + 1}</b>
-                  </h5>
-                  <table className="table">
-                    <tr>
-                      <th>susphoto:</th>
-                      <td>
-                        <img
-                          src={`http://localhost:5000/suspect/` + e.susphoto}
-                          style={{ width: "200px", height: "auto" }}
-                          alt="suspectphoto"
-                        />
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Susname:</th>
-                      <td>{e.susname}</td>
-                    </tr>
-                    <tr>
-                      <th>sussocial:</th>
-                      <td>{e.sussocial}</td>
-                    </tr>
-                    <tr>
-                      <th>sususername:</th>
-                      <td>{e.sususername}</td>
-                    </tr>
-                    <tr>
-                      <th>otherdetails:</th>
-                      <td>{e.otherdetails}</td>
-                    </tr>
-                  </table>
-                  {/* Add a horizontal line */}
-                  {index !== suspect.length - 1 && <hr />}
-                  <br />
-                  <br />
+                        {index !== suspect.length - 1 && <hr />}
+                        <br />
+                        <br />
+                      </table>
+                    </>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          <hr />
+              </div>
+              <hr />
+            </>
+          ) : (
+            <>
+              <span class="mb-5 mt-5" style={{ color: "grey" }}>
+                There is no suspect in this complaint
+              </span>
+              <br />
+            </>
+          )}
           <div class="col-md-6 text-end">
             <Link
               class="btn btn-lg px-5 btn-secondary text-white no-print"
