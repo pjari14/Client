@@ -45,17 +45,12 @@ const ViewAllComplaints = () => {
             <h1 class="text-danger">My complaints</h1> <hr />
           </div>
           <div class="container table-responsive">
-            <table class="table table-bordered table-hover  py-1 my-1">
+            <table class="table table-bordered table-hover  py-2 my-2">
               <thead class="table-white  text-dark">
-                <tr>
-                  {/* <th scope="col">Com_ID</th> */}
+                <tr style={{ fontSize: "17px" }}>
                   <th scope="col">Sr No.</th>
                   <th scope="col">Complaint Date</th>
                   <th scope="col">Crime Category</th>
-
-                  {/* <th scope="col">Time of Incident</th> */}
-
-                  {/*<th scope="col">Additional Details</th>*/}
                   <th scope="col">Status</th>
 
                   <th scope="col">View</th>
@@ -77,26 +72,6 @@ const ViewAllComplaints = () => {
                           .replace(/\//g, "-")}
                       </td>
                       <td>{e.category}</td>
-
-                      {/*<td>{e.additionalinfo}</td>*/}
-                      {/* <td>{e.status}</td> */}
-                      {/* <td>
-                        {e.status === "Approved" && (
-                          <p style={{ color: "green" }}>Approved</p>
-                        )}
-                        {e.status === "Closed" && (
-                          <p style={{ color: "red" }}>Closed</p>
-                        )}
-                        {e.status === "Denied" && (
-                          <p className="text-danger">Denied</p>
-                        )}
-                        {e.status !== "Approved" &&
-                          e.status !== "Closed" &&
-                          e.status !== "Denied" && (
-                            <p className="text-muted">Pending</p>
-                          )}
-                      </td> */}
-
                       {e.status === "Approved" ? (
                         <td class="text-success">Approved</td>
                       ) : e.status === "Closed" ? (
@@ -109,7 +84,6 @@ const ViewAllComplaints = () => {
 
                       <td>
                         <Link
-                          //to={`/SinlgeComplaintUSer?id=${e.id}&userId=${e.userId}`}
                           class="btn btn-md btn-outline-secondary"
                           to={`/SingleComplaintUser?id=${e.id}&userId=${e.userId}`}
                         >
