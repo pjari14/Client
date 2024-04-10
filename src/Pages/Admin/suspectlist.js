@@ -31,21 +31,26 @@ const SuspectList = () => {
   }
 
   function deleteSuspect(id) {
-    fetch(`http://localhost:5000/suspect/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to delete complaint");
-        } else {
-          console.log("deleted successfuly");
-        }
-        // Refresh incident list after successful deletion
-        fetchSuspect();
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this suspect?"
+    );
+    if (confirmation) {
+      fetch(`http://localhost:5000/suspect/${id}`, {
+        method: "DELETE",
       })
-      .catch((error) => {
-        console.error("Error deleting complaint:", error);
-      });
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to delete suspect");
+          } else {
+            console.log("deleted successfuly");
+          }
+          // Refresh incident list after successful deletion
+          fetchSuspect();
+        })
+        .catch((error) => {
+          console.error("Error deleting suspect:", error);
+        });
+    }
   }
 
   return (
