@@ -73,142 +73,34 @@ const ComplaintList = () => {
       });
   }
 
-  function filterComplaint(name) {
-    fetch(`http://localhost:5000/incident/search?policestation=${name}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((incidentData) => {
-          return {
-            id: incidentData._id,
-            userId: incidentData.userId,
-            category: incidentData.category,
-            dateofcmp: incidentData.dateofcmp,
-            state: incidentData.state,
-            city: incidentData.city,
-            dateofincident: incidentData.dateofincident,
-            policestation: incidentData.policestation,
-            reasonofdelay: incidentData.reasonofdelay,
-            location: incidentData.location,
-            evidence: incidentData.evidence,
-            nameofsus: incidentData.nameofsus,
-            additionalinfo: incidentData.additionalinfo,
-            firstname: incidentData.firstname,
-            lastname: incidentData.lastname,
-            status: incidentData.status,
-          };
-        });
-
-        setIncident(transformUser);
-        console.log("this is incident", incident);
-      });
-  }
-  function filterStatus(name) {
-    fetch(`http://localhost:5000/incident/search?status=${name}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((incidentData) => {
-          return {
-            id: incidentData._id,
-            userId: incidentData.userId,
-            category: incidentData.category,
-            dateofcmp: incidentData.dateofcmp,
-            state: incidentData.state,
-            city: incidentData.city,
-            dateofincident: incidentData.dateofincident,
-            policestation: incidentData.policestation,
-            reasonofdelay: incidentData.reasonofdelay,
-            location: incidentData.location,
-            evidence: incidentData.evidence,
-            nameofsus: incidentData.nameofsus,
-            additionalinfo: incidentData.additionalinfo,
-            firstname: incidentData.firstname,
-            lastname: incidentData.lastname,
-            status: incidentData.status,
-          };
-        });
-
-        setIncident(transformUser);
-        console.log("this is incident", incident);
-      });
-  }
-  function filterStatus(name) {
-    fetch(`http://localhost:5000/incident/search?status=${name}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((incidentData) => {
-          return {
-            id: incidentData._id,
-            userId: incidentData.userId,
-            category: incidentData.category,
-            dateofcmp: incidentData.dateofcmp,
-            state: incidentData.state,
-            city: incidentData.city,
-            dateofincident: incidentData.dateofincident,
-            policestation: incidentData.policestation,
-            reasonofdelay: incidentData.reasonofdelay,
-            location: incidentData.location,
-            evidence: incidentData.evidence,
-            nameofsus: incidentData.nameofsus,
-            additionalinfo: incidentData.additionalinfo,
-            firstname: incidentData.firstname,
-            lastname: incidentData.lastname,
-            status: incidentData.status,
-          };
-        });
-
-        setIncident(transformUser);
-        console.log("this is incident", incident);
-      });
-  }
-  function filterCrimeType(name) {
-    fetch(`http://localhost:5000/incident/search?category=${name}`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.data.data);
-        const transformUser = data.data.data.map((incidentData) => {
-          return {
-            id: incidentData._id,
-            userId: incidentData.userId,
-            category: incidentData.category,
-            dateofcmp: incidentData.dateofcmp,
-            state: incidentData.state,
-            city: incidentData.city,
-            dateofincident: incidentData.dateofincident,
-            policestation: incidentData.policestation,
-            reasonofdelay: incidentData.reasonofdelay,
-            location: incidentData.location,
-            evidence: incidentData.evidence,
-            nameofsus: incidentData.nameofsus,
-            additionalinfo: incidentData.additionalinfo,
-            firstname: incidentData.firstname,
-            lastname: incidentData.lastname,
-            status: incidentData.status,
-          };
-        });
-
-        setIncident(transformUser);
-        console.log("this is incident", incident);
-      });
-  }
-  const [police, setPolice] = useState([]);
-  const [crime, setCrime] = useState([]);
-  const [status, setStatus] = useState([]);
-
+  const [police, setPolice] = useState("");
+  const [crime, setCrime] = useState("");
+  const [status, setStatus] = useState("");
   function filterAll(policestation, crime, status) {
-    fetch(
-      `http://localhost:5000/incident/search?policestation=${policestation}&category=${crime}&status=${status}`
-    )
+    let url = "http://localhost:5000/incident/search?";
+    let filtersApplied = false;
+
+    if (policestation) {
+      url += `policestation=${policestation}&`;
+      filtersApplied = true;
+    }
+    if (crime) {
+      url += `category=${crime}&`;
+      filtersApplied = true;
+    }
+    if (status) {
+      url += `status=${status}&`;
+      filtersApplied = true;
+    }
+
+    if (!filtersApplied) {
+      fetchIncident();
+      return;
+    }
+
+    if (url.endsWith("&")) url = url.slice(0, -1);
+
+    fetch(url)
       .then((response) => {
         return response.json();
       })
@@ -237,50 +129,33 @@ const ComplaintList = () => {
 
         setIncident(transformUser);
         console.log("this is incident", incident);
-      });
-  }
-
-  // const [user, setUser] = useState({
-  //   firstname: "",
-  //   lastname: "",
-  //   address: "",
-  //   contactno: "",
-  //   email: "",
-  // });
-  // function fetchUser() {
-  //   fetch(`http://localhost:5000/user/${}`)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       const userData = data.data.data;
-  //       setUser({
-  //         firstname: userData.firstname,
-  //         lastname: userData.lastname,
-  //         address: userData.address,
-  //         contact: userData.contact,
-  //         email: userData.email,
-  //         city: userData.city,
-  //       });
-  //       console.log("this is user", data.data.data);
-  //     });
-  // }
-  function deleteComplaint(id) {
-    fetch(`http://localhost:5000/incident/${id}`, {
-      method: "DELETE",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to delete complaint");
-        } else {
-          console.log("deleted successfuly");
-        }
-        // Refresh incident list after successful deletion
-        fetchIncident();
       })
       .catch((error) => {
-        console.error("Error deleting complaint:", error);
+        console.error("Error filtering complaints:", error);
       });
+  }
+
+  function deleteComplaint(id) {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this complaint?"
+    );
+    if (confirmation) {
+      fetch(`http://localhost:5000/incident/${id}`, {
+        method: "DELETE",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to delete complaint");
+          } else {
+            console.log("deleted successfuly");
+          }
+
+          fetchIncident();
+        })
+        .catch((error) => {
+          console.error("Error deleting complaint:", error);
+        });
+    }
   }
 
   return (
@@ -289,13 +164,13 @@ const ComplaintList = () => {
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="content">
           <div className="overflow-auto">
             <h1 class=" my-5  mb-1 fs-1 text-dark ">Complaint List</h1>
-            <Link
+            {/* <Link
               to="/addComplaint"
               class="btn btn-outline-success"
               style={{ marginLeft: "1050px", marginTop: "-100px" }}
             >
               + Add New
-            </Link>
+            </Link> */}
             <div class="row mt-3 mb-4" style={{ width: "100%" }}>
               <div class="col-md-7">
                 <input
@@ -317,8 +192,13 @@ const ComplaintList = () => {
                 <button
                   class="btn btn-secondary text-white btn-md ml-3 px-5 py-2"
                   onClick={() => {
-                    fetchIncident();
                     setSearchText("");
+                    setPolice("");
+                    setCrime("");
+                    setStatus("");
+
+                    fetchIncident();
+
                     document.getElementById(
                       "selectPoliceStation"
                     ).selectedIndex = 0;
@@ -336,11 +216,11 @@ const ComplaintList = () => {
                   class="form-control"
                   id="selectPoliceStation"
                   onChange={(e) => {
-                    filterComplaint(e.target.value);
+                    // filterComplaint(e.target.value);
                     setPolice(e.target.value);
                   }}
                 >
-                  <option value="nothing">Select Police Station</option>
+                  <option value="">Select Police Station</option>
                   <option value="Bhatar">Bhatar</option>
                   <option value="Athva">Athva</option>
                 </select>
@@ -350,11 +230,11 @@ const ComplaintList = () => {
                   class="form-control"
                   id="crimeSelect"
                   onChange={(e) => {
-                    filterCrimeType(e.target.value);
+                    // filterCrimeType(e.target.value);
                     setCrime(e.target.value);
                   }}
                 >
-                  <option value="nothing">Select Crime Type</option>
+                  <option value="">Select Crime Type</option>
                   <option value="Cyber Crime">Cyber Crime</option>
                   <option value="Domestic Violence">Domestic Violence</option>
                   <option value="Abuse">Abuse</option>
@@ -367,11 +247,11 @@ const ComplaintList = () => {
                   class="form-control"
                   id="statusSelect"
                   onChange={(e) => {
-                    filterStatus(e.target.value);
+                    // filterStatus(e.target.value);
                     setStatus(e.target.value);
                   }}
                 >
-                  <option value="nothing">Select Status</option>
+                  <option value="">Select Status</option>
                   <option value="Pending">Pending</option>
                   <option value="Approved">Approved</option>
                   <option value="Closed">Closed</option>

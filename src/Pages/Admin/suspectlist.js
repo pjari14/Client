@@ -54,25 +54,21 @@ const SuspectList = () => {
         <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="content">
           <div className="overflow-auto">
             <h1 class=" my-5  mb-1 fs-1 text-dark ">Suspect List</h1>
-            <Link
+            {/* <Link
               to="/addSuspect"
               class="btn btn-outline-success"
               style={{ marginLeft: "1050px", marginTop: "-100px" }}
             >
               + Add New
-            </Link>
+            </Link> */}
             <hr />
             <div class="container table-responsive">
               <table class="table table-bordered table-hover my-1">
                 <thead class="table-dark text-light">
                   <tr>
-                    <th scope="col">Suspect Id</th>
-                    <th scope="col">Incident ID</th>
                     <th scope="col">Suspect Name</th>
                     <th scope="col">Suspect Identity</th>
                     <th scope="col">Suspect Username/Number</th>
-                    <th scope="col">Suspect Photograph</th>
-                    <th scope="col">Additional Details</th>
 
                     <th scope="col" colSpan={3}>
                       Options
@@ -82,22 +78,13 @@ const SuspectList = () => {
                 {suspect.map((e) => (
                   <>
                     <tr>
-                      <td>{e.id}</td>
-                      <td>{e.incidentId}</td>
                       <td>{e.susname}</td>
                       <td>{e.sussocial}</td>
                       <td>{e.sususername}</td>
-                      <td>
-                        <img
-                          src={`http://localhost:5000/suspect/` + e.susphoto}
-                          style={{ width: "80px", height: "fit" }}
-                          alt="suspectphoto"
-                        />
-                      </td>
-                      <td>{e.otherdetails}</td>
+
                       <td>
                         <Link
-                          to="/ViewSuspect"
+                          to={`/ViewSuspect?id=${e.id}`}
                           class="btn btn-outline-secondary"
                           id="viewsuspect"
                         >

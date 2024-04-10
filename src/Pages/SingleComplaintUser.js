@@ -316,6 +316,17 @@ const SingleComplaintUSer = () => {
                     </table>
                   </>
                 ))}
+                <div class="row">
+                  <div class="col-md-8"></div>
+                  <div class="col-md-4">
+                    <Link
+                      to="/ViewAllComplaints"
+                      class="btn btn-secondary text-white btn-lg"
+                    >
+                      Back
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
             <hr />
