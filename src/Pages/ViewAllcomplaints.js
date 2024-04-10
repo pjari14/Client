@@ -68,11 +68,34 @@ const ViewAllComplaints = () => {
                   <>
                     <tr>
                       <td>{e.id}</td>
-                      <td>{e.dateofcmp}</td>
+                      <td>
+                        {new Date(e.dateofcmp)
+                          .toLocaleString("en-GB", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            hour12: true,
+                          })
+                          .replace(/\//g, "-")}
+                      </td>
                       <td>{e.category}</td>
                       <td>{e.state}</td>
                       <td>{e.city}</td>
-                      <td>{e.dateofincident}</td>
+                      <td>
+                        {" "}
+                        {new Date(e.dateofincident)
+                          .toLocaleString("en-GB", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            hour12: true,
+                          })
+                          .replace(/\//g, "-")}
+                      </td>
                       <td>{e.location}</td>
                       {/*<td>{e.additionalinfo}</td>*/}
                       {/* <td>{e.status}</td> */}
