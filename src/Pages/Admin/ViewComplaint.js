@@ -272,7 +272,7 @@ const ViewComplaint = () => {
                 <br></br>
                 {suspect.map((e, index) => (
                   <>
-                    <table class="table ">
+                    <table class="table  ">
                       <div key={index}>
                         <h5 class="text-danger p-2">
                           Suspect No:

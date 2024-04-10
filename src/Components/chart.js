@@ -291,15 +291,23 @@ const LineRadialBarChart = () => {
   return (
     <div class="container-fluid">
       <div class="row mt-3">
-        <div class="col-7 shadow-lg p-5" id="chart1">
+        <div class="col-7 shadow-lg p-5" id="chart1" style={{ width: "65%" }}>
           <h2>List of states and union territories of India by crime rate</h2>
         </div>
-        <div class="col-4 ms-4 p-5 shadow-lg " id="chart2">
+        <div
+          class="col-4 ms-4 p-5 shadow-lg "
+          id="chart2"
+          style={{ width: "30%" }}
+        >
           <h2>Crime-solving rate 76% of 45,869 cases solved in 2023</h2>
         </div>
       </div>
       <div class="row">
-        <div class="col-12 7 shadow-lg p-5 my-5" id="chart5">
+        <div
+          class="col-12 7 shadow-lg p-5 my-5"
+          id="chart5"
+          style={{ width: "97%" }}
+        >
           <h2>Crime Rate in India Year Wise</h2>
         </div>
       </div>

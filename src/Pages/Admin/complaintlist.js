@@ -296,7 +296,7 @@ const ComplaintList = () => {
             >
               + Add New
             </Link>
-            <div class="row mt-3 mb-4">
+            <div class="row mt-3 mb-4" style={{ width: "100%" }}>
               <div class="col-md-7">
                 <input
                   type="text"
