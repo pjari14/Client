@@ -250,82 +250,72 @@ const SingleComplaintUSer = () => {
             <hr />
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Suspect details</h2>
-              <div>
+              <div class="col-sm-12">
                 <br></br>
-                <table class="table">
-                  {suspect.map((e) => (
-                    <>
-                      <tr>
-                        <th>Susname:</th>
-                        <td>{e.susname}</td>
-                      </tr>
-                      <tr>
-                        <th>sussocial:</th>
-                        <td>{e.sussocial}</td>
-                      </tr>
-                      <tr>
-                        <th>sususername:</th>
-                        <td>{e.sususername}</td>
-                      </tr>
-                      <tr>
-                        <th>susphoto:</th>
-                        <td>
-                          <img
-                            src={`http://localhost:5000/suspect/` + e.susphoto}
-                            style={{ width: "250px", height: "auto" }}
-                            alt="suspectphoto"
-                          />
-                        </td>
-                      </tr>
-                      <tr>
-                        <th>otherdetails:</th>
-                        <td>{e.otherdetails}</td>
-                      </tr>
-                    </>
-                  ))}
-                  <tr>
-                    <td></td>
-
-                    {/* <td>
-                      {incident.status === "Approved" ? (
-                        <button
-                          className="btn btn-danger"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            updateStatus("Closed");
-                          }}
-                        >
-                          Close Complaint
-                        </button>
-                      ) : incident.status === "Closed" ? (
-                        <span class="text-danger"> Complaint is Closed</span>
-                      ) : incident.status === "Denied" ? (
-                        <span class="text-danger">Complaint is Denied</span>
-                      ) : (
+                {suspect.map((e, index) => (
+                  <>
+                    <table class="table ">
+                      <div key={index}>
+                        <h5 class="text-danger p-2">
+                          Suspect No:
+                          {index + 1}
+                        </h5>
+                      </div>
+                      {e.susphoto && (
                         <>
-                          <button
-                            className="btn btn-success"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              updateStatus("Approved");
-                            }}
-                          >
-                            Approve
-                          </button>
-                          <button
-                            className="btn btn-danger"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              updateStatus("Denied");
-                            }}
-                          >
-                            Deny
-                          </button>
+                          <tr>
+                            <th class="col-6">susphoto:</th>
+                            <td class="col-6">
+                              <img
+                                src={
+                                  `http://localhost:5000/suspect/` + e.susphoto
+                                }
+                                style={{ width: "200px", height: "auto" }}
+                                alt="suspectphoto"
+                              />
+                            </td>
+                          </tr>
                         </>
                       )}
-                        </td>*/}
-                  </tr>
-                </table>
+                      {e.susname && (
+                        <>
+                          <tr>
+                            <th>Susname:</th>
+                            <td>{e.susname}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.sussocial && (
+                        <>
+                          <tr>
+                            <th>sussocial:</th>
+                            <td>{e.sussocial}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.sususername && (
+                        <>
+                          <tr>
+                            <th>sususername:</th>
+                            <td>{e.sususername}</td>
+                          </tr>
+                        </>
+                      )}
+                      {e.otherdetails && (
+                        <>
+                          <tr>
+                            <th>otherdetails:</th>
+                            <td>{e.otherdetails}</td>
+                          </tr>
+                        </>
+                      )}
+
+                      {index !== suspect.length - 1 && <hr />}
+                      <br />
+                      <br />
+                    </table>
+                  </>
+                ))}
               </div>
             </div>
             <hr />

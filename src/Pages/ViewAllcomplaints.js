@@ -49,31 +49,35 @@ const ViewAllComplaints = () => {
               <thead class="table-white  text-dark">
                 <tr>
                   {/* <th scope="col">Com_ID</th> */}
-                  <th scope="col">_id</th>
+                  <th scope="col">Sr No.</th>
                   <th scope="col">Complaint Date</th>
                   <th scope="col">Crime Category</th>
-                  <th scope="col">State</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Date of Incident</th>
-                  {/* <th scope="col">Time of Incident</th> */}
 
-                  <th scope="col">Place of incident occurance</th>
+                  {/* <th scope="col">Time of Incident</th> */}
 
                   {/*<th scope="col">Additional Details</th>*/}
                   <th scope="col">Status</th>
 
                   <th scope="col">View</th>
                 </tr>
-                {incident.map((e) => (
+                {incident.map((e, index) => (
                   <>
                     <tr>
-                      <td>{e.id}</td>
-                      <td>{e.dateofcmp}</td>
+                      <td>{index + 1}</td>
+                      <td>
+                        {new Date(e.dateofcmp)
+                          .toLocaleString("en-GB", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                            hour12: true,
+                          })
+                          .replace(/\//g, "-")}
+                      </td>
                       <td>{e.category}</td>
-                      <td>{e.state}</td>
-                      <td>{e.city}</td>
-                      <td>{e.dateofincident}</td>
-                      <td>{e.location}</td>
+
                       {/*<td>{e.additionalinfo}</td>*/}
                       {/* <td>{e.status}</td> */}
                       {/* <td>
@@ -107,7 +111,7 @@ const ViewAllComplaints = () => {
                         <Link
                           //to={`/SinlgeComplaintUSer?id=${e.id}&userId=${e.userId}`}
                           class="btn btn-md btn-outline-secondary"
-                          to="/SingleComplaintUser"
+                          to={`/SingleComplaintUser?id=${e.id}&userId=${e.userId}`}
                         >
                           View
                         </Link>

@@ -43,6 +43,120 @@ const crimeDetails = {
   },
 };
 
+// const policeStations = [
+//   {
+//     name: "Adajan Police Station",
+//     address:
+//       "Behind Gangeshwar Mahadev Temple, Honey Park Road, Adajan, Surat, Gujarat 395009",
+//   },
+//   {
+//     name: "Amroli Police Station",
+//     address:
+//       "Near Fire Station, Sayan Rd, Amroli Char Rasta, Amroli, Surat, Gujarat 39410",
+//   },
+//   { name: "Athwa Police Station", address: "Nanavat, Surat, Gujarat 395003" },
+//   {
+//     name: "Chowkbazar Police Station",
+//     address: "Near Primary School No.77, Parsiwad, Ranitalao, Surat",
+//   },
+//   {
+//     name: "Dindoli Police Station",
+//     address: "Near Madhuram Circle, Kharvasa Road, Dindoli, Surat",
+//   },
+//   {
+//     name: "Dumas Police Station",
+//     address: "Opp. Primary Health Centre, Dumas Village, Surat",
+//   },
+//   {
+//     name: "Hajira Police Station",
+//     address: "Hajiragam Road, Near Essar Company, Surat",
+//   },
+//   {
+//     name: "Ichchhapor Police Station",
+//     address: "Kawas Patiya, Hazira Road, Surat",
+//   },
+//   {
+//     name: "Jahangirpura Police Station",
+//     address: "Morabhagal Police Chowky Building, Morabhagal, Rander, Surat",
+//   },
+//   {
+//     name: "Kapodra Police Station",
+//     address: "Opp. Tapi Eng.College, Kapodra, Surat",
+//   },
+//   {
+//     name: "Katargam Police Station",
+//     address: "Opp. Idgah Dargah, Katargam Main Road, Katargam, Surat",
+//   },
+//   {
+//     name: "Khatodra Police Station",
+//     address: "Near Jogani Mata Temple, Udhana Magdalla Road, Khatodra, Surat",
+//   },
+//   {
+//     name: "Lalgate Police Station",
+//     address:
+//       "Opp.Pratik Arcade, Pratap Press Gali, School Number 144. Bhagatalav, Surat",
+//   },
+//   {
+//     name: "Limbayat Police Station",
+//     address: "Near Marutinagar Char Rasta, Limbayat, Surat",
+//   },
+//   {
+//     name: "Mahidharpura Police Station",
+//     address: "Station Main Road.,Mahidharpura, Surat",
+//   },
+//   {
+//     name: "Marin Police Station",
+//     address: "Near Haziragam, Haziragam Main Road. Hazira, Surat",
+//   },
+//   {
+//     name: "Pandesara Police Station",
+//     address: "GIDC Main Rd, Pandesara GIDC, Surat",
+//   },
+//   {
+//     name: "Punagam Police Station",
+//     address: "Bombay Market-Punagam Rd, Near Puna Bus Stop, Punagam, Surat",
+//   },
+//   {
+//     name: "Rander Police Station",
+//     address:
+//       "Tadwadi Police Chowky Building, Near Gomti Nagat, Causeway Road, Rander Surat",
+//   },
+//   {
+//     name: "Sachin Police Station",
+//     address: "Surat – Navsari Rd, Tirupati Nagar, Pardi Kande, Sachin, Surat",
+//   },
+//   {
+//     name: "Sachin GIDC Police Station",
+//     address: "Prohibition Office, Surat, Gujarat, India",
+//   },
+//   {
+//     name: "Salabatpura Police Station",
+//     address:
+//       "Salabatpura Main Rd, Opposite Circle, Moti Begumwadi, Salabatpura, Surat",
+//   },
+//   {
+//     name: "Sarthana Police Station",
+//     address: "Vajra Chowk, Simada Road, Sarthana, Surat",
+//   },
+//   {
+//     name: "Singanpor Police Station",
+//     address: "Ved Rd, Near School No.188-Old Building, Singanpor Gam, Surat",
+//   },
+//   {
+//     name: "Udhana Police Station",
+//     address: "Rd No 1 MG Rd, Udhana GIDC, Udhna Udhyog Nagar, Udhna, Surat",
+//   },
+//   {
+//     name: "Umra Police Station",
+//     address: "Behind Police Parade Ground, Athwalines, Umra",
+//   },
+//   {
+//     name: "Varachha Police Station",
+//     address:
+//       "Surat – Kamrej Hwy, Sadhna Society, Laxman Nagar, Varachha, Surat, Gujarat 395006",
+//   },
+// ];
+
 const Incident = () => {
   const [selectedCrime, setSelectedCrime] = useState(null);
   const [selectedState, setSelectedState] = useState("");
@@ -77,7 +191,7 @@ const Incident = () => {
       const formData = new FormData();
       formData.append("category", data.category);
       formData.append("state", selectedState);
-      formData.append("city", city);
+      formData.append("city", city ? city : cities[0]);
       formData.append("userId", user._id);
       formData.append("firstname", user.firstname);
       formData.append("lastname", user.lastname);
@@ -88,6 +202,11 @@ const Incident = () => {
       formData.append("nameofsus", data.nameofsus);
       formData.append("additionalinfo", data.additionalinfo);
       formData.append("evidence", image);
+      // if (city) {
+      //   console.log(city);
+      // }
+      // console.log(city);
+      // console.log(cities[0]);
       // console.log(data, incident, cities, selectedState);
       dispatch(createIncident(formData));
       // console.log(incident);
@@ -97,6 +216,7 @@ const Incident = () => {
       console.error(error);
     }
   };
+
   return (
     <>
       <div className="container mt-2 pt-2">
@@ -217,6 +337,7 @@ const Incident = () => {
               <option value="Bhatar">Bhatar</option>
             </select>
           </div>
+
           <div className="col-md-6">
             <label htmlFor="reasonofdelay" className="form-label">
               Reason of delay in report:

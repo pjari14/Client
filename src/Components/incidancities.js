@@ -98,12 +98,14 @@ const IndiaCities = (props) => {
       <div class="col-md-6">
         <select
           className="form-control"
-          value={city}
-          onChange={(evt) => setCity(evt.target.value)}
+          defaultValue={cities[0]}
+          onChange={(evt) => setCity(evt.target.value ?? cities[0])}
           id="city"
         >
           {cities.map((city, index) => (
-            <option key={index}>{city}</option>
+            <option key={index} value={city}>
+              {city}
+            </option>
           ))}
         </select>
       </div>

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { enqueueSnackbar } from "notistack";
 
 const Suspect = () => {
   const [image, setImage] = useState([]);
@@ -38,7 +39,13 @@ const Suspect = () => {
         image === "" &&
         data.otherdetails === ""
       ) {
-        alert("can't send empty form!!");
+        // alert("can't send empty form!!");
+        enqueueSnackbar({
+          message: "Can't Send Empty Form!",
+          style: {
+            backgroundColor: "#dc3545",
+          },
+        });
       } else {
         formData.append("susname", data.susname);
         formData.append("incidentId", incident._id);
@@ -46,7 +53,12 @@ const Suspect = () => {
         formData.append("sususername", data.sususername);
         formData.append("susphoto", image);
         formData.append("otherdetails", data.otherdetails);
-        alert("sent successfuly");
+        enqueueSnackbar({
+          message: "Complaint Sent SUccessfully",
+          style: {
+            backgroundColor: "#198754",
+          },
+        });
 
         // console.log(data, incident, cities, selectedState);
         // dispatch(createIncident(formData));
