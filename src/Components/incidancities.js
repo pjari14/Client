@@ -76,7 +76,7 @@ const IndiaCities = (props) => {
           onChange={handleStateChange}
         >
           <option value="Select" defaultValue={"NA"}>
-            Select
+            Select State
           </option>
           {states.map((state, index) => (
             <option key={index} value={state.name}>

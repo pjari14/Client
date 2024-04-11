@@ -286,7 +286,7 @@ const Preview = () => {
             {/* <PDFPreview user={user} incident={incident} suspect={suspect} /> */}
           </div>
           <hr />
-          <span>
+          <span class="no-print">
             <h5 class="text-danger mt-2">Note:</h5>
             1. Please download the final complaint report before submitting.
             <br /> 2. Click 'Okay' to submit.

@@ -4,7 +4,7 @@ function UsersTable() {
   const [user, setUser] = useState([]);
   useEffect(() => {
     fetchUsers();
-  });
+  }, []);
   function fetchUsers() {
     fetch("http://localhost:5000/user/display/")
       .then((response) => {
