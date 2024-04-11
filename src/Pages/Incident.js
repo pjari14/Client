@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import IndiaCities from "../Components/incidancities";
 import { createIncident } from "../ReduxStore/Incidentslice/Incidentslice";
+import { useForm } from "react-hook-form";
 import {
   CCContent,
   DVContent,
@@ -10,8 +11,7 @@ import {
   THContent,
   ABContent,
 } from "../Components/crimecomponent";
-import IPCsection from "../Components/IPCsection";
-import { useForm } from "react-hook-form";
+
 const crimeTypes = [
   { id: "CC", label: "Cyber Crime" },
   { id: "DV", label: "Domestic Violence" },
@@ -43,125 +43,12 @@ const crimeDetails = {
   },
 };
 
-// const policeStations = [
-//   {
-//     name: "Adajan Police Station",
-//     address:
-//       "Behind Gangeshwar Mahadev Temple, Honey Park Road, Adajan, Surat, Gujarat 395009",
-//   },
-//   {
-//     name: "Amroli Police Station",
-//     address:
-//       "Near Fire Station, Sayan Rd, Amroli Char Rasta, Amroli, Surat, Gujarat 39410",
-//   },
-//   { name: "Athwa Police Station", address: "Nanavat, Surat, Gujarat 395003" },
-//   {
-//     name: "Chowkbazar Police Station",
-//     address: "Near Primary School No.77, Parsiwad, Ranitalao, Surat",
-//   },
-//   {
-//     name: "Dindoli Police Station",
-//     address: "Near Madhuram Circle, Kharvasa Road, Dindoli, Surat",
-//   },
-//   {
-//     name: "Dumas Police Station",
-//     address: "Opp. Primary Health Centre, Dumas Village, Surat",
-//   },
-//   {
-//     name: "Hajira Police Station",
-//     address: "Hajiragam Road, Near Essar Company, Surat",
-//   },
-//   {
-//     name: "Ichchhapor Police Station",
-//     address: "Kawas Patiya, Hazira Road, Surat",
-//   },
-//   {
-//     name: "Jahangirpura Police Station",
-//     address: "Morabhagal Police Chowky Building, Morabhagal, Rander, Surat",
-//   },
-//   {
-//     name: "Kapodra Police Station",
-//     address: "Opp. Tapi Eng.College, Kapodra, Surat",
-//   },
-//   {
-//     name: "Katargam Police Station",
-//     address: "Opp. Idgah Dargah, Katargam Main Road, Katargam, Surat",
-//   },
-//   {
-//     name: "Khatodra Police Station",
-//     address: "Near Jogani Mata Temple, Udhana Magdalla Road, Khatodra, Surat",
-//   },
-//   {
-//     name: "Lalgate Police Station",
-//     address:
-//       "Opp.Pratik Arcade, Pratap Press Gali, School Number 144. Bhagatalav, Surat",
-//   },
-//   {
-//     name: "Limbayat Police Station",
-//     address: "Near Marutinagar Char Rasta, Limbayat, Surat",
-//   },
-//   {
-//     name: "Mahidharpura Police Station",
-//     address: "Station Main Road.,Mahidharpura, Surat",
-//   },
-//   {
-//     name: "Marin Police Station",
-//     address: "Near Haziragam, Haziragam Main Road. Hazira, Surat",
-//   },
-//   {
-//     name: "Pandesara Police Station",
-//     address: "GIDC Main Rd, Pandesara GIDC, Surat",
-//   },
-//   {
-//     name: "Punagam Police Station",
-//     address: "Bombay Market-Punagam Rd, Near Puna Bus Stop, Punagam, Surat",
-//   },
-//   {
-//     name: "Rander Police Station",
-//     address:
-//       "Tadwadi Police Chowky Building, Near Gomti Nagat, Causeway Road, Rander Surat",
-//   },
-//   {
-//     name: "Sachin Police Station",
-//     address: "Surat – Navsari Rd, Tirupati Nagar, Pardi Kande, Sachin, Surat",
-//   },
-//   {
-//     name: "Sachin GIDC Police Station",
-//     address: "Prohibition Office, Surat, Gujarat, India",
-//   },
-//   {
-//     name: "Salabatpura Police Station",
-//     address:
-//       "Salabatpura Main Rd, Opposite Circle, Moti Begumwadi, Salabatpura, Surat",
-//   },
-//   {
-//     name: "Sarthana Police Station",
-//     address: "Vajra Chowk, Simada Road, Sarthana, Surat",
-//   },
-//   {
-//     name: "Singanpor Police Station",
-//     address: "Ved Rd, Near School No.188-Old Building, Singanpor Gam, Surat",
-//   },
-//   {
-//     name: "Udhana Police Station",
-//     address: "Rd No 1 MG Rd, Udhana GIDC, Udhna Udhyog Nagar, Udhna, Surat",
-//   },
-//   {
-//     name: "Umra Police Station",
-//     address: "Behind Police Parade Ground, Athwalines, Umra",
-//   },
-//   {
-//     name: "Varachha Police Station",
-//     address:
-//       "Surat – Kamrej Hwy, Sadhna Society, Laxman Nagar, Varachha, Surat, Gujarat 395006",
-//   },
-// ];
-
 const Incident = () => {
   const [selectedCrime, setSelectedCrime] = useState(null);
   const [selectedState, setSelectedState] = useState("");
   const [cities, setCities] = useState([]);
   const [city, setCity] = useState("");
+  const [crimetype, setCrimeType] = useState("");
   const [image, setImage] = useState(null);
   // const [policestation, setPoliceStation] = useState("");
   const user = useSelector((state) => state.user);
@@ -185,11 +72,29 @@ const Incident = () => {
     register,
     reset,
   } = useForm();
+  // if (selectedCrime === "CC") {
+  //   setCrimeType("Cyber Crime");
+  // } else if (selectedCrime === "DV") {
+  //   setCrimeType("Domestic Violence");
+  // } else if (selectedCrime === "AB") {
+  //   setCrimeType("Abuse");
+  // } else if (selectedCrime === "TH") {
+  //   setCrimeType("Theft");
+  // } else if (selectedCrime === "RB") {
+  //   setCrimeType("Robbery");
+  // } else {
+  //   alert("Select Crime Type");
+  // }
   const navigate = useNavigate();
   const insertIncident = async (data) => {
+    //  if (!selectedCrime) {
+    //   // Display an alert message or set an error message to be displayed
+    //   alert("Please select a crime type.");
+    //   return;
+    // }
     try {
       const formData = new FormData();
-      formData.append("category", data.category);
+      formData.append("category", crimetype);
       formData.append("state", selectedState);
       formData.append("city", city ? city : cities[0]);
       formData.append("userId", user._id);
@@ -239,7 +144,7 @@ const Incident = () => {
           </div>
           <hr />
           <div className="col-md-6">
-            <label className="form-label">
+            {/* <label className="form-label">
               {" "}
               Category of complaint
               <span style={{ fontSize: "20px" }} class="text-danger ml-1">
@@ -261,6 +166,38 @@ const Incident = () => {
               <option value="">Select a crime type</option>
               {crimeTypes.map((crime) => (
                 <option key={crime.id} value={crime.label}>
+                  {crime.label}
+                </option>
+              ))}
+            </select>
+            {errors.category && (
+              <span className="text-danger py-2">
+                {errors.category.message}
+              </span>
+            )} */}
+            <label class="form-label">Select Crime Type:</label>
+          </div>
+          <div class="col-md-6">
+            <select
+              class="form-select"
+              id="ctype"
+              name="crimeType"
+              value={selectedCrime}
+              onChange={(e) => {
+                const selectedCrimeType = crimeTypes.find(
+                  (crime) => crime.id === e.target.value
+                );
+                if (selectedCrimeType) {
+                  setCrimeType(selectedCrimeType.label);
+                } else {
+                  setCrimeType("");
+                }
+                handleCrimeChange(e);
+              }}
+            >
+              <option value="">Select a crime type</option>
+              {crimeTypes.map((crime) => (
+                <option key={crime.id} value={crime.id}>
                   {crime.label}
                 </option>
               ))}
@@ -449,8 +386,8 @@ const Incident = () => {
         </form>
         <div className="container py-3 text-center ">
           <h2>IPC sections</h2>
-          <IPCsection />
-          {/* {selectedCrime && renderCrimeDetails()} */}
+
+          {selectedCrime && renderCrimeDetails()}
         </div>
       </div>
     </>
