@@ -149,6 +149,19 @@ const ComplaintList = () => {
           } else {
             console.log("deleted successfuly");
           }
+        })
+        .catch((error) => {
+          console.error("Error deleting complaint:", error);
+        });
+      fetch(`http://localhost:5000/suspect?incidentId=${id}`, {
+        method: "DELETE",
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to delete complaint");
+          } else {
+            console.log("deleted successfuly");
+          }
 
           fetchIncident();
         })
