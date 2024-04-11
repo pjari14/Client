@@ -269,8 +269,277 @@ const Incident = () => {
                 },
               })}
             >
-              <option value="Athva">Athva</option>
-              <option value="Bhatar">Bhatar</option>
+              <option value="">Select a Police Station</option>
+
+              {/* Andhra Pradesh */}
+
+              <optgroup label="Hyderabad">
+                <option value="HyderabadCP">
+                  Hyderabad City Police Station
+                </option>
+                <option value="Goshamahal">Goshamahal Police Station</option>
+                <option value="Banjara Hills">
+                  Banjara Hills Police Station
+                </option>
+              </optgroup>
+
+              <optgroup label="Visakhapatnam">
+                <option value="VisakhapatnamCP">
+                  Visakhapatnam City Police Station
+                </option>
+                <option value="Gopalapatnam">
+                  Gopalapatnam Police Station
+                </option>
+                <option value="Malkapuram">Malkapuram Police Station</option>
+              </optgroup>
+
+              <optgroup label="Vijayawada">
+                <option value="VijayawadaCP">
+                  Vijayawada City Police Station
+                </option>
+                <option value="Benz Circle">Benz Circle Police Station</option>
+                <option value="Governorpet">Governorpet Police Station</option>
+              </optgroup>
+
+              <optgroup label="Itanagar">
+                <option value="ItanagarPS">Itanagar Police Station</option>
+                <option value="Naharlagun">Naharlagun Police Station</option>
+                <option value="Harmuty">Harmuty Police Station</option>
+              </optgroup>
+
+              <optgroup label="Ziro">
+                <option value="ZiroPS">Ziro Police Station</option>
+                <option value="Hapoli">Hapoli Police Station</option>
+                <option value="Yachuli">Yachuli Police Station</option>
+              </optgroup>
+
+              <optgroup label="Pasighat">
+                <option value="PasighatPS">Pasighat Police Station</option>
+                <option value="Mebo">Mebo Police Station</option>
+                <option value="Ruksin">Ruksin Police Station</option>
+              </optgroup>
+
+              <optgroup label="Dispur">
+                <option value="DispurPS">Dispur Police Station</option>
+                <option value="Pan Bazaar">Pan Bazaar Police Station</option>
+                <option value="Basistha">Basistha Police Station</option>
+              </optgroup>
+
+              <optgroup label="Guwahati">
+                <option value="GuwahatiCP">Guwahati Police Station</option>
+                <option value="Paltan Bazaar">
+                  Paltan Bazaar Police Station
+                </option>
+                <option value="Bharalumukh">Bharalumukh Police Station</option>
+              </optgroup>
+
+              <optgroup label="Jorhat">
+                <option value="JorhatPS">Jorhat Police Station</option>
+                <option value="Mariani">Mariani Police Station</option>
+                <option value="Titabar">Titabar Police Station</option>
+              </optgroup>
+
+              <optgroup label="Patna">
+                <option value="PatnaPS">Patna Police Station</option>
+                <option value="Kadamkuan">Kadamkuan Police Station</option>
+                <option value="Gandhi Maidan">
+                  Gandhi Maidan Police Station
+                </option>
+              </optgroup>
+
+              <optgroup label="Gaya">
+                <option value="GayaPS">Gaya Police Station</option>
+                <option value="Dumaria">Dumaria Police Station</option>
+                <option value="Tikari">Tikari Police Station</option>
+              </optgroup>
+
+              <optgroup label="Muzaffarpur">
+                <option value="MuzaffarpurPS">
+                  Muzaffarpur Police Station
+                </option>
+                <option value="Ahiyapur">Ahiyapur Police Station</option>
+                <option value="Saraiya">Saraiya Police Station</option>
+              </optgroup>
+
+              {/* Chhattisgarh */}
+              <optgroup label="Chhattisgarh">
+                <option value="Raipur">Raipur Police Station</option>
+                <option value="Bilaspur">Bilaspur Police Station</option>
+                <option value="Durg">Durg Police Station</option>
+              </optgroup>
+              {/* Goa */}
+              <optgroup label="Goa">
+                <option value="Panaji">Panaji Police Station</option>
+                <option value="Margao">Margao Police Station</option>
+                <option value="Vasco da Gama">
+                  Vasco da Gama Police Station
+                </option>
+              </optgroup>
+              {/* Gujarat */}
+              <optgroup label="Gujarat">
+                <option value="Ahmedabad">Ahmedabad Police Station</option>
+                <option value="Surat">Surat Police Station</option>
+                <option value="Vadodara">Vadodara Police Station</option>
+              </optgroup>
+              {/* Haryana */}
+              <optgroup label="Haryana">
+                <option value="Chandigarh">Chandigarh Police Station</option>
+                <option value="Gurgaon">Gurgaon Police Station</option>
+                <option value="Faridabad">Faridabad Police Station</option>
+              </optgroup>
+              {/* Himachal Pradesh */}
+              <optgroup label="Himachal Pradesh">
+                <option value="Shimla">Shimla Police Station</option>
+                <option value="Dharamshala">Dharamshala Police Station</option>
+                <option value="Mandi">Mandi Police Station</option>
+              </optgroup>
+              {/* Jharkhand */}
+              <optgroup label="Jharkhand">
+                <option value="Ranchi">Ranchi Police Station</option>
+                <option value="Jamshedpur">Jamshedpur Police Station</option>
+                <option value="Dhanbad">Dhanbad Police Station</option>
+              </optgroup>
+              {/* Karnataka */}
+              <optgroup label="Karnataka">
+                <option value="Bangalore">Bangalore City Police Station</option>
+                <option value="Mysore">Mysore Police Station</option>
+                <option value="Hubli">Hubli Police Station</option>
+              </optgroup>
+              {/* Kerala */}
+              <optgroup label="Kerala">
+                <option value="Thiruvananthapuram">
+                  Thiruvananthapuram City Police Station
+                </option>
+                <option value="Kochi">Kochi City Police Station</option>
+                <option value="Kozhikode">Kozhikode City Police Station</option>
+              </optgroup>
+              {/* Madhya Pradesh */}
+              <optgroup label="Madhya Pradesh">
+                <option value="Bhopal">Bhopal Police Station</option>
+                <option value="Indore">Indore Police Station</option>
+                <option value="Gwalior">Gwalior Police Station</option>
+              </optgroup>
+              {/* Maharashtra */}
+              <optgroup label="Maharashtra">
+                <option value="Mumbai">Mumbai Police Station</option>
+                <option value="Pune">Pune Police Station</option>
+                <option value="Nagpur">Nagpur Police Station</option>
+              </optgroup>
+              {/* Manipur */}
+              <optgroup label="Manipur">
+                <option value="Imphal">Imphal Police Station</option>
+                <option value="Bishnupur">Bishnupur Police Station</option>
+                <option value="Chandel">Chandel Police Station</option>
+              </optgroup>
+              {/* Meghalaya */}
+              <optgroup label="Meghalaya">
+                <option value="Shillong">Shillong Police Station</option>
+                <option value="Tura">Tura Police Station</option>
+                <option value="Nongpoh">Nongpoh Police Station</option>
+              </optgroup>
+              {/* Mizoram */}
+              <optgroup label="Mizoram">
+                <option value="Aizawl">Aizawl Police Station</option>
+                <option value="Lunglei">Lunglei Police Station</option>
+                <option value="Champhai">Champhai Police Station</option>
+              </optgroup>
+              {/* Nagaland */}
+              <optgroup label="Nagaland">
+                <option value="Kohima">Kohima Police Station</option>
+                <option value="Dimapur">Dimapur Police Station</option>
+                <option value="Mokokchung">Mokokchung Police Station</option>
+              </optgroup>
+              {/* Odisha */}
+              <optgroup label="Odisha">
+                <option value="Bhubaneswar">Bhubaneswar Police Station</option>
+                <option value="Cuttack">Cuttack Police Station</option>
+                <option value="Puri">Puri Police Station</option>
+              </optgroup>
+              {/* Punjab */}
+              <optgroup label="Punjab">
+                <option value="Chandigarh">Chandigarh Police Station</option>
+                <option value="Amritsar">Amritsar Police Station</option>
+                <option value="Ludhiana">Ludhiana Police Station</option>
+              </optgroup>
+              {/* Rajasthan */}
+              <optgroup label="Rajasthan">
+                <option value="Jaipur">Jaipur Police Station</option>
+                <option value="Jodhpur">Jodhpur Police Station</option>
+                <option value="Kota">Kota Police Station</option>
+              </optgroup>
+              {/* Sikkim */}
+              <optgroup label="Sikkim">
+                <option value="Gangtok">Gangtok Police Station</option>
+                <option value="Pelling">Pelling Police Station</option>
+                <option value="Rumtek">Rumtek Police Station</option>
+              </optgroup>
+              {/* Tamil Nadu */}
+              <optgroup label="Tamil Nadu">
+                <option value="Chennai">Chennai City Police Station</option>
+                <option value="Madurai">Madurai City Police Station</option>
+                <option value="Coimbatore">
+                  Coimbatore City Police Station
+                </option>
+              </optgroup>
+              {/* Telangana */}
+              <optgroup label="Telangana">
+                <option value="Hyderabad">Hyderabad City Police Station</option>
+                <option value="Warangal">Warangal Police Station</option>
+                <option value="Nizamabad">Nizamabad Police Station</option>
+              </optgroup>
+              {/* Tripura */}
+              <optgroup label="Tripura">
+                <option value="Agartala">Agartala Police Station</option>
+                <option value="Dharmanagar">Dharmanagar Police Station</option>
+                <option value="Kailashahar">Kailashahar Police Station</option>
+              </optgroup>
+              {/* Uttar Pradesh */}
+              <optgroup label="Uttar Pradesh">
+                <option value="Lucknow">Lucknow Police Station</option>
+                <option value="Kanpur">Kanpur Police Station</option>
+                <option value="Agra">Agra Police Station</option>
+              </optgroup>
+              {/* Uttarakhand */}
+              <optgroup label="Uttarakhand">
+                <option value="Dehradun">Dehradun Police Station</option>
+                <option value="Mussoorie">Mussoorie Police Station</option>
+                <option value="Nainital">Nainital Police Station</option>
+              </optgroup>
+              {/* West Bengal */}
+              <optgroup label="West Bengal">
+                <option value="Kolkata">Kolkata Police Station</option>
+                <option value="Siliguri">Siliguri Police Station</option>
+                <option value="Durgapur">Durgapur Police Station</option>
+              </optgroup>
+              {/* Andaman and Nicobar Islands */}
+              <optgroup label="Andaman and Nicobar Islands">
+                <option value="Port Blair">Port Blair Police Station</option>
+                <option value="Havelock">Havelock Police Station</option>
+                <option value="Neil Island">Neil Island Police Station</option>
+              </optgroup>
+              {/* Chandigarh */}
+              <optgroup label="Chandigarh">
+                <option value="Chandigarh">Chandigarh Police Station</option>
+              </optgroup>
+              {/* Dadra and Nagar Haveli and Daman and Diu */}
+              <optgroup label="Dadra and Nagar Haveli and Daman and Diu">
+                <option value="Daman">Daman Police Station</option>
+                <option value="Silvassa">Silvassa Police Station</option>
+              </optgroup>
+              {/* Delhi */}
+              <optgroup label="Delhi">
+                <option value="Delhi">Delhi Police Station</option>
+              </optgroup>
+              {/* Lakshadweep */}
+              <optgroup label="Lakshadweep">
+                <option value="Kavaratti">Kavaratti Police Station</option>
+                <option value="Minicoy">Minicoy Police Station</option>
+                <option value="Agatti">Agatti Police Station</option>
+              </optgroup>
+              {/* Puducherry */}
+              <optgroup label="Puducherry">
+                <option value="Puducherry">Puducherry Police Station</option>
+              </optgroup>
             </select>
           </div>
 
@@ -351,7 +620,11 @@ const Incident = () => {
               value=""
               id="check"
             />
-            <label className="form-check-label" htmlFor="flexCheckDefault">
+            <label
+              className="form-check-label"
+              htmlFor="flexCheckDefault"
+              required
+            >
               *I confirm that the information I've given is accurate and true.
             </label>
           </div>

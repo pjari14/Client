@@ -15,6 +15,7 @@ const Admin = () => {
   // useEffect(() => {
   //   async function fetchCount() {
   //     try {
+
   //       const response = await axios.get(`${ADMIN_ROUTE}/count/all`, {
   //         withCredentials: true,
   //       });
