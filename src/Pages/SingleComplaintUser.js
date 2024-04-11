@@ -187,11 +187,11 @@ const SingleComplaintUSer = () => {
                     <td class="col-6">{incident.id}</td>
                   </tr>
                   <tr>
-                    <th>Category:</th>
+                    <th>Crime Category:</th>
                     <td>{incident.category}</td>
                   </tr>
                   <tr>
-                    <th>Date of Comp:</th>
+                    <th>Date of Complaint:</th>
 
                     <td>
                       {new Date(incident.dateofcmp)
@@ -301,7 +301,7 @@ const SingleComplaintUSer = () => {
                       {e.susname && (
                         <>
                           <tr>
-                            <th>Suspect Name:</th>
+                            <th class="col-6">Suspect Name:</th>
                             <td>{e.susname}</td>
                           </tr>
                         </>

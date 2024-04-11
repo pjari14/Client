@@ -68,6 +68,7 @@ const IPCsection = () => {
             </option>
           ))}
         </select>
+        {selectedCrime && renderCrimeDetails()}
       </div>
     </>
   );

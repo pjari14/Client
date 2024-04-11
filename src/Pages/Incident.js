@@ -10,7 +10,7 @@ import {
   THContent,
   ABContent,
 } from "../Components/crimecomponent";
-import axios from "axios";
+import IPCsection from "../Components/IPCsection";
 import { useForm } from "react-hook-form";
 const crimeTypes = [
   { id: "CC", label: "Cyber Crime" },
@@ -19,7 +19,7 @@ const crimeTypes = [
   { id: "TH", label: "Theft" },
   { id: "RB", label: "Robbery" },
 ];
-//Use Formik Bitches!!!
+
 const crimeDetails = {
   CC: {
     title: "Cyber Crime",
@@ -254,11 +254,10 @@ const Incident = () => {
               name="crimeType"
               value={selectedCrime}
               onChange={handleCrimeChange}
-              {...register("category", {
-                required: { value: true, message: "Category is Required!" },
-              })}
+              // {...register("category", {
+              //   required: { value: true, message: "Category is Required!" },
+              // })}
             >
-              {" "}
               <option value="">Select a crime type</option>
               {crimeTypes.map((crime) => (
                 <option key={crime.id} value={crime.label}>
@@ -423,7 +422,7 @@ const Incident = () => {
             <div className="col-4 ">
               <button
                 type="reset"
-                className=" btn btn-outline-success btn-sm shadow-sm   bg-gradient  p-3 text-center  fw-bold "
+                className=" btn btn-outline-secondary btn-sm shadow-sm   bg-gradient  p-3 text-center  fw-bold "
               >
                 Clear
               </button>
@@ -448,10 +447,11 @@ const Incident = () => {
           </div>
           <div className="col-4 text-end"></div>
         </form>
-        {/*<div className="container py-3 text-center ">
+        <div className="container py-3 text-center ">
           <h2>IPC sections</h2>
-          {selectedCrime && renderCrimeDetails()}
-            </div>*/}
+          <IPCsection />
+          {/* {selectedCrime && renderCrimeDetails()} */}
+        </div>
       </div>
     </>
   );

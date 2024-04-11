@@ -131,9 +131,9 @@ const Suspect = () => {
           </div>
 
           <div class="col-md-6">
-            <h6>
-              Please provide any photograph of suspect(Upload JPG/PNG file of
-              max 5MB)
+            <h6 class="text-danger">
+              *Please provide any photograph of suspect(Upload JPG/PNG file of
+              maximum 5MB)
             </h6>
           </div>
 
@@ -156,34 +156,42 @@ const Suspect = () => {
               {...register("otherdetails")}
             />
           </div>
-          <div class="row py-4 justify-content-end">
-            <div class="col-3 ">
+          <div class="row py-4 mt-4 ml-4">
+            <div class="col-4 ">
               <Link
                 to="/Incident"
-                class=" btn btn-outline-danger shadow-sm  btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
+                class=" btn btn-outline-secondary shadow-sm  btn-sm  shadow-sm  bg-gradient p-3 text-center  fw-bold "
               >
                 <span>Back</span>
               </Link>
             </div>
 
-            <div class="col-3 ">
+            <div class="col-4">
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-outline-danger button btn-sm  shadow-sm  bg-gradient p-3 text-center  fw-bold "
                 onClick={() => insertSuspect()}
               >
                 Add
               </button>
+            </div>
+            <div class="col-4">
               <button
                 // type="submit"
                 onClick={() => navigate("/preview")}
-                class="btn btn-outline-success shadow-sm button btn-sm  shadow-sm w-100 bg-gradient p-3 text-center  fw-bold "
+                class="btn btn-outline-success shadow-sm button btn-sm  shadow-sm  bg-gradient p-3 text-center  fw-bold "
               >
                 Preview and submit
               </button>
             </div>
           </div>
-          <div class="col-4 text-end"></div>
+          <div class="col-4 text-start text-danger h5">Note:</div>
+          <h6>
+            1. Add multiple suspects (if applicable) using the "Add" button.
+            <br />
+            <br />
+            2. Click the "Preview" button to review your complaint.
+          </h6>
         </form>
       </div>
     </>

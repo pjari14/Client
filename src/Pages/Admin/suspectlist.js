@@ -71,6 +71,7 @@ const SuspectList = () => {
               <table class="table table-bordered table-hover my-1">
                 <thead class="table-dark text-light">
                   <tr>
+                    <th scope="col">Sr. No</th>
                     <th scope="col">Suspect Name</th>
                     <th scope="col">Suspect Identity</th>
                     <th scope="col">Suspect Username/email/other</th>
@@ -80,9 +81,10 @@ const SuspectList = () => {
                     </th>
                   </tr>
                 </thead>
-                {suspect.map((e) => (
+                {suspect.map((e, index) => (
                   <>
                     <tr>
+                      <td>{index + 1}</td>
                       <td>{e.susname}</td>
                       <td>{e.sussocial}</td>
                       <td>{e.sususername}</td>

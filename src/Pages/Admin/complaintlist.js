@@ -279,27 +279,14 @@ const ComplaintList = () => {
                 <thead class="table-dark text-light">
                   <tr>
                     <th scope="col">Sr No</th>
-                    {/* <th scope="col">Com_ID</th> */}
-                    {/* <th scope="col">_id</th> */}
+
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
 
-                    {/* <th scope="col">UserId</th> */}
                     <th scope="col">Crime Category</th>
                     <th scope="col">Complaint Date</th>
                     <th scope="col">Police Station</th>
                     <th scope="col">Status</th>
-                    {/* <th scope="col">State</th> */}
-                    {/* <th scope="col">City</th> */}
-                    {/* <th scope="col">Date of Incident</th> */}
-                    {/* <th scope="col">Time of Incident</th> */}
-
-                    {/* <th scope="col">Reason for delay</th> */}
-                    {/* <th scope="col">Place of incident occurance</th> */}
-
-                    {/* <th scope="col">Suspect person or company name</th> */}
-                    {/* <th scope="col">Additional Details</th> */}
-                    {/* <th scope="col">Evidence</th> */}
 
                     <th scope="col" colSpan={3}>
                       Options
@@ -310,10 +297,10 @@ const ComplaintList = () => {
                   <>
                     <tr>
                       <td>{index + 1}</td>
-                      {/* <td>{e.id}</td> */}
+
                       <td>{e.firstname}</td>
                       <td>{e.lastname}</td>
-                      {/* <td>{e.userId}</td> */}
+
                       <td>{e.category}</td>
                       <td>
                         {new Date(e.dateofcmp)
@@ -334,24 +321,7 @@ const ComplaintList = () => {
                       ) : (
                         <td class="text-secondary">Pending</td>
                       )}
-                      {/* <td>{e.state}</td> */}
-                      {/* <td>{e.city}</td> */}
-                      {/* <td>{e.dateofincident}</td> */}
 
-                      {/* <td>{e.reasonofdelay}</td> */}
-                      {/* <td>{e.location}</td> */}
-
-                      {/* <td>{e.nameofsus}</td> */}
-                      {/* <td>{e.additionalinfo}</td> */}
-                      {/* <td>
-                        <img
-                          src={`http://localhost:5000/evidence/` + e.evidence}
-                          style={{ width: "80px", height: "fit" }}
-                          alt="evidence"
-                        />
-                      </td> */}
-                      {/* <td>JFNCSAM</td>
-                <td>JFNCSAM</td> */}
                       <td>
                         <Link
                           to={`/viewcomplaint?id=${e.id}&userId=${e.userId}`}
