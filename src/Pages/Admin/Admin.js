@@ -28,6 +28,53 @@ const Admin = () => {
   //   }
   //   fetchCount();
   // });
+  const [complaintcount, setComplaintcount] = useState("");
+  const [approved, setApproved] = useState("");
+  const [countUser, setCountUser] = useState("");
+  useEffect(() => {
+    countComplaints();
+    countApproved();
+    countUsers();
+  }, []);
+  function countComplaints() {
+    fetch("http://localhost:5000/incident/countresult")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.length);
+        setComplaintcount(data.length);
+      })
+      .catch((error) => {
+        console.error("Error filtering complaints:", error);
+      });
+  }
+  function countApproved() {
+    fetch("http://localhost:5000/incident/countresult?status=Approved")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.length);
+        setApproved(data.length);
+      })
+      .catch((error) => {
+        console.error("Error filtering complaints:", error);
+      });
+  }
+  function countUsers() {
+    fetch("http://localhost:5000/user/count")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data.length);
+        setCountUser(data.length);
+      })
+      .catch((error) => {
+        console.error("Error filtering complaints:", error);
+      });
+  }
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   return (
@@ -50,7 +97,7 @@ const Admin = () => {
               ></img>
               <div class="flex-grow-1">
                 <h4 class="ml-4 mt-3">Total Users</h4>
-                <h4 class="ml-4">20</h4>
+                <h4 class="ml-4">{countUser}</h4>
               </div>
             </div>
             <div
@@ -68,7 +115,7 @@ const Admin = () => {
               ></img>
               <div class="flex-grow-1">
                 <h4 class=" mt-3">Total Complaints</h4>
-                <h4 class="">20</h4>
+                <h4 class="">{complaintcount}</h4>
               </div>
             </div>
             <div
@@ -85,8 +132,8 @@ const Admin = () => {
                 style={{ width: "65px", height: "65px" }}
               ></img>
               <div class="flex-grow-1">
-                <h4 class="ml-4 mt-3">Case Solved</h4>
-                <h4 class="ml-4">20</h4>
+                <h4 class="ml-4 mt-3">Approved Complaints</h4>
+                <h4 class="ml-4">{approved}</h4>
               </div>
             </div>
           </div>
