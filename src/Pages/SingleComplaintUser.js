@@ -129,31 +129,33 @@ const SingleComplaintUSer = () => {
   return (
     <>
       <div class="container-fluid d-flex">
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="content">
-          <div className="overflow-auto">
-            <h1 class=" my-5  mb-1 fs-1 text-dark ">Complaint ID:</h1>
+        <div class=" ms-sm-auto  px-md-5" id="content">
+          <div className="overflow-auto  col-md-12">
+            <h1
+              class=" my-5  mb-1 fs-1 text-dark col-md-6 text-end"
+              style={{ marginLeft: "-40px" }}
+            >
+              Complaint ID:
+            </h1>
 
             <h3
-              class="text-danger"
-              style={{ marginLeft: "300px", marginTop: "-42px" }}
+              class="text-danger  text-end col-md-6"
+              style={{ marginTop: "-42px", marginLeft: "380px" }}
             >
-              12345
+              {incident.id}
             </h3>
             <hr />
           </div>
-          <form
-            class="row g-3 shadow py-4 px-4 mx-5 my-5 "
-            id="complaintdetails"
-          >
+          <form class="row shadow py-5 px-5 mx-5 my-5 " id="complaintdetails">
             <div class="col-sm-12">
               <h2 class="text text-secondary fw-3">Personal details</h2>
               <div>
                 <br></br>
                 <table class="table">
                   <tr>
-                    <th>First Name:</th>
+                    <th class="col-6">First Name:</th>
 
-                    <td>{user.firstname}</td>
+                    <td class="col-6">{user.firstname}</td>
                   </tr>
                   <tr>
                     <th>Last Name:</th>
@@ -181,8 +183,8 @@ const SingleComplaintUSer = () => {
                 <br></br>
                 <table class="table">
                   <tr>
-                    <th>Complaint Id</th>
-                    <td>{incident._id}</td>
+                    <th class="col-6">Complaint Id</th>
+                    <td class="col-6">{incident.id}</td>
                   </tr>
                   <tr>
                     <th>Category:</th>
@@ -191,7 +193,18 @@ const SingleComplaintUSer = () => {
                   <tr>
                     <th>Date of Comp:</th>
 
-                    <td>{incident.dateofcmp}</td>
+                    <td>
+                      {new Date(incident.dateofcmp)
+                        .toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })
+                        .replace(/\//g, "-")}
+                    </td>
                   </tr>
                   <tr>
                     <th>State:</th>
@@ -208,7 +221,15 @@ const SingleComplaintUSer = () => {
                   </tr>
                   <tr>
                     <th>Date of Incident:</th>
-                    <td>{incident.dateofincident}</td>
+                    <td>
+                      {new Date(incident.dateofincident)
+                        .toLocaleString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "numeric",
+                        })
+                        .replace(/\//g, "-")}
+                    </td>
                   </tr>
 
                   <tr>
@@ -233,8 +254,8 @@ const SingleComplaintUSer = () => {
                     </td>
                   </tr>
                   <tr>
-                    <th>Name of Suspect:</th>
-                    <td>{incident.nameofsus}</td>
+                    <th class="col-6">Name of Suspect:</th>
+                    <td class="col-6">{incident.nameofsus}</td>
                   </tr>
                   <tr>
                     <th>Additional Information:</th>
@@ -242,7 +263,7 @@ const SingleComplaintUSer = () => {
                   </tr>
                   <tr>
                     <th>Status:</th>
-                    <td>{incident.status}</td>
+                    <td class="table-danger">{incident.status}</td>
                   </tr>
                 </table>
               </div>
@@ -264,7 +285,7 @@ const SingleComplaintUSer = () => {
                       {e.susphoto && (
                         <>
                           <tr>
-                            <th class="col-6">susphoto:</th>
+                            <th class="col-6">Suspect Photo:</th>
                             <td class="col-6">
                               <img
                                 src={
@@ -280,7 +301,7 @@ const SingleComplaintUSer = () => {
                       {e.susname && (
                         <>
                           <tr>
-                            <th>Susname:</th>
+                            <th>Suspect Name:</th>
                             <td>{e.susname}</td>
                           </tr>
                         </>
@@ -288,7 +309,7 @@ const SingleComplaintUSer = () => {
                       {e.sussocial && (
                         <>
                           <tr>
-                            <th>sussocial:</th>
+                            <th>Suspect Social Identity:</th>
                             <td>{e.sussocial}</td>
                           </tr>
                         </>
@@ -296,7 +317,7 @@ const SingleComplaintUSer = () => {
                       {e.sususername && (
                         <>
                           <tr>
-                            <th>sususername:</th>
+                            <th>Suspect Username/email/other:</th>
                             <td>{e.sususername}</td>
                           </tr>
                         </>
@@ -304,7 +325,7 @@ const SingleComplaintUSer = () => {
                       {e.otherdetails && (
                         <>
                           <tr>
-                            <th>otherdetails:</th>
+                            <th>Other Details:</th>
                             <td>{e.otherdetails}</td>
                           </tr>
                         </>
@@ -317,11 +338,11 @@ const SingleComplaintUSer = () => {
                   </>
                 ))}
                 <div class="row">
-                  <div class="col-md-8"></div>
-                  <div class="col-md-4">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-6 mb-5">
                     <Link
                       to="/ViewAllComplaints"
-                      class="btn btn-secondary text-white btn-lg"
+                      class="btn btn-outline-secondary  px-5 btn-lg"
                     >
                       Back
                     </Link>

@@ -285,7 +285,7 @@ const ComplaintList = () => {
                     <th scope="col">Last Name</th>
 
                     {/* <th scope="col">UserId</th> */}
-                    <th scope="col">Complaint Category</th>
+                    <th scope="col">Crime Category</th>
                     <th scope="col">Complaint Date</th>
                     <th scope="col">Police Station</th>
                     <th scope="col">Status</th>

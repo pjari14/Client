@@ -73,7 +73,7 @@ const SuspectList = () => {
                   <tr>
                     <th scope="col">Suspect Name</th>
                     <th scope="col">Suspect Identity</th>
-                    <th scope="col">Suspect Username/Number</th>
+                    <th scope="col">Suspect Username/email/other</th>
 
                     <th scope="col" colSpan={3}>
                       Options

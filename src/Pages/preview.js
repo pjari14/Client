@@ -61,11 +61,11 @@ const Preview = () => {
             <h2 class="text text-danger fw-3">Personal details</h2>
             <div>
               <br></br>
-              <table class="table">
+              <table class="table col-12">
                 <tr>
-                  <th>First Name:</th>
+                  <th class="col-6">First Name:</th>
 
-                  <td>{user.firstname}</td>
+                  <td class="col-6">{user.firstname}</td>
                 </tr>
                 <tr>
                   <th>Last Name:</th>
@@ -93,8 +93,8 @@ const Preview = () => {
               <br></br>
               <table class="table">
                 <tr>
-                  <th>Complaint Id</th>
-                  <td>{incident._id}</td>
+                  <th class="col-6">Complaint Id</th>
+                  <td class="col-6">{incident._id}</td>
                 </tr>
                 <tr>
                   <th>Category:</th>
@@ -191,8 +191,8 @@ const Preview = () => {
                         {e.susname && (
                           <>
                             <tr>
-                              <th>Susname:</th>
-                              <td>{e.susname}</td>
+                              <th class="col-6">Susname:</th>
+                              <td class="col-6">{e.susname}</td>
                             </tr>
                           </>
                         )}
@@ -239,7 +239,7 @@ const Preview = () => {
               <br />
             </>
           )}
-          <div class="col-md-6 text-end">
+          <div class="col-md-6 mb-3 text-end">
             <Link
               class="btn btn-lg px-5 btn-secondary text-white no-print"
               to="/suspect"
@@ -247,7 +247,7 @@ const Preview = () => {
               Back
             </Link>
           </div>
-          <div class="col-md-6 text-start no-print">
+          <div class="col-md-6 text-start mb-3 no-print">
             <Link
               class="btn btn-lg px-5  text-white"
               to="/ViewAllComplaints"
@@ -256,12 +256,18 @@ const Preview = () => {
               Okay
             </Link>
 
-            <button class="btn btn-muted" onClick={handlePrintPreview}>
+            <button class="btn btn-muted mb-1" onClick={handlePrintPreview}>
               Print Preview
             </button>
 
             {/* <PDFPreview user={user} incident={incident} suspect={suspect} /> */}
           </div>
+          <hr />
+          <span>
+            <h5 class="text-danger mt-2">Note:</h5>
+            1. Please download the final complaint report before submitting.
+            <br /> 2. Click 'Okay' to submit.
+          </span>
         </form>
       </div>
     </>

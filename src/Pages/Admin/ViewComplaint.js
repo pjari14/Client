@@ -185,7 +185,7 @@ const ViewComplaint = () => {
                     <td>{incident.id}</td>
                   </tr>*/}
                   <tr>
-                    <th class="col-6">Category:</th>
+                    <th class="col-6">Crime Category:</th>
                     <td class="col-6">{incident.category}</td>
                   </tr>
                   <tr>
@@ -282,7 +282,7 @@ const ViewComplaint = () => {
                       {e.susphoto && (
                         <>
                           <tr>
-                            <th class="col-6">susphoto:</th>
+                            <th class="col-6">Suspect Photo:</th>
                             <td class="col-6">
                               <img
                                 src={
@@ -298,7 +298,7 @@ const ViewComplaint = () => {
                       {e.susname && (
                         <>
                           <tr>
-                            <th>Susname:</th>
+                            <th>Suspect Name:</th>
                             <td>{e.susname}</td>
                           </tr>
                         </>
@@ -306,7 +306,7 @@ const ViewComplaint = () => {
                       {e.sussocial && (
                         <>
                           <tr>
-                            <th>sussocial:</th>
+                            <th>Suspect Social Identity:</th>
                             <td>{e.sussocial}</td>
                           </tr>
                         </>
@@ -314,7 +314,7 @@ const ViewComplaint = () => {
                       {e.sususername && (
                         <>
                           <tr>
-                            <th>sususername:</th>
+                            <th>Suspect Username/email/other:</th>
                             <td>{e.sususername}</td>
                           </tr>
                         </>
@@ -322,7 +322,7 @@ const ViewComplaint = () => {
                       {e.otherdetails && (
                         <>
                           <tr>
-                            <th>otherdetails:</th>
+                            <th>Other Details:</th>
                             <td>{e.otherdetails}</td>
                           </tr>
                         </>
