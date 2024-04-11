@@ -103,7 +103,18 @@ const Preview = () => {
                 <tr>
                   <th>Date of Comp:</th>
 
-                  <td>{incident.dateofcmp}</td>
+                  <td>
+                    {new Date(incident.dateofcmp)
+                      .toLocaleString("en-GB", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace(/\//g, "-")}
+                  </td>
                 </tr>
                 <tr>
                   <th>State:</th>
@@ -120,7 +131,19 @@ const Preview = () => {
                 </tr>
                 <tr>
                   <th>Date of Incident:</th>
-                  <td>{incident.dateofincident}</td>
+                  <td>
+                    {" "}
+                    {new Date(incident.dateofincident)
+                      .toLocaleString("en-GB", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                      })
+                      .replace(/\//g, "-")}
+                  </td>
                 </tr>
 
                 <tr>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import emailjs from "@emailjs/browser";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 const ViewComplaint = () => {
   const [params] = useSearchParams();
@@ -349,6 +350,23 @@ const ViewComplaint = () => {
                               onClick={(e) => {
                                 e.preventDefault();
                                 updateStatus("Closed");
+                                emailjs
+                                  .send(
+                                    "service_3zlkhzd",
+                                    "template_3wqq20f",
+                                    {
+                                      statusHeader: "Closed",
+                                      name: user.firstname,
+                                      to_email: user.email,
+                                      greet: "pleased",
+                                      status: "closed",
+                                      crime: incident.category,
+                                    },
+                                    "q9jrcxE5uNtqvkuM2"
+                                  )
+                                  .then((result) => {
+                                    console.log(result.text);
+                                  });
                               }}
                             >
                               Close Complaint
@@ -368,6 +386,23 @@ const ViewComplaint = () => {
                                 onClick={(e) => {
                                   e.preventDefault();
                                   updateStatus("Approved");
+                                  emailjs
+                                    .send(
+                                      "service_3zlkhzd",
+                                      "template_3wqq20f",
+                                      {
+                                        statusHeader: "Approved",
+                                        name: user.firstname,
+                                        to_email: user.email,
+                                        greet: "pleased",
+                                        status: "approved",
+                                        crime: incident.category,
+                                      },
+                                      "q9jrcxE5uNtqvkuM2"
+                                    )
+                                    .then((result) => {
+                                      console.log(result.text);
+                                    });
                                 }}
                               >
                                 Approve
@@ -378,6 +413,23 @@ const ViewComplaint = () => {
                                 onClick={(e) => {
                                   e.preventDefault();
                                   updateStatus("Denied");
+                                  emailjs
+                                    .send(
+                                      "service_3zlkhzd",
+                                      "template_3wqq20f",
+                                      {
+                                        statusHeader: "Denied",
+                                        name: user.firstname,
+                                        to_email: user.email,
+                                        greet: "obliged",
+                                        status: "Denied",
+                                        crime: incident.category,
+                                      },
+                                      "q9jrcxE5uNtqvkuM2"
+                                    )
+                                    .then((result) => {
+                                      console.log(result.text);
+                                    });
                                 }}
                               >
                                 Deny

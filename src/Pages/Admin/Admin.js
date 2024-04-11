@@ -93,11 +93,8 @@ const Admin = () => {
           <div class="container my-3">
             <Chart />
           </div>
-          <div
-            class="row"
-            style={{ marginLeft: "-260px", marginTop: "-100px" }}
-          >
-            {/* <UsersTable /> */}
+          <div class="row" style={{ marginLeft: "-260px", marginTop: "-50px" }}>
+            <UsersTable />
           </div>
         </div>
       </div>
